@@ -66,7 +66,7 @@ const  ServiceArea = () => {
                         </div>
                      </div>
 
-                     {service_data.slice(5, 9).map((item, i)  => 
+                     {service_data.slice(0, 4).map((item, i)  => 
                         <div key={i} className="col-xl-4 col-lg-6 col-md-6 wow tpfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
                         <div className="tp-service-sm-item mb-30 d-flex flex-column justify-content-between">
                            <div className="tp-service-sm-icon">

@@ -16,7 +16,7 @@ const HomeThree = () => {
     <>
       <HeaderThree />
       <HeroArea />
-      <CounterArea />
+      {/* <CounterArea /> */}
       <ServiceArea />
       <RatedArea />
       <CardArea />
