@@ -15,14 +15,14 @@ const menu_data = [
     link: "/service-details",
     active: "",
   },
-  {
-    id: 4,
-    mega_menu: false,
-    has_dropdown: false,
-    title: "Blog",
-    link: "/blog",
-    active: "",
-  },
+  // {
+  //   id: 4,
+  //   mega_menu: false,
+  //   has_dropdown: false,
+  //   title: "Blog",
+  //   link: "/blog",
+  //   active: "",
+  // },
   {
     id: 5,
     mega_menu: false,

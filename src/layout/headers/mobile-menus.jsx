@@ -38,7 +38,6 @@ const MobileMenus = () => {
                     className={`mean-expand ${
                       navTitle === menu.title ? "mean-clicked" : ""
                     }`}
-                   
                     onClick={() => openMobileMenu(menu.title)}
                     style={{ fontSize: "18px", cursor: "pointer" }}
                   >
@@ -53,6 +52,9 @@ const MobileMenus = () => {
               )}
             </React.Fragment>
           ))}
+          <li>
+            <Link href="/new-service">Get Started</Link>
+          </li>
         </ul>
       </nav>
     </>

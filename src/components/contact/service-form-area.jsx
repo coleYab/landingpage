@@ -1,10 +1,11 @@
 import ContactUsForm from "@/forms/contact-us-form";
+import ServiceRequestForm from "@/forms/service-request-form";
 import SendIcon from "@/svg/send-icon";
 import Link from "next/link";
 import React from "react";
 
 const contact_content = {
-  sub_title: "CONTACT US",
+  sub_title: "REQUEST A SERVICE",
   tilte: (
     <>
       We'd love to <br /> hear From you.
@@ -18,7 +19,7 @@ const contact_content = {
 };
 const { sub_title, tilte, info } = contact_content;
 
-const ContactFormArea = () => {
+const RequestServiceArea = () => {
   return (
     <>
       <div className="contact-form-area pb-120">
@@ -52,7 +53,7 @@ const ContactFormArea = () => {
             <div className="col-xl-7 col-lg-6">
               <div className="contact-form-right-warp">
                 <div className="postbox__comment-form">
-                  <ContactUsForm />
+                  <ServiceRequestForm />
                 </div>
               </div>
             </div>
@@ -63,4 +64,4 @@ const ContactFormArea = () => {
   );
 };
 
-export default ContactFormArea;
+export default RequestServiceArea;

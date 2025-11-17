@@ -15,7 +15,7 @@ const service_content = {
   btn_text: <>See All Services</>,
 
   bg_img: "/assets/img/service/service-3-bg.png",
-  service_title: "Short Intro Section",
+  service_title: "Axonova",
   service_info: (
     <>
       Axonova Consulting helps organisations adopt AI with clarity and

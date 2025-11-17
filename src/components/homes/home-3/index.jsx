@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import FooterThree from "@/layout/footers/footer-3";
 import HeaderThree from "@/layout/headers/header-3";
 import TestimonialArea from "../home-3/testimonial-area";
@@ -21,9 +21,9 @@ const HomeThree = () => {
       <RatedArea />
       <CardArea />
       <SalesArea />
-      <TestimonialArea />
-      <IntegrationArea />
-      <BlogArea />
+      {/* <TestimonialArea /> */}
+      {/* <IntegrationArea /> */}
+      {/* <BlogArea /> */}
       <FooterThree />
     </>
   );

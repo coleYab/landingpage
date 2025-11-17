@@ -8,11 +8,12 @@ import CtaArea from "./cta-area";
 import HeroBanner from "../../common/hero-banner";
 import OfficeLocation from "./office-location";
 import FooterThree from "@/layout/footers/footer-3";
+import HeaderThree from "@/layout/headers/header-3";
 
 const Contact = () => {
   return (
     <>
-      <HeaderSix />
+      <HeaderThree />
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
