@@ -46,7 +46,6 @@ const answer_question_data = [
     data_bs_target: "#collapseFour",
     aria_controls: "collapseFour", 
     actice: "",
-
   },
   {
     id: 5,

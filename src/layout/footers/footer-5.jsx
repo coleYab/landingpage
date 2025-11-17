@@ -61,16 +61,6 @@ const FooterFive = ({style_contact, bg_style=true, style_team}) => {
         <>
         <div className={`tp-footer__pl-pr ${style_contact && "pt-105"} ${bg_style?'grey-bg-2':''}`}>
                <div className={`tp-footer__area ${style_contact && "p-relative"} tp-footer__tp-border-bottom`}>
-                  {style_contact && 
-                     <>
-                     <div className="tp-footer__shape-1 d-none d-xxl-block">
-                        <Image src={shape_img_1} alt="theme-pure" />
-                     </div>
-                     <div className="tp-footer__shape-2 d-none d-xxl-block">
-                        <Image src={shape_img_2} alt="" />
-                     </div>
-                  </>
-                  }
                   <div className="container">
                      <div className="row">
 
@@ -135,17 +125,6 @@ const FooterFive = ({style_contact, bg_style=true, style_team}) => {
                                  <Link href="#"><i className="fab fa-instagram"></i></Link>
                                  <Link href="#"><i className="fab fa-pinterest"></i></Link>
                               </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div className="tp-copyright__area pt-20 pb-20">
-                  <div className="container">
-                     <div className="row justify-content-center">
-                        <div className="col-xl-4 col-lg-6 col-md-6">
-                           <div className="tp-copyright__text tp-copyright__text-3 text-center">
-                            <span><CopyRight /></span> 
                            </div>
                         </div>
                      </div>

@@ -7,27 +7,28 @@ import sales_img_2 from "../../public/assets/img/card/sale-2.png"
 import sales_img_3 from "../../public/assets/img/card/sale-3.png"
 
 const sales_content = {
-    title: <>Track and <span>Analyze Sales</span> in Real time</>,
-    dub_title: <>Track and Analyze Sales in Real time</>,
-    description: <>Centralize and simplify payments, and get comprehensive <br /> insights on your financials softuch.!</>,
-
+    title: <>Bring <span>AI into Your Organisation</span> the Right Way</>,
+    dub_title: <>Start Your AI Adoption Journey with Clarity and Confidence</>,
+    description: <>Whether you’re starting small or scaling across your business, we help you move forward with measurable value.</>, 
+   
     sales_feature: [
         {
             id: 1,
             color: "yellow-1",
-            list: "No hidden fees."
+            list: "Practical AI strategy, and automation tailored to your organisation."
         },
         {
             id: 2,
             color: "purple-2",
-            list: "100% security. Guaranteed."
+            list: "Safe, responsible, and measurable AI adoption for your teams."
         },
         {
             id: 3,
             color: "green-3",
-            list: "No training or maintenance needed"
+            list: "End-to-end guidance from training and coaching to automation."
         },
     ],
+
 
     sales_img: [
         {

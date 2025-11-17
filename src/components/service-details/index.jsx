@@ -14,7 +14,7 @@ const ServiceDetails = () => {
           <main>
             <BreadcrumbTwo title="Web Design" innertitle="Help Desk Service Details" />
             <ServiceDetailsArea />
-            <TestimonialArea />
+            {/* <TestimonialArea /> */}
           </main>
           <FooterFive style_contact={true} style_team={true} bg_style={false} />
         </div>

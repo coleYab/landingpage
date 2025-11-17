@@ -1,7 +1,7 @@
 import React from "react";
 import NiceSelect from "../ui/nice-select";
 
-const ContactUsForm = () => {
+const ServiceRequestForm = () => {
   const selectHandler = (e) => {};
   return (
     <>
@@ -25,22 +25,21 @@ const ContactUsForm = () => {
               <span className="floating-label">Phone Number</span>
             </div>
           </div>
-          {/* <div className="col-12">
+          <div className="col-12">
             <div className="postbox__select mb-30">
               <NiceSelect
-                options={[
-                  { value: "Your Inquiry about", text: "Your Inquiry about" },
-                  { value: "01 Year", text: "01 Year" },
-                  { value: "02 Year", text: "02 Year" },
-                  { value: "03 Year", text: "03 Year" },
-                  { value: "04 Year", text: "04 Year" },
-                  { value: "05 Year", text: "05 Year" },
-                ]}
+                   options={[
+                { value: "AI Training", text: "AI Training" },
+                { value: "AI Consulting", text: "AI Consulting" },
+                { value: "AI Solutions & Automations", text: "AI Solutions & Automations" },
+                { value: "AI Coaching", text: "AI Coaching" },
+                { value: "Other", text: "Other" },
+              ]}
                 defaultCurrent={0}
                 onChange={selectHandler}
               />
             </div>
-          </div> */}
+          </div>
           <div className="col-xxl-12">
             <div className="postbox__comment-input mb-30">
               <textarea className="textareaText" required></textarea>
@@ -58,4 +57,4 @@ const ContactUsForm = () => {
   );
 };
 
-export default ContactUsForm;
+export default ServiceRequestForm;

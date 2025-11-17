@@ -33,14 +33,14 @@ const HeaderThree = () => {
                      </div>
                      <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-8 col-6">
                         <div className="header-bottom__right d-flex align-items-center justify-content-end">
-                           <div className="header-bottom__action">
+                           {/* <div className="header-bottom__action">
                               <Link className="d-none d-lg-inline-block header-bottom__action-2 border-none" href="/register">
                                  <span>Log In</span>
                               </Link>
-                           </div>
+                           </div> */}
                            <div className="header-bottom__btn d-flex align-items-center">
                               <Link className="tp-btn-blue-sm d-none d-md-inline-block tp-btn-hover alt-color-black" href="/service-details">
-                                 <span>Get Free</span>
+                                 <span>Get Started</span>
                                  <b></b>
                               </Link>
                               <a className="header-bottom__bar tp-menu-bar d-lg-none" onClick={()  => setSidebarOpen(true)}><i className="fal fa-bars"></i></a>

@@ -12,50 +12,24 @@ import card_img_6 from "../../public/assets/img/card/card-img-4.png" ;
 
 const card_content = {
     card_images: [
-        {
-            id: 1,
-            cls: "main-img",
-            data_parallax: "",
-            img: card_img_1,
-        },
-        {
-            id: 2,
-            cls: "img-1 d-none d-sm-block",
-            data_parallax: "",
-            img: card_img_2,
-        },
-        {
-            id: 3,
-            cls: "img-2 d-none d-sm-block",
-            data_parallax: '{"x": 50, "smoothness": 30}',
-            img: card_img_3,
-        },
-        {
-            id: 4,
-            cls: "img-3 d-none d-sm-block",
-            data_parallax: '{"x": -50, "smoothness": 30}',
-            img: card_img_4,
-        },
-        {
-            id: 5,
-            cls: "img-4 d-none d-sm-block",
-            data_parallax: "",
-            img: card_img_5,
-        },
-        {
-            id: 6,
-            cls: "img-5 d-none d-sm-block",
-            data_parallax: "",
-            img: card_img_6,
-        },
+        { id: 1, cls: "main-img", data_parallax: "", img: card_img_1 },
+        { id: 2, cls: "img-1 d-none d-sm-block", data_parallax: "", img: card_img_2 },
+        { id: 3, cls: "img-2 d-none d-sm-block", data_parallax: '{"x": 50, "smoothness": 30}', img: card_img_3 },
+        { id: 4, cls: "img-3 d-none d-sm-block", data_parallax: '{"x": -50, "smoothness": 30}', img: card_img_4 },
+        { id: 5, cls: "img-4 d-none d-sm-block", data_parallax: "", img: card_img_5 },
+        { id: 6, cls: "img-5 d-none d-sm-block", data_parallax: "", img: card_img_6 },
     ],
 
-    title: <>Manage <span>All your Cards</span> in one Place</>,
-    description: <>Digital products are where it’s at! There are so many benefits
-    to selling digital products. It’s easy to get started and they <br />
-    can be extremely profitable</>,
-    btn_text: "Get Started Free"
+    title: <>Ready to bring <span>AI into your organisation</span> the right way?</>,
+    description: <>
+        Whether you’re starting small or scaling across your entire business, we’ll help you move forward 
+        with clarity, confidence, and measurable value.
+        <br />
+        {/* <strong>Start Your AI Adoption Journey by completing an AI Maturity Assessment</strong> */}
+    </>,
+    btn_text: "Book a session"
 }
+
 const {card_images, title, description, btn_text}  = card_content
 
 

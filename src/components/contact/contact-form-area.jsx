@@ -5,12 +5,13 @@ import React from 'react';
 
 import img from "@/assets/img/contact/contact-icon-sm-4.png";
 import Image from 'next/image';
+import ServiceRequestForm from '@/forms/service-request-form';
 
 
 const contact_content  = {
     sub_title: "CONTACT US",
     tilte: <>We'd love to <br /> hear From  {" "}<span> <SendIcon /> </span> {" "}you.</>,
-    info: <>While we're good with smoke signals, there <br /> are easier ways to get in touch.</> ,
+    info: <>While we're good with calls, there <br /> are easier ways to get in touch.</> ,
      
 }
 const {sub_title, tilte, info}  =  contact_content
@@ -36,16 +37,13 @@ const ContactFormArea = () => {
                                  <Link href="#"><i className="fab fa-linkedin-in"></i></Link>
                                  <Link href="#"><i className="fab fa-instagram"></i></Link>
                               </div>
-                              <div className="contact-form-section-img">
-                                 <Image src={img} alt="theme-pure" />
-                              </div>
                            </div>
                         </div>
                      </div>
                      <div className="col-xl-7 col-lg-6">
                         <div className="contact-form-right-warp">
                            <div className="postbox__comment-form">
-                            <ContactUsForm /> 
+                            <ServiceRequestForm /> 
                            </div>
                         </div>
                      </div>

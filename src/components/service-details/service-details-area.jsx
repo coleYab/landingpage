@@ -7,7 +7,6 @@ import service_img from "@/assets/img/service/sv-details-1.jpg";
 const service_details_content = {
     category_title:"Service Category",
     categorys: [
-        {id:1, category: "Branding", cls: ""},
         {id:1, category: "Web Design", cls: "active"},
         {id:1, category: "Mobile Application", cls: ""},
         {id:1, category: "Development", cls: ""},
@@ -44,7 +43,6 @@ const {
 }  = service_details_content
 
 const ServiceDetailsArea = () => {
-
     return (
         <>
             <div className="sv-details-area pt-100 pb-100">

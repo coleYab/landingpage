@@ -1,5 +1,4 @@
 import Brwoser from '@/common/brwoser';
-import { CopyRight } from '@/common/social-links';
 import EmailIcon from '@/svg/email';
 import EmailTwo from '@/svg/email-2';
 import PhoneTwo from '@/svg/phone-2';
@@ -13,86 +12,66 @@ import footer_logo from  "@/assets/img/logo/logo-black.png";
 
 const footer_content = {
     bg_img: "/assets/img/footer/overly.png",
-    title: <>Get Early Access to Softuch. <br /> <span>Close Your Books Faster and Grow.</span></>,
-    btn_text: "Try it on Browser",
-    phone: "+806(000)8899",
-    email: "contact@info.com",
-    description: <>Build a modern and creative website with crealand</>,
+    title: <>Ready to bring <span>AI into your organisation</span> the right way?</>,
+    btn_text: "Explore our services",
+    phone: "+44 7447 921919",
+    email: "info@axonovaconsulting.co.uk",
+    description: <>Axonova Consulting helps organisations adopt AI with clarity, confidence, and measurable impact.</>,
 
-    footer_lisks : [
+    footer_lisks: [
         {
             id: 1,
             cls_1: "col-xl-3 col-lg-3",
             cls_2: "footer-col-3-2",
-            title: "Navigation",
+            title: "Services",
             delay: ".7s",
             links: [
-                {name: "Damo page", link: "#"},
-                {name: "About", link: "/about"},
-                {name: "Pricing Plan", link: "/price"},
-                {name: "Integrations", link: "/integrations"},
-                {name: "Blog", link: "/blog"},
-                {name: "Contact", link: "/contact"},
-            ]
+                { name: "AI Training", link: "/ai-training" },
+                { name: "AI Consulting", link: "/ai-consulting" },
+                { name: "AI Solutions & Automations", link: "/ai-automations" },
+                { name: "AI Coaching", link: "/ai-coaching" },
+            ],
         },
         {
             id: 2,
             cls_1: "col-xl-2 col-lg-2",
             cls_2: "footer-col-3-3",
-            title: "Other Pages",
+            title: "Company",
             delay: ".9s",
             links: [
-                {name: "Features", link: "#"},
-                {name: "Team", link: "/team"},
-                {name: "Careers", link: "#"},
-                {name: "Login", link: "/login"},
-                {name: "Register", link: "/register"},
-                {name: "404 Not found", link: "/error"},
-            ]
+                { name: "About Us", link: "/about" },
+                { name: "Our Mission", link: "/about#mission" },
+                { name: "Our Approach", link: "/about#approach" },
+                { name: "Our Values", link: "/about#values" },
+                { name: "Contact", link: "/contact" },
+            ],
         },
-
     ],
 
-    social_links : [
-        {
-          link: "http://facebook.com",
-          target: "_blank",
-          icon: "fab fa-facebook-f", 
-        },
-        {
-          link: "http://twitter.com",
-          target: "_blank",
-          icon: "fab fa-twitter", 
-        },
-        {
-          link: "http://www.vimeo.com",
-          target: "_blank",
-          icon: "fab fa-vimeo-v", 
-        }, 
-        {
-          link: "http://www.instagram.com",
-          target: "_blank",
-          icon: "fab fa-instagram", 
-        },
-      ], 
-}
+    social_links: [
+        { link: "http://facebook.com", target: "_blank", icon: "fab fa-facebook-f" },
+        { link: "http://twitter.com", target: "_blank", icon: "fab fa-twitter" },
+        { link: "http://www.linkedin.com", target: "_blank", icon: "fab fa-linkedin-in" },
+        { link: "http://www.instagram.com", target: "_blank", icon: "fab fa-instagram" },
+    ],
+};
+
+// Footer slider highlights updated to reflect AI services
+const footer_slider_data = [
+    "Practical AI Training",
+    "End-to-end AI Consulting",
+    "Automations & AI Solutions",
+    "1:1 AI Coaching",
+    "Safe and responsible AI adoption",
+    "Measurable business impact",
+    "Clarity, confidence, actionable steps",
+    "Tailored for your people and processes",
+    "Fast ROI and improved workflows",
+    "AI strategy aligned with your goals",
+];
+
 const {bg_img, title, btn_text, footer_lisks, social_links, phone , email, description}  = footer_content
 
-
-// footer slider data 
-const footer_slider_data = [
-    "Free trial",
-    "Lightning-fast onboarding.",
-    "All-in-one CRM",
-    "Cards for your whole team.",
-    "Free trial",
-    "Free migrations",
-    "Incredible support",
-    "Lightning-fast onboarding.",
-    "Cards for your whole team.",
-    "Free trial",
-    "Free migrations", 
-]
 // slider setting
 const setting = {
     speed: 7000,
@@ -264,19 +243,6 @@ const FooterThree = () => {
                             </div>
                         </div>
 
-                        </div>
-                    </div>
-                </div>
-
-
-                <div className="tp-copyright__area pt-25 pb-40">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                        <div className="col-xl-4 col-lg-6 col-md-6">
-                            <div className="tp-copyright__text tp-copyright__text-3 text-center">
-                               <span> <CopyRight /></span> 
-                            </div>
-                        </div>
                         </div>
                     </div>
                 </div>

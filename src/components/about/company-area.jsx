@@ -1,13 +1,14 @@
 import VideoPopup from '@/modals/video-popup';
 import React,{useState} from 'react';
 
-const company_content ={
-    sub_title:  "ABOUT THE COMPANY",
-    title: <>Softuch is Made <br />For the Creator.</>,
-    info_1: <>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rutrum arcu sollicitudin viverra sit elit leo in. Vitae eu tellus mattis quis. Eu, tempus donec nam mauris egestas. Id aliquet ultricies ligula tellus arcu dolor. Massa arcu pulvinar in mattis</>,
-    info_2: <>Feugiat purus congue risus, blandit a sed. In aenean quam aenean purus dictum pellentesque consequat.!</>,
-    info_3: <>Our clean and simple APIs and transparent SaaS model will give you complete peace of mind.</>,
-}
+const company_content = {
+  sub_title: "ABOUT AXONOVA CONSULTING",
+  title: <>AI Transformation, <br />Done Right.</>,
+  info_1: <>Axonova Consulting helps organisations adopt AI with clarity, confidence, and measurable impact.</>,
+  info_2: <>We believe AI should simplify work — not complicate it. That’s why our approach focuses on practical skills, safe adoption, and real outcomes that teams can feel and leaders can measure.</>,
+  info_3: <>From training and coaching to strategy and automation, we guide organisations through AI transformation the right way — with your people at the centre.</>,
+};
+
 const {sub_title, title, info_1, info_2, info_3}  = company_content
 
 
