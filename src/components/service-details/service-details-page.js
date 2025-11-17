@@ -544,9 +544,46 @@ export const services = {
         "Start your AI journey with a personalized session designed around your goals, your industry, and your everyday work.",
       button: "Schedule your Coaching Session now",
     },
-    // Added a sample FAQ structure for AI Coaching for completeness, though it was empty in the original
     faqs: [
-      /* No FAQs provided for AI Coaching in the original data */
+      {
+        id: 1,
+        question: "Who should attend an AI Coaching session?",
+        answer:
+          "Anyone looking to understand AI's practical implications in their role or business, including leaders, professionals, and small business owners.",
+        accordion_id: "heading1",
+        collapsed: "",
+        data_bs_target: "#collapse1",
+        aria_expanded: "true",
+        aria_controls: "collapse1",
+        show: true,
+        active: "active",
+      },
+      {
+        id: 2,
+        question: "How is the coaching session delivered?",
+        answer:
+          "Sessions are 1:1 and can be conducted online or in-person depending on your preference and location.",
+        accordion_id: "heading2",
+        collapsed: "collapsed",
+        data_bs_target: "#collapse2",
+        aria_expanded: "false",
+        aria_controls: "collapse2",
+        show: false,
+        active: "",
+      },
+      {
+        id: 3,
+        question: "Can the session be customised for my industry or role?",
+        answer:
+          "Yes. Each session is tailored to your specific role, industry, and objectives, using real examples and actionable guidance.",
+        accordion_id: "heading3",
+        collapsed: "collapsed",
+        data_bs_target: "#collapse3",
+        aria_expanded: "false",
+        aria_controls: "collapse3",
+        show: false,
+        active: "",
+      },
     ],
   },
 };

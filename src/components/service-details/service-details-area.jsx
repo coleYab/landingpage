@@ -376,7 +376,7 @@ const ServiceDetailsArea = () => {
               </div>
 
               {renderServiceSpecificContent()}
-              {service.faqs && service?.faqs.length && (
+              {service?.faqs?.length && (
                 <>
                   <h3 className="sv-details-title mb-4">
                     Frequently Asked Questions

@@ -8,22 +8,23 @@ import card_img_3 from "../../public/assets/img/card/card-img-1.png";
 import card_img_4 from "../../public/assets/img/card/card-img-2.png";
 import card_img_5 from "../../public/assets/img/card/card-img-3.png";
 import card_img_6 from "../../public/assets/img/card/card-img-4.png";
+import card_img_7 from "../../public/assets/img/card/cardi.webp";
 
 const card_content = {
   card_images: [
-    { id: 1, cls: "main-img", data_parallax: "", img: card_img_1 },
+    { id: 1, cls: "main-img", data_parallax: "", img: card_img_7 },
     {
       id: 2,
       cls: "img-1 d-none d-sm-block",
       data_parallax: "",
       img: card_img_2,
     },
-    {
-      id: 3,
-      cls: "img-2 d-none d-sm-block",
-      data_parallax: '{"x": 50, "smoothness": 30}',
-      img: card_img_3,
-    },
+    // {
+    //   id: 3,
+    //   cls: "img-2 d-none d-sm-block",
+    //   data_parallax: '{"x": 50, "smoothness": 30}',
+    //   img: card_img_3,
+    // },
     {
       id: 4,
       cls: "img-3 d-none d-sm-block",
@@ -36,12 +37,12 @@ const card_content = {
       data_parallax: "",
       img: card_img_5,
     },
-    {
-      id: 6,
-      cls: "img-5 d-none d-sm-block",
-      data_parallax: "",
-      img: card_img_6,
-    },
+    // {
+    //   id: 6,
+    //   cls: "img-5 d-none d-sm-block",
+    //   data_parallax: "",
+    //   img: card_img_6,
+    // },
   ],
 
   title: (

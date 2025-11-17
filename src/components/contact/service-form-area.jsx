@@ -3,17 +3,18 @@ import ServiceRequestForm from "@/forms/service-request-form";
 import SendIcon from "@/svg/send-icon";
 import Link from "next/link";
 import React from "react";
-
 const contact_content = {
-  sub_title: "REQUEST A SERVICE",
+  sub_title: "LET'S GET STARTED",
   tilte: (
     <>
-      We'd love to <br /> hear From you.
+      Ready to <br /> work together?
     </>
   ),
   info: (
     <>
-      While we're good with calls, there <br /> are easier ways to get in touch.
+      We’re excited to help your organisation adopt AI <br />
+      in a practical, safe, and impactful way. <br />
+      Let’s make it happen!
     </>
   ),
 };
