@@ -150,10 +150,14 @@ const ServiceDetailsArea = () => {
                   </span>
                 </div>
                 <p className="mb-4">{card.description}</p>
-                <Link className="tp-btn-border tp-btn-hover" href="#">
+                <button
+                  type="button"
+                  className="tp-btn-border tp-btn-hover"
+                  onClick={() => setActiveTab(card.targetTab)}
+                >
                   <span>{card.actionLabel}</span>
                   <b></b>
-                </Link>
+                </button>
               </div>
             </div>
           ))}
