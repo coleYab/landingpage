@@ -7,6 +7,7 @@ import HeroBanner from "../../common/hero-banner";
 import CtaArea from "../contact/cta-area";
 import CompanyArea from "./company-area";
 import HeaderThree from "@/layout/headers/header-3";
+import FooterThree from "@/layout/footers/footer-3";
 
 const About = () => {
   return (
@@ -21,8 +22,8 @@ const About = () => {
       {/* <Brand /> */}
       <CompanyArea />
       <AboutArea />
-      <CtaArea />
-      <FooterFive style_contact={true} style_team={true} />
+      {/* <CtaArea /> */}
+      <FooterThree style_contact={true} style_team={true} />
     </>
   );
 };
