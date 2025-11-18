@@ -45,11 +45,7 @@ const card_content = {
     // },
   ],
 
-  title: (
-    <>
-      Ready to bring <span>AI into your organisation</span> the right way?
-    </>
-  ),
+  title: <>Ready to bring AI into your organisation the right way?</>,
   description: (
     <>
       Whether you’re starting small or scaling across your entire business,
@@ -67,6 +63,7 @@ const { card_images, title, description, btn_text } = card_content;
 const CardArea = ({ style_service, spacing = "pt-175 pb-185" }) => {
   return (
     <>
+      {/* <hr /> */}
       <div className={`tp-card-area tp-card-space ${spacing}`}>
         <div className="container">
           <div className="row">

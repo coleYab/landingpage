@@ -368,16 +368,18 @@ const ServiceDetailsArea = () => {
         <div className="row">
           <div className="col-xl-10 mx-auto">
             <div className="sv-details-wrapper">
-              <div className="sv-details-thumb mb-45">
-                <Image
-                  className="w-100 rounded"
-                  src={hero_image}
-                  alt={service.title}
-                  width={1200}
-                  height={550}
-                  priority
-                />
-              </div>
+              {activeTab === "overview" && (
+                <div className="sv-details-thumb mb-45">
+                  <Image
+                    className="w-100 rounded"
+                    src={hero_image}
+                    alt={service.title}
+                    width={1200}
+                    height={550}
+                    priority
+                  />
+                </div>
+              )}
 
               {renderServiceSpecificContent()}
               {service?.faqs?.length && (

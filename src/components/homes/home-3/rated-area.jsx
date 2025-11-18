@@ -17,7 +17,7 @@ const rated_content = {
     <>
       Why Choose Us
       <br />
-      <span>Reasons organisations trust Axonova</span>
+      Reasons organisations trust Axonova
     </>
   ),
   points: [
@@ -110,25 +110,25 @@ const RatedArea = () => {
             <div className="row justify-content-center">
               <div className="col-xl-10">
                 <div className="tp-rated-title-box text-center mb-60">
-                  <div className="tp-rated-icon tp-title-anim">
+                  {/* <div className="tp-rated-icon tp-title-anim">
                     <BlurStart />
                     <BlurStart />
                     <BlurStart />
                     <BlurStart />
                     <BlurStart />
-                  </div>
+                  </div> */}
 
                   <h5 className="tp-section-title-3 text-white pb-40">
                     {title}
                   </h5>
 
-                  <Link
+                  {/* <Link
                     className="tp-btn-blue-lg tp-btn-hover alt-color-white"
                     href="#"
                   >
                     <span className="text-color-black">Explore Services</span>
                     <b></b>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>
@@ -156,9 +156,23 @@ const RatedArea = () => {
               </div>
             </div>
 
-            <div className="author-rated-big-img">
+            {/* <div className="row justify-content-center">
+              <div className="col-xl-10">
+                <div className="tp-rated-title-box text-center mb-60">
+                  <Link
+                    className="tp-btn-blue-lg tp-btn-hover alt-color-white"
+                    href="#"
+                  >
+                    <span className="text-color-black">Explore Services</span>
+                    <b></b>
+                  </Link>
+                </div>
+              </div>
+            </div> */}
+
+            {/* <div className="author-rated-big-img">
               <Image src={main_img} alt="theme-pure" />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

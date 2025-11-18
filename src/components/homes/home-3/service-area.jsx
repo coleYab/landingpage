@@ -7,18 +7,14 @@ import service_img_2 from "../../../../public/assets/img/service/service-shape-3
 import Image from "next/image";
 
 const service_content = {
-  title: (
-    <>
-      Axonova Consulting <br /> <span>AI Adoption Made Clear.</span>
-    </>
-  ),
+  title: <>Our Services</>,
   btn_text: <>See All Services</>,
 
   bg_img: "/assets/img/service/service-3-bg.png",
   service_title: "Axonova",
   service_info: (
     <>
-      Axonova Consulting helps organisations adopt AI with clarity and
+      Here are our services that help organisations adopt AI with clarity and
       confidence — through hands-on training, strategic guidance, and reliable
       automation.
     </>
@@ -30,7 +26,12 @@ const { title, btn_text, bg_img, service_title, service_info } =
 const ServiceArea = () => {
   return (
     <>
-      <div className="tp-service-area pb-90 z-index">
+      <div
+        className="tp-service-area pb-90 z-index"
+        style={{
+          paddingTop: 50 + "px",
+        }}
+      >
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
@@ -57,7 +58,7 @@ const ServiceArea = () => {
 
           <div className="row">
             <div
-              className="col-xl-8 wow tpfadeLeft"
+              className="col-xl-12 wow tpfadeLeft"
               data-wow-duration=".9s"
               data-wow-delay=".5s"
             >
@@ -88,15 +89,21 @@ const ServiceArea = () => {
             {service_data.slice(0, 4).map((item, i) => (
               <div
                 key={i}
-                className="col-xl-4 col-lg-6 col-md-6 wow tpfadeUp"
+                className="col-xl-6 col-lg-6 col-md-6 wow tpfadeUp"
                 data-wow-duration=".9s"
                 data-wow-delay=".5s"
               >
                 <div className="tp-service-sm-item mb-30 d-flex flex-column justify-content-between">
                   <div className="tp-service-sm-icon">{item.icon}</div>
                   <div className="tp-service-sm-content">
-                    <span>{item.title}</span>
-                    <h3 className="tp-service-sm-title">
+                    <h3 className="tp-service-sm-title">{item.title}</h3>
+                    <h3
+                      style={{
+                        fontWeight: 200,
+                        fontSize: 18 + "px",
+                        marginBottom: 50 + "px",
+                      }}
+                    >
                       <Link href="/service-details">{item.description} </Link>
                     </h3>
                     <div className="tp-service-sm-link">

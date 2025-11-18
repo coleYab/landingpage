@@ -13,11 +13,7 @@ import img_2 from "../../../../public/assets/img/hero/hero-img-3-1-3.png";
 import Link from "next/link";
 
 const hero_content = {
-  title_1: (
-    <>
-      AI <span>Transformation</span>,{" "}
-    </>
-  ),
+  title_1: <>AI Transformation, </>,
   title_2: "When it's Done Right.",
   //   title_2:
   //     "Practical AI training, strategy, and automation enabling your organization to adopt AI with confidence.",
@@ -108,7 +104,7 @@ const HeroArea = () => {
                 data-wow-duration=".9s"
                 data-wow-delay=".9s"
               >
-                <Brwoser />
+                {/* <Brwoser /> */}
               </div>
               <div className="tp-hero-3-wrapper p-relative">
                 <div className="tp-hero-3-border-wrap d-none d-md-block">

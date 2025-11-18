@@ -7,16 +7,11 @@ import sales_img_3 from "../../public/assets/img/card/sale-3.png";
 import sales_img_4 from "../../public/assets/img/card/saleimg.webp";
 
 const sales_content = {
-  title: (
-    <>
-      Bring <span>AI into Your Organisation</span> the Right Way
-    </>
-  ),
+  title: <>Bring AI into Your Organisation the Right Way</>,
   dub_title: <>Start Your AI Adoption Journey with Clarity and Confidence</>,
   description: (
     <>
-      Whether you’re starting small or scaling across your business, we help you
-      move forward with measurable value.
+      Lets see we can help you move forward your business with measurable value.
     </>
   ),
 

@@ -12,11 +12,7 @@ import footer_logo from "@/assets/img/logo/logo-black.png";
 
 const footer_content = {
   bg_img: "/assets/img/footer/overly.png",
-  title: (
-    <>
-      Ready to bring <span>AI into your organisation</span> the right way?
-    </>
-  ),
+  title: <>Ready to bring AI into your organisation the right way?</>,
   btn_text: "Explore Our Services",
   phone: "+44 7447 921919",
   email: "info@axonovaconsulting.co.uk",
@@ -168,11 +164,7 @@ const FooterThree = () => {
               </div>
             </div>
             <div className="row">
-              <div className="col-12">
-                <div className="tp-hero-browser-wrapper footer-browser-item d-flex align-items-center">
-                  <Brwoser />
-                </div>
-              </div>
+              <div className="col-12">{description}</div>
             </div>
           </div>
         </div>
