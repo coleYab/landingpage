@@ -5,6 +5,10 @@ import { serviceTabs, services } from "./service-details-page";
 import hero_image from "../../../public/assets/img/service/sv-details-1.jpg";
 import answer_question_data from "@/data/answer-question-data";
 import AnswerQuestion from "@/common/answer-question";
+import { Check } from "lucide-react";
+import { CheckCircle } from "lucide-react";
+import { Bot } from "lucide-react";
+import { UserCheck } from "lucide-react";
 
 const ServiceDetailsArea = () => {
   const [activeTab, setActiveTab] = useState(serviceTabs[0]?.id ?? "");
@@ -38,23 +42,37 @@ const ServiceDetailsArea = () => {
       </div>
     );
   };
-
-  const renderChecklist = (title, items, iconClass = "fal fa-check") => {
+  const renderChecklist = (title, items, iconClass = null) => {
     if (!items?.length) return null;
+
+    const iconMap = {
+      "fal fa-check": Check,
+      "fal fa-check-circle": CheckCircle,
+      "fal fa-robot": Bot,
+      "fal fa-user-check": UserCheck,
+    };
+
+    const IconComponent =
+      iconClass && iconMap[iconClass] ? iconMap[iconClass] : Check;
+
     return (
-      <div className="sv-details-text mb-50">
-        <h3 className="sv-details-text-title pb-20">{title}</h3>
-        <ul className="checklist">
-          {items.map((item, index) => (
-            <li
-              key={`${service.id}-${title}-${index}`}
-              className="mb-2 d-flex align-items-start"
-            >
-              <i className={`${iconClass} text-primary me-2 mt-1`}></i>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
+      <div className="sv-details-text mb-5">
+        <h3 className="sv-details-text-title fw-bold pb-3 mb-4">{title}</h3>
+        <div className="tp-about__list">
+          <ul className="list-unstyled">
+            {" "}
+            {/* Remove default bullets for clean look */}
+            {items.map((item, i) => (
+              <li
+                key={i}
+                className="d-flex align-items-center mb-3 py-2 border-bottom" // Flex for alignment, spacing for modern rhythm
+              >
+                <IconComponent className="me-3 text-primary fs-5" />
+                <span className="flex-grow-1 text-muted lh-lg">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     );
   };
@@ -64,20 +82,19 @@ const ServiceDetailsArea = () => {
     return (
       <div className="sv-details-text mb-50">
         <h3 className="sv-details-text-title pb-20">Our Approach</h3>
-        <div className="row">
+        <div className="row g-4">
           {service.ourApproach.map((item, index) => {
             const [heading, detail] = item.split(":");
+
             return (
-              <div
-                key={`${service.id}-approach-${index}`}
-                className="col-md-6 col-lg-4 mb-4"
-              >
-                <div className="approach-card p-4 h-100 border rounded">
-                  <div className="d-flex align-items-center mb-3">
-                    <div className="step-number me-3">{index + 1}</div>
-                    <h4 className="mb-0">{heading?.trim()}</h4>
+              <div key={index} className="col-md-6 pb-20">
+                <div className="service-card border rounded h-100 p-4">
+                  <div className="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                      <h3 className="mt-2 mb-3">{heading}</h3>
+                    </div>
                   </div>
-                  <p className="mb-0">{detail?.trim()}</p>
+                  <p className="mb-4">{detail}</p>
                 </div>
               </div>
             );
@@ -92,7 +109,7 @@ const ServiceDetailsArea = () => {
     return (
       <div className="sv-details-text mb-40">
         <h3 className="sv-details-text-title pb-20">{title}</h3>
-        <div className="row">
+        <div className="row g-4">
           {items.map((item, index) => (
             <div
               key={`${service.id}-${title}-${index}`}

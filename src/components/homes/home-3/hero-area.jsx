@@ -19,9 +19,15 @@ const hero_content = {
   //     "Practical AI training, strategy, and automation enabling your organization to adopt AI with confidence.",
   info: (
     <>
-      We make AI practical, safe, and valuable for your people and your business
-      by giving Practical AI training, strategy, and automation enabling your
-      organization to adopt AI with confidence.
+      We make AI practical, safe, and valuable for your team and business
+      through training, strategy, and automation solutions, helping you adopt AI
+      with confidence and achieve meaningful results.
+      <br />
+      <br />
+      Our experts guide you through AI implementation, ensuring ethical use,
+      maximum ROI, and smooth integration. Whether you're a startup or an
+      enterprise, we tailor our approach to meet your needs and accelerate your
+      digital transformation.
     </>
   ),
   btn_1: "Get Started",

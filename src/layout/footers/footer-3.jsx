@@ -13,7 +13,7 @@ import footer_logo from "@/assets/img/logo/logo-black.png";
 const footer_content = {
   bg_img: "/assets/img/footer/overly.png",
   title: <>Ready to bring AI into your organisation the right way?</>,
-  btn_text: "Explore Our Services",
+  btn_text: "Request A Service",
   phone: "+44 7447 921919",
   email: "info@axonovaconsulting.co.uk",
   description: (
@@ -268,7 +268,11 @@ const FooterThree = () => {
                           <span>
                             <EmailIcon />
                           </span>
-                          <button>
+                          <button
+                            style={{
+                              backgroundColor: "#0b3937",
+                            }}
+                          >
                             <RightArrow />
                           </button>
                         </form>
