@@ -7,7 +7,7 @@ import React, { useRef } from "react";
 
 import shape_1 from "@/assets/img/breadcrumb/breadcrumb-shape-1.png";
 import shape_2 from "@/assets/img/breadcrumb/breadcrumb-shape-2.png";
-import shape_3 from "@/assets/img/breadcrumb/breadcrumb-3.png";
+import shape_3 from "@/assets/img/breadcrumb/service.png";
 import shape_4 from "@/assets/img/breadcrumb/breadcrumb-sub-1.png";
 
 const BreadcrumbTwo = ({ title, innertitle, team_details, career_details }) => {
@@ -78,13 +78,13 @@ const BreadcrumbTwo = ({ title, innertitle, team_details, career_details }) => {
             <div className="col-xl-4 col-lg-5 col-lg-4 text-center text-md-end">
               <div className="breadcrumb__img p-relative text-start z-index">
                 <Image className="z-index-3" src={shape_3} alt="theme-pure" />
-                <div
+                {/* <div
                   className="breadcrumb__sub-img wow tpfadeUp"
                   data-wow-duration=".9s"
                   data-wow-delay=".4s"
                 >
                   <Image src={shape_4} alt="theme-pure" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

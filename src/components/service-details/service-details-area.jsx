@@ -187,7 +187,12 @@ const ServiceDetailsArea = () => {
     if (!service.whyChooseUs?.length) return null;
 
     return (
-      <div className="sv-details-text mb-60">
+      <div
+        className="sv-details-text mb-60"
+        style={{
+          color: "#0b3937",
+        }}
+      >
         <div className="d-flex align-items-center mb-3 gap-3">
           <span className="badge bg-secondary text-white">1.4</span>
           <h2 className="sv-details-title mb-0">Why Choose Us</h2>
