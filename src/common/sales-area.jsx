@@ -4,7 +4,7 @@ import Image from "next/image";
 import sales_img_1 from "../../public/assets/img/card/sale-1.png";
 import sales_img_2 from "../../public/assets/img/card/sale-2.png";
 import sales_img_3 from "../../public/assets/img/card/sale-3.png";
-import sales_img_4 from "../../public/assets/img/card/saleimg.webp";
+import sales_img_4 from "../../public/assets/img/card/imgi.jpeg";
 
 const sales_content = {
   title: <>Bring AI into Your Organisation the Right Way</>,

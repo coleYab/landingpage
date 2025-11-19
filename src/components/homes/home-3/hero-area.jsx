@@ -8,7 +8,7 @@ import React, { useEffect, useRef } from "react";
 
 import left_shape from "../../../../public/assets/img/hero/hero-left-shape-3-1.png";
 import gradient_bg from "../../../../public/assets/img/hero/hero-gradient-3.jpg";
-import img_1 from "../../../../public/assets/img/hero/hero-img-3-1.png";
+import img_1 from "../../../../public/assets/img/hero/hero.jpg";
 import img_2 from "../../../../public/assets/img/hero/hero-img-3-1-3.png";
 import Link from "next/link";
 
@@ -52,7 +52,12 @@ const HeroArea = () => {
 
   return (
     <>
-      <div className="tp-hero-area tp-hero-pt pt-170 pb-70 p-relative">
+      <div
+        className="tp-hero-area tp-hero-pt pt-170 pb-70 p-relative"
+        style={{
+          height: 100 + "vh",
+        }}
+      >
         <div className="tp-hero-left-shape">
           <Image src={left_shape} alt="them-pure" />
         </div>
@@ -80,20 +85,20 @@ const HeroArea = () => {
                 </p>
               </div>
               <div
-                className="tp-hero-btn-3 text-center wow tpfadeUp"
+                className="tp-hero-btn-3 text-center wow tpfadeUp mt-8"
                 data-wow-duration="1s"
                 data-wow-delay=".9s"
               >
                 <Link
                   className="tp-btn-blue-lg tp-btn-hover alt-color-black"
-                  href="#"
+                  href="/new-service"
                 >
                   <span>{btn_1}</span>
                   <b></b>
                 </Link>
                 <Link
                   className="tp-btn-border tp-btn-hover alt-color-black"
-                  href="#"
+                  href="/service-details"
                 >
                   <span>{btn_2}</span>
                   <b></b>
@@ -107,23 +112,23 @@ const HeroArea = () => {
                 {/* <Brwoser /> */}
               </div>
               <div className="tp-hero-3-wrapper p-relative">
-                <div className="tp-hero-3-border-wrap d-none d-md-block">
+                {/* <div className="tp-hero-3-border-wrap d-none d-md-block">
                   <span className="redius-shape-1"></span>
                   <span className="redius-shape-2"></span>
                   <span className="redius-shape-3"></span>
-                </div>
-                <div className="tp-hero-3-main-thumb z-index-5">
+                </div> */}
+                {/* <div className="tp-hero-3-main-thumb z-index-5">
                   <Image src={img_1} alt="them-pure" />
-                </div>
-                <div className="tp-hero-3-shape-5 d-none d-lg-block wow frist-img animated">
+                </div> */}
+                {/* <div className="tp-hero-3-shape-5 d-none d-lg-block wow frist-img animated">
                   <Image src={img_2} alt="them-pure" />
-                </div>
-                <div className="tp-hero-3-shape-6 d-none d-lg-block">
+                </div> */}
+                {/* <div className="tp-hero-3-shape-6 d-none d-lg-block">
                   <span>
                     {" "}
                     <BounceLine />{" "}
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

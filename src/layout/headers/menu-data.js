@@ -10,10 +10,16 @@ const menu_data = [
   {
     id: 3,
     mega_menu: false,
-    has_dropdown: false,
+    has_dropdown: true,
     title: "Services",
     link: "/service-details",
     active: "",
+    sub_menus: [
+      { link: "/service-details", title: "AI Training" },
+      { link: "/service-details", title: "AI Consulting" },
+      { link: "/service-details", title: "AI Automations" },
+      { link: "/service-details", title: "AI Coaching" },
+    ],
   },
   // {
   //   id: 4,

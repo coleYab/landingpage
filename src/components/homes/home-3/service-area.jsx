@@ -29,13 +29,14 @@ const ServiceArea = () => {
       <div
         className="tp-service-area pb-90 z-index"
         style={{
+          // backgroundColor: "#eef3f1ff",
           paddingTop: 50 + "px",
         }}
       >
         <div className="container">
           <div className="row">
             <div className="col-xl-12">
-              <div className="tp-service-section-wrapper mb-60 d-flex justify-content-between align-items-end">
+              <div className="tp-service-section-wrapper mb-60 d-flex justify-content-center align-items-end">
                 <h3
                   className="tp-section-title-3 wow tpfadeLeft"
                   data-wow-duration=".9s"
@@ -43,7 +44,7 @@ const ServiceArea = () => {
                 >
                   {title}
                 </h3>
-                <Link
+                {/* <Link
                   className="tp-btn-blue-lg tp-btn-hover mb-10 alt-color-black wow tpfadeRight"
                   data-wow-duration=".9s"
                   data-wow-delay=".5s"
@@ -51,7 +52,7 @@ const ServiceArea = () => {
                 >
                   <span>{btn_text}</span>
                   <b></b>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
