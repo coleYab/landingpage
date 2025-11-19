@@ -10,6 +10,7 @@ import IntegrationArea from "./integration-area";
 import RatedArea from "./rated-area";
 import SalesArea from "../../../common/sales-area";
 import ServiceArea from "./service-area";
+import ContactFormArea from "@/components/contact/contact-form-area";
 
 const HomeThree = () => {
   return (
@@ -24,6 +25,7 @@ const HomeThree = () => {
       {/* <TestimonialArea /> */}
       {/* <IntegrationArea /> */}
       {/* <BlogArea /> */}
+      <ContactFormArea />
       <FooterThree />
     </>
   );

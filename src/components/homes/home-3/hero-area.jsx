@@ -68,12 +68,31 @@ const HeroArea = () => {
           <div className="row justify-content-center z-index-3">
             <div className="col-xl-11">
               <div className="tp-hero-title-box text-center">
-                <h2 className="tp-hero-title-3 hero-text-anim pb-5">
+                <h2
+                  className="tp-hero-title-3 hero-text-anim pb-5"
+                  style={{
+                    color: "#0b3937",
+                  }}
+                >
                   <i>
-                    <i className="child-1">{title_1}</i>
+                    <i
+                      className="child-1"
+                      style={{
+                        color: "#0b3937",
+                      }}
+                    >
+                      {title_1}
+                    </i>
                   </i>
                   <i>
-                    <i className="child-1">{title_2}</i>
+                    <i
+                      className="child-1"
+                      style={{
+                        color: "#0b3937",
+                      }}
+                    >
+                      {title_2}
+                    </i>
                   </i>
                 </h2>
                 <p

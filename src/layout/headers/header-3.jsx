@@ -21,22 +21,22 @@ const HeaderThree = () => {
           }`}
         >
           <div className="container">
-            <div className="row align-items-center">
-              <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-6">
+            <div className="row align-items-center justify-content-between">
+              <div className="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-2">
                 <div className="header-bottom__logo">
                   <Link href="/">
                     <Image src={logo} alt="" />
                   </Link>
                 </div>
               </div>
-              <div className="col-xxl-6 col-xl-6 col-lg-6 d-none d-lg-block">
+              <div className="col-xxl-9 col-xl-9 col-lg-9 d-none d-lg-block">
                 <div className="header-bottom__main-menu header-bottom__main-menu-3">
                   <nav id="mobile-menu">
                     <NavMenu />
                   </nav>
                 </div>
               </div>
-              <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-8 col-6">
+              <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-2">
                 <div className="header-bottom__right d-flex align-items-center justify-content-end">
                   {/* <div className="header-bottom__action">
                               <Link className="d-none d-lg-inline-block header-bottom__action-2 border-none" href="/register">
@@ -48,8 +48,7 @@ const HeaderThree = () => {
                       className="tp-btn-blue-sm d-none d-md-inline-block tp-btn-hover alt-color-black"
                       href="/new-service"
                     >
-                      <span>Get Started</span>
-                      <b></b>
+                      Start Now
                     </Link>
                     <a
                       className="header-bottom__bar tp-menu-bar d-lg-none"
