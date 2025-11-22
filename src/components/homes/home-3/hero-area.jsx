@@ -67,6 +67,7 @@ const HeroArea = () => {
             loop
             playsInline
             aria-hidden="true"
+            poster="/assets/video/tumbnail.png"
             style={{
               width: "100%",
               height: "100%",
