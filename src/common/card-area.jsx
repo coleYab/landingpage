@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import card_img_8 from "../../public/assets/img/card/cardi.avif";
+import card_img_8 from "../../public/assets/img/card/cardi.png";
 
 const card_content = {
   card_images: [
