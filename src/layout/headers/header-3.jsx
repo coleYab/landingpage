@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import NavMenu from "./nav-menu";
 import Image from "next/image";
 
-import logo from "@/assets/img/logo/logo-black.png";
+import logo from "@/assets/img/logo/logo-white.png";
 
 const HeaderThree = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
