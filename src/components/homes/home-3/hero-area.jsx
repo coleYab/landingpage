@@ -47,15 +47,15 @@ const HeroArea = () => {
     });
   }, []);
 
-  useEffect(() => {
-    const video = document.querySelector("video");
-    if (video) {
-      video.play().catch(() => {
-        // Autoplay blocked, fallback: show poster only
-        console.log("Autoplay blocked on mobile");
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   const video = document.querySelector("video");
+  //   if (video) {
+  //     video.play().catch(() => {
+  //       // Autoplay blocked, fallback: show poster only
+  //       console.log("Autoplay blocked on mobile");
+  //     });
+  //   }
+  // }, []);
 
   return (
     <>
@@ -77,7 +77,7 @@ const HeroArea = () => {
             loop
             playsInline
             aria-hidden="true"
-            poster="/assets/video/tumbnail.png"
+            // poster="/assets/video/tumbnail.png"
             style={{
               width: "100%",
               height: "100%",

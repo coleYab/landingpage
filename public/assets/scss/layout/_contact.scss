@@ -96,9 +96,9 @@
       @include tp-placeholder {
         color: rgba(255, 255, 255, 0.54);
       }
-      //   &:focus {
-      //     border-color: var(--tp-common-white);
-      //   }
+      &:focus {
+        border-color: #0b3937;
+      }
     }
     & textarea {
       margin-top: 20px;
@@ -115,9 +115,9 @@
       width: 100%;
       resize: none;
       height: 160px;
-      //   &:focus {
-      //     border-color: var(--tp-common-white);
-      //   }
+      &:focus {
+        border-color: #0b3937;
+      }
       @include tp-placeholder {
         color: rgba(255, 255, 255, 0.54);
       }
