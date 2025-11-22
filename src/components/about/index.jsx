@@ -8,18 +8,13 @@ import CtaArea from "../contact/cta-area";
 import CompanyArea from "./company-area";
 import HeaderThree from "@/layout/headers/header-3";
 import FooterThree from "@/layout/footers/footer-3";
+import BreadcrumbTwo from "@/common/breadcrumbs/breadcrumb-2";
 
 const About = () => {
   return (
     <>
       <HeaderThree />
-      <Breadcrumb title_top="About" title_bottom="Axonova" />
-      <HeroBanner
-        title="About"
-        subtitle="Axonova"
-        bg_img="/assets/img/breadcrumb/breadcrumb-2.jpg"
-      />
-      {/* <Brand /> */}
+      <BreadcrumbTwo title="About" innertitle="About" />
       <CompanyArea />
       <AboutArea />
       {/* <CtaArea /> */}

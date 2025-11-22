@@ -6,6 +6,7 @@ import NavMenu from "./nav-menu";
 import Image from "next/image";
 
 import logo from "@/assets/img/logo/logo-white.png";
+import logosmall from "@/assets/img/logo/logo-small.png";
 
 const HeaderThree = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -25,7 +26,8 @@ const HeaderThree = () => {
               <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-2">
                 <div className="header-bottom__logo">
                   <Link href="/">
-                    <Image src={logo} alt="" />
+                    <Image src={logo} alt="" className="d-none d-lg-block" />
+                    <Image src={logosmall} alt="" className="d-lg-none" />
                   </Link>
                 </div>
               </div>

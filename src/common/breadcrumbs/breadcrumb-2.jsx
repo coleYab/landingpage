@@ -9,6 +9,7 @@ import shape_1 from "@/assets/img/breadcrumb/breadcrumb-shape-1.png";
 import shape_2 from "@/assets/img/breadcrumb/breadcrumb-shape-2.png";
 import shape_3 from "@/assets/img/breadcrumb/service.png";
 import shape_4 from "@/assets/img/breadcrumb/breadcrumb-sub-1.png";
+import { ChevronRight } from "lucide-react";
 
 const BreadcrumbTwo = ({ title, innertitle, team_details, career_details }) => {
   const { animeRef } = useBreadcrumbTitleAnime();
@@ -21,6 +22,8 @@ const BreadcrumbTwo = ({ title, innertitle, team_details, career_details }) => {
         className="breadcrumb__area breadcrumb-height p-relative"
         style={{
           backgroundColor: "#0b3937",
+          paddingTop: "160px",
+          paddingBottom: "140px",
         }}
       >
         <div className="breadcrumb__shape-1">
@@ -36,6 +39,7 @@ const BreadcrumbTwo = ({ title, innertitle, team_details, career_details }) => {
                 <h3
                   ref={animeRef}
                   className="breadcrumb__title tp-char-animation anime_text"
+                  style={{ color: "#a9fa60" }}
                 >
                   {title}
                 </h3>
@@ -44,15 +48,18 @@ const BreadcrumbTwo = ({ title, innertitle, team_details, career_details }) => {
                   className="breadcrumb__list tp-title-anim tp__title_anime"
                 >
                   <span className="child-one">
-                    <Link href="/">Home</Link>
+                    <Link href="/" style={{ color: "#a9fa60" }}>
+                      Home
+                    </Link>
                   </span>
                   <span className="dvdr">
-                    <i className="fal fa-angle-right"></i>
+                    <ChevronRight style={{ color: "#a9fa60" }} />
                   </span>
                   <span
                     className={`${team_details && "child-one"} ${
                       career_details && "child-one"
                     }`}
+                    style={{ color: "#a9fa60" }}
                   >
                     {innertitle}
                   </span>
@@ -75,18 +82,7 @@ const BreadcrumbTwo = ({ title, innertitle, team_details, career_details }) => {
                 </div>
               </div>
             </div>
-            <div className="col-xl-4 col-lg-5 col-lg-4 text-center text-md-end">
-              <div className="breadcrumb__img p-relative text-start z-index">
-                <Image className="z-index-3" src={shape_3} alt="theme-pure" />
-                {/* <div
-                  className="breadcrumb__sub-img wow tpfadeUp"
-                  data-wow-duration=".9s"
-                  data-wow-delay=".4s"
-                >
-                  <Image src={shape_4} alt="theme-pure" />
-                </div> */}
-              </div>
-            </div>
+            <div className="col-xl-4 col-lg-5 col-lg-4 text-center text-md-end"></div>
           </div>
         </div>
       </div>

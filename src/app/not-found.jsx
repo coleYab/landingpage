@@ -5,12 +5,13 @@ import HeaderFour from "@/layout/headers/header-4";
 
 import error_shape_1 from "@/assets/img/login/error-shape.png";
 import error_shape_2 from "@/assets/img/login/text-404.png";
+import HeaderThree from "@/layout/headers/header-3";
 
 export default function NotFoundPage() {
   return (
     <>
       {/* header area start */}
-      <HeaderFour style_error={true} />
+      <HeaderThree style_error={true} />
       {/* header area end */}
 
       <div id="smooth-wrapper">

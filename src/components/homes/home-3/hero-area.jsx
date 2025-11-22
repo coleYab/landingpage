@@ -66,9 +66,6 @@ const HeroArea = () => {
           minHeight: "100vh",
         }}
       >
-        {/* <div className="tp-hero-left-shape">
-          <Image src={left_shape} alt="them-pure" />
-        </div> */}
         <div className="tp-hero-gradient-bg">
           <video
             className="w-100 h-100"
@@ -94,20 +91,20 @@ const HeroArea = () => {
               <div
                 className="tp-hero-title-box text-center"
                 style={{
-                  color: "#ffffff",
+                  color: "#a9fa60",
                 }}
               >
                 <h2
                   className="tp-hero-title-3 hero-text-anim pb-5"
                   style={{
-                    color: "#ffffff",
+                    color: "#a9fa60",
                   }}
                 >
                   <i>
                     <i
                       className="child-1"
                       style={{
-                        color: "#ffffff",
+                        color: "#a9fa60",
                       }}
                     >
                       {title_1}
@@ -117,7 +114,7 @@ const HeroArea = () => {
                     <i
                       className="child-1"
                       style={{
-                        color: "#ffffff",
+                        color: "#a9fa60",
                       }}
                     >
                       {title_2}
@@ -129,7 +126,7 @@ const HeroArea = () => {
                   data-wow-duration=".9s"
                   data-wow-delay=".7s"
                   style={{
-                    color: "#ffffff",
+                    color: "#a9fa60",
                   }}
                 >
                   {info}
@@ -146,7 +143,7 @@ const HeroArea = () => {
                 >
                   <span
                     style={{
-                      color: "#ffffff",
+                      color: "#a9fa60",
                     }}
                   >
                     {btn_1}
@@ -159,7 +156,7 @@ const HeroArea = () => {
                 >
                   <span
                     style={{
-                      color: "#ffffff",
+                      color: "#a9fa60",
                     }}
                   >
                     {btn_2}

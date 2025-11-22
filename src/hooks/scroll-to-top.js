@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useState, useEffect } from "react";
 import useSticky from "./use-sticky";
 
@@ -29,6 +29,9 @@ const ScrollToTop = () => {
       onClick={scrollTop}
       className={`scroll-top scroll-to-target ${sticky ? "open" : ""}`}
       data-target="html"
+      style={{
+        backgroundColor: "#8ab367",
+      }}
     >
       <i className="far fa-angle-double-up"></i>
     </button>

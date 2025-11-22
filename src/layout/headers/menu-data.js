@@ -12,7 +12,7 @@ const menu_data = [
     mega_menu: false,
     has_dropdown: false,
     title: "AI Training",
-    link: "/service-details",
+    link: "/service/ai-training",
     active: "",
   },
   {
@@ -20,7 +20,7 @@ const menu_data = [
     mega_menu: false,
     has_dropdown: false,
     title: "AI Consulting",
-    link: "/service-details",
+    link: "/service/ai-consulting",
     active: "",
   },
   {
@@ -28,7 +28,7 @@ const menu_data = [
     mega_menu: false,
     has_dropdown: false,
     title: "AI Automation and Solutions",
-    link: "/service-details",
+    link: "/service/ai-automations",
     active: "",
   },
   {
@@ -36,7 +36,7 @@ const menu_data = [
     mega_menu: false,
     has_dropdown: false,
     title: "AI Coaching",
-    link: "/service-details",
+    link: "/service/ai-coaching",
     active: "",
   },
   // {

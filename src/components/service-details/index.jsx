@@ -5,7 +5,7 @@ import HeaderSix from "@/layout/headers/header-6";
 import ServiceDetailsArea from "./service-details-area";
 import HeaderThree from "@/layout/headers/header-3";
 
-const ServiceDetails = () => {
+const ServiceDetails = ({ initialTab }) => {
   return (
     <>
       <HeaderThree />
@@ -13,7 +13,7 @@ const ServiceDetails = () => {
         <div id="smooth-content">
           <main>
             <BreadcrumbTwo title="Our Services" innertitle="Our Services" />
-            <ServiceDetailsArea />
+            <ServiceDetailsArea initialTab={initialTab} />
           </main>
           <FooterThree />
         </div>

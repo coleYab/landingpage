@@ -62,6 +62,7 @@ const CardArea = ({ style_service, spacing = "pt-175 pb-185" }) => {
         style={{
           backgroundColor: "#0b3937",
           color: "#a9fa60",
+          paddingBottom: "80px",
         }}
       >
         <div className="container">

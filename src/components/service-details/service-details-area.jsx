@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { serviceTabs, services } from "./service-details-page";
@@ -10,8 +10,14 @@ import { CheckCircle } from "lucide-react";
 import { Bot } from "lucide-react";
 import { UserCheck } from "lucide-react";
 
-const ServiceDetailsArea = () => {
-  const [activeTab, setActiveTab] = useState(serviceTabs[0]?.id ?? "");
+const getDefaultTab = () => serviceTabs[0]?.id ?? "";
+
+const ServiceDetailsArea = ({ initialTab }) => {
+  const [activeTab, setActiveTab] = useState(initialTab ?? getDefaultTab());
+
+  useEffect(() => {
+    setActiveTab(initialTab ?? getDefaultTab());
+  }, [initialTab]);
   const service = services[activeTab];
 
   if (!service) {
@@ -167,14 +173,14 @@ const ServiceDetailsArea = () => {
                   </span>
                 </div>
                 <p className="mb-4">{card.description}</p>
-                <button
+                <Link
+                  href={`/service/${card.targetTab}`}
                   type="button"
                   className="tp-btn-border tp-btn-hover"
-                  onClick={() => setActiveTab(card.targetTab)}
                 >
                   <span>{card.actionLabel}</span>
                   <b></b>
-                </button>
+                </Link>
               </div>
             </div>
           ))}
@@ -370,39 +376,9 @@ const ServiceDetailsArea = () => {
   return (
     <div className="sv-details-area pt-100 pb-100">
       <div className="container">
-        <div className="sv-details-tab mb-50">
-          <ul className="nav nav-tabs" role="tablist">
-            {serviceTabs.map((tab) => (
-              <li className="nav-item" key={tab.id} role="presentation">
-                <button
-                  type="button"
-                  role="tab"
-                  className={`nav-link ${activeTab === tab.id ? "active" : ""}`}
-                  onClick={() => setActiveTab(tab.id)}
-                >
-                  {tab.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         <div className="row">
           <div className="col-xl-10 mx-auto">
             <div className="sv-details-wrapper">
-              {activeTab === "overview" && (
-                <div className="sv-details-thumb mb-45">
-                  <Image
-                    className="w-100 rounded"
-                    src={hero_image}
-                    alt={service.title}
-                    width={1200}
-                    height={550}
-                    priority
-                  />
-                </div>
-              )}
-
               {renderServiceSpecificContent()}
               {service?.faqs?.length && (
                 <>
