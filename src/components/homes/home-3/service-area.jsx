@@ -2,10 +2,6 @@ import service_data from "@/data/service-data";
 import Link from "next/link";
 import React from "react";
 
-import service_img_1 from "../../../../public/assets/img/service/sv-icon-3-1.png";
-import service_img_2 from "../../../../public/assets/img/service/service-shape-3-1.png";
-import Image from "next/image";
-
 const service_content = {
   title: <>Our Services</>,
   btn_text: <>See All Services</>,
@@ -76,7 +72,7 @@ const ServiceArea = () => {
         </div>
 
         <div className="row g-4 align-items-stretch">
-          <div className="col-xl-4">
+          <div className="col-xl-4  d-none d-lg-flex">
             <div
               style={{
                 ...cardBase,
