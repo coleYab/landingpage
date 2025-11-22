@@ -38,34 +38,13 @@ const CompanyArea = () => {
 
   return (
     <>
-      <div
-        className="ab-company-area pt-105 pb-100"
-        style={{
-          backgroundColor: "#ffffff",
-          color: "#0b3937",
-        }}
-      >
+      <div className="ab-company-area pt-105 pb-100">
         <div className="container">
           <div className="row ab-company-section-space">
             <div className="col-xl-6">
               <div className="ab-company-section-box">
-                <h4
-                  className="inner-section-subtitle mb-2"
-                  style={{
-                    letterSpacing: "0.25em",
-                    textTransform: "uppercase",
-                    color: "#7c908b",
-                    fontSize: "13px",
-                  }}
-                >
-                  {sub_title}
-                </h4>
-                <h3
-                  className="tp-section-title mb-20"
-                  style={{ color: "#0b3937" }}
-                >
-                  {title}
-                </h3>
+                <h4 className="inner-section-subtitle">{sub_title}</h4>
+                <h3 className="tp-section-title">{title}</h3>
               </div>
             </div>
             <div
@@ -74,16 +53,10 @@ const CompanyArea = () => {
               data-wow-delay=".5s"
             >
               <div className="ab-company-right">
-                <div
-                  className="ab-company-section-text"
-                  style={{
-                    maxWidth: "620px",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  <p className="pb-10 mb-2">{info_1}</p>
-                  <p className="pb-10 mb-2">{info_2}</p>
-                  <p className="mb-0">
+                <div className="ab-company-section-text">
+                  <p className="pb-10">{info_1}</p>
+                  <p className="pb-10">{info_2}</p>
+                  <p>
                     <span>{info_3}</span>
                   </p>
                 </div>

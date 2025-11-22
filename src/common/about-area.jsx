@@ -87,10 +87,7 @@ const Section = ({ content }) => {
   const { title, sub_title, des, about_list, btn_text } = content;
 
   return (
-    <div
-      className="tp-about__area tp-about__pt-pb pt-md-100 pt-8"
-      style={{ backgroundColor: "#ffffff", color: "#0b3937" }}
-    >
+    <div className="tp-about__area tp-about__pt-pb pt-md-100 pt-8">
       <div className="container">
         <div className="row align-items-center">
           {/* Uncomment this if you want to show images */}
@@ -110,40 +107,16 @@ const Section = ({ content }) => {
           >
             <div className="tp-about__right">
               <div className="tp-about__section-box">
-                <h4
-                  className="tp-section-subtitle mb-2"
-                  style={{
-                    letterSpacing: "0.25em",
-                    textTransform: "uppercase",
-                    fontSize: "13px",
-                    color: "#7f908c",
-                  }}
-                >
-                  {title}
-                </h4>
+                <h4 className="tp-section-subtitle">{title}</h4>
                 {sub_title && (
-                  <h3
-                    className="tp-section-title mb-15"
-                    style={{ color: "#0b3937" }}
-                  >
-                    {sub_title}
-                  </h3>
+                  <h3 className="tp-section-title mb-15">{sub_title}</h3>
                 )}
-                <p style={{ maxWidth: "720px", lineHeight: 1.7 }}>{des}</p>
+                <p>{des}</p>
               </div>
               <div className="tp-about__list">
                 <ul>
                   {about_list.map((item, i) => (
-                    <li
-                      key={i}
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: "10px",
-                        marginBottom: "8px",
-                        lineHeight: 1.6,
-                      }}
-                    >
+                    <li key={i}>
                       <BadgeCheck
                         style={{
                           color: "#a9fa60",

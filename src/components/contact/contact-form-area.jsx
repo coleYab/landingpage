@@ -22,7 +22,7 @@ const ContactFormArea = () => {
   return (
     <>
       <div
-        className="contact-form-area pb-120 pt-120"
+        className="contact-form-area py-5"
         style={{
           backgroundColor: "#ffffff",
           color: "#0b3937",
@@ -30,9 +30,9 @@ const ContactFormArea = () => {
       >
         <div className="container">
           <div className="row gx-0">
-            <div className="col-xl-5 col-lg-6">
-              <div className="contact-form-left pe-xl-5 pe-lg-4">
-                <div className="contact-form-section-box pb-80">
+            <div className="col-xl-5 col-lg-6 d-flex justify-content-center justify-content-lg-start mb-4 mb-lg-0">
+              <div className="contact-form-left pe-xl-5 pe-lg-4 text-center text-lg-start">
+                <div className="contact-form-section-box pb-3 pb-lg-4">
                   <h5
                     className="inner-section-subtitle"
                     style={{ color: "#0b3937", letterSpacing: "0.2em" }}
@@ -45,10 +45,15 @@ const ContactFormArea = () => {
                   >
                     {tilte}
                   </h4>
-                  <p style={{ color: "#324644" }}>{info}</p>
+                  <p
+                    className="text-center text-lg-start"
+                    style={{ color: "#324644" }}
+                  >
+                    {info}
+                  </p>
                 </div>
                 <div className="contact-form-social-box p-relative">
-                  <div className="contact-form-social-item d-flex gap-3">
+                  <div className="contact-form-social-item d-flex gap-3 justify-content-center justify-content-lg-start mt-3">
                     {["facebook-f", "twitter", "linkedin-in", "instagram"].map(
                       (icon) => (
                         <Link
