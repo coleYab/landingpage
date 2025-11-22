@@ -8,7 +8,6 @@ import Image from "next/image";
 import logo from "@/assets/img/logo/logo-black.png";
 
 const HeaderThree = () => {
-  const { sticky } = useSticky();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -16,20 +15,21 @@ const HeaderThree = () => {
       <header className="tp-header-height">
         <div
           id="header-sticky"
-          className={`"header-bottom__area header__space header-sticky-bg-2 header-bottom__transparent z-index-5 ${
-            sticky && "header-sticky"
-          }`}
+          style={{
+            background: "white",
+          }}
+          className={`header-bottom__area header__space header-sticky-bg-2 z-index-5 header-sticky`}
         >
           <div className="container">
             <div className="row align-items-center justify-content-between">
-              <div className="col-xxl-1 col-xl-1 col-lg-1 col-md-2 col-2">
+              <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-2">
                 <div className="header-bottom__logo">
                   <Link href="/">
                     <Image src={logo} alt="" />
                   </Link>
                 </div>
               </div>
-              <div className="col-xxl-9 col-xl-9 col-lg-9 d-none d-lg-block">
+              <div className="col-xxl-8 col-xl-8 col-lg-8 d-none d-lg-block">
                 <div className="header-bottom__main-menu header-bottom__main-menu-3">
                   <nav id="mobile-menu">
                     <NavMenu />

@@ -9,19 +9,43 @@ const ContactUsForm = () => {
         <div className="row gx-20">
           <div className="col-12">
             <div className="postbox__comment-input mb-30">
-              <input type="text" className="inputText" required />
+              <input
+                type="text"
+                className="inputText"
+                required
+                style={{
+                  borderColor: "#0b3937",
+                  color: "#0b3937",
+                }}
+              />
               <span className="floating-label">Full Name</span>
             </div>
           </div>
           <div className="col-12">
             <div className="postbox__comment-input mb-30">
-              <input type="text" className="inputText" required />
+              <input
+                type="text"
+                className="inputText"
+                required
+                style={{
+                  borderColor: "#0b3937",
+                  color: "#0b3937",
+                }}
+              />
               <span className="floating-label">Your Email</span>
             </div>
           </div>
           <div className="col-12">
             <div className="postbox__comment-input mb-35">
-              <input type="text" className="inputText" required />
+              <input
+                type="text"
+                className="inputText"
+                required
+                style={{
+                  borderColor: "#0b3937",
+                  color: "#0b3937",
+                }}
+              />
               <span className="floating-label">Phone Number</span>
             </div>
           </div>
@@ -43,7 +67,14 @@ const ContactUsForm = () => {
           </div> */}
           <div className="col-xxl-12">
             <div className="postbox__comment-input mb-30">
-              <textarea className="textareaText" required></textarea>
+              <textarea
+                className="textareaText"
+                required
+                style={{
+                  borderColor: "#0b3937",
+                  color: "#0b3937",
+                }}
+              ></textarea>
               <span className="floating-label-2">Message...</span>
             </div>
           </div>

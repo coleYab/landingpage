@@ -1,14 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-import card_img_1 from "../../public/assets/img/card/card-bg.png";
-import card_img_2 from "../../public/assets/img/card/card-shape-1.png";
-import card_img_3 from "../../public/assets/img/card/card-img-1.png";
-import card_img_4 from "../../public/assets/img/card/card-img-2.png";
-import card_img_5 from "../../public/assets/img/card/card-img-3.png";
-import card_img_6 from "../../public/assets/img/card/card-img-4.png";
-import card_img_7 from "../../public/assets/img/card/cardi.webp";
 import card_img_8 from "../../public/assets/img/card/cardi.avif";
 
 const card_content = {
@@ -65,7 +57,13 @@ const CardArea = ({ style_service, spacing = "pt-175 pb-185" }) => {
   return (
     <>
       {/* <hr /> */}
-      <div className={`tp-card-area tp-card-space ${spacing}`}>
+      <div
+        className={`tp-card-area tp-card-space ${spacing}`}
+        style={{
+          backgroundColor: "#0b3937",
+          color: "#a9fa60",
+        }}
+      >
         <div className="container">
           <div className="row">
             <div
@@ -91,13 +89,33 @@ const CardArea = ({ style_service, spacing = "pt-175 pb-185" }) => {
               data-wow-delay=".7s"
             >
               <div className="tp-card-title-box">
-                <h3 className="tp-section-title-3 pb-15">{title}</h3>
-                <p className="">{description}</p>
+                <h3
+                  className="tp-section-title-3 pb-15"
+                  style={{
+                    color: "#a9fa60",
+                  }}
+                >
+                  {title}
+                </h3>
+                <p
+                  className=""
+                  style={{
+                    color: "#a9fa60",
+                    opacity: 0.9,
+                  }}
+                >
+                  {description}
+                </p>
                 <Link
                   className={`${
                     style_service ? "tp-btn-inner" : "tp-btn-blue-lg"
                   } tp-btn-hover alt-color-black`}
                   href="/new-service"
+                  style={{
+                    backgroundColor: "#92d25a",
+                    borderColor: "white",
+                    color: "white",
+                  }}
                 >
                   <span>{btn_text}</span>
                   <b></b>

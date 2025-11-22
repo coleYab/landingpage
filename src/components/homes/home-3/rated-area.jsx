@@ -1,25 +1,10 @@
-import BlurStart from "@/svg/blur-start";
 import React from "react";
-import Image from "next/image";
-
-import icon1 from "../../../../public/assets/img/rate/rate-logo-1.png";
-import icon2 from "../../../../public/assets/img/rate/rate-logo-2.png";
-import icon3 from "../../../../public/assets/img/rate/rate-logo-3.png";
-
-import shape1 from "../../../../public/assets/img/rate/rate-shape-1.png";
-import shape2 from "../../../../public/assets/img/rate/rate-shape-2.png";
-import main_img from "../../../../public/assets/img/rate/rated-img.png";
-import Link from "next/link";
+import { CheckCircle } from "lucide-react";
 
 const rated_content = {
   bg_img: "/assets/img/rate/rated-bg.jpg",
-  title: (
-    <>
-      Why Choose Us
-      <br />
-      Reasons organisations trust Axonova
-    </>
-  ),
+  title: <>Why Choose Us</>,
+  reason: <>Reasons organisations trust Axonova</>,
   points: [
     {
       id: 2,
@@ -30,7 +15,6 @@ const rated_content = {
           roles, your systems, your challenges.
         </>
       ),
-      img: icon2,
     },
     {
       id: 1,
@@ -40,7 +24,6 @@ const rated_content = {
           <br /> We focus on real tasks, real workflows, and real value.
         </>
       ),
-      img: icon1,
     },
     {
       id: 3,
@@ -51,7 +34,6 @@ const rated_content = {
           every step of your AI journey.
         </>
       ),
-      img: icon3,
     },
     {
       id: 4,
@@ -62,7 +44,7 @@ const rated_content = {
           every stage of AI adoption.
         </>
       ),
-      img: icon1,
+      // img: icon1,
     },
     {
       id: 5,
@@ -73,7 +55,7 @@ const rated_content = {
           progress is always visible.
         </>
       ),
-      img: icon2,
+      // img: icon2,
     },
     {
       id: 6,
@@ -84,99 +66,77 @@ const rated_content = {
           exactly what to do next.
         </>
       ),
-      img: icon3,
     },
   ],
 };
 
-const { bg_img, title, points } = rated_content;
+const { title, reason, points } = rated_content;
 
 const RatedArea = () => {
+  const accentColor = "#0b3937";
+
   return (
-    <>
-      <div className="tp-rated-area fix p-relative">
-        <div
-          className="tp-rated-bg pt-120"
-          style={{ backgroundImage: `url(${bg_img})` }}
-        >
-          <div className="tp-rated-shape-1 d-none d-lg-block">
-            <Image src={shape1} alt="theme-pure" />
-          </div>
-          <div className="tp-rated-shape-2 d-none d-sm-block">
-            <Image src={shape2} alt="theme-pure" />
-          </div>
-
-          <div className="container z-index-6">
-            <div className="row justify-content-center">
-              <div className="col-xl-10">
-                <div className="tp-rated-title-box text-center mb-60">
-                  {/* <div className="tp-rated-icon tp-title-anim">
-                    <BlurStart />
-                    <BlurStart />
-                    <BlurStart />
-                    <BlurStart />
-                    <BlurStart />
-                  </div> */}
-
-                  <h5 className="tp-section-title-3 text-white pb-40">
-                    {title}
-                  </h5>
-
-                  {/* <Link
-                    className="tp-btn-blue-lg tp-btn-hover alt-color-white"
-                    href="#"
-                  >
-                    <span className="text-color-black">Explore Services</span>
-                    <b></b>
-                  </Link> */}
-                </div>
-              </div>
-            </div>
-
-            <div className="author-rated-wrapper">
-              <div className="row">
-                {points.map((item) => (
-                  <div
-                    key={item.id}
-                    className="col-xl-4 col-lg-4 col-md-6 mb-4"
-                  >
-                    <div className="author-rated text-center">
-                      <div className="author-rated-icon">
-                        <span>
-                          <i className="fas fa-check-circle"></i>
-                        </span>
-                      </div>
-                      <p>{item.text}</p>
-                      {/* <div className="author-rated-logo">
-                        <Image src={item.img} alt="icon" />
-                      </div> */}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* <div className="row justify-content-center">
-              <div className="col-xl-10">
-                <div className="tp-rated-title-box text-center mb-60">
-                  <Link
-                    className="tp-btn-blue-lg tp-btn-hover alt-color-white"
-                    href="#"
-                  >
-                    <span className="text-color-black">Explore Services</span>
-                    <b></b>
-                  </Link>
-                </div>
-              </div>
-            </div> */}
-
-            {/* <div className="author-rated-big-img">
-              <Image src={main_img} alt="theme-pure" />
-            </div> */}
+    <section className="tp-rated-area bg-white text-dark py-5">
+      <div className="container">
+        <div className="row justify-content-center mb-5">
+          <div className="col-lg-8 text-center">
+            <p
+              className="text-uppercase fw-semibold mb-2"
+              style={{ color: "#8aa09a", letterSpacing: "0.2em" }}
+            >
+              {reason}
+            </p>
+            <h5
+              className="tp-section-title-3 fw-bold mb-3"
+              style={{ color: accentColor }}
+            >
+              {title}
+            </h5>
+            <div
+              className="mx-auto"
+              style={{
+                width: "80px",
+                height: "3px",
+                backgroundColor: "#a9fa60",
+              }}
+            ></div>
           </div>
         </div>
+
+        <div className="row g-4">
+          {points.map((item) => (
+            <div className="col-xl-4 col-lg-4 col-md-6" key={item.id}>
+              <div
+                className="card h-100 border-0 rounded-4 bg-white p-4"
+                style={{
+                  color: accentColor,
+                  border: "1px solid #e5ebe8",
+                }}
+              >
+                <div className="d-flex align-items-center gap-3 mb-3">
+                  <div
+                    className="d-inline-flex align-items-center justify-content-center rounded-circle"
+                    style={{
+                      width: "48px",
+                      height: "48px",
+                      backgroundColor: "#eef5f3",
+                    }}
+                  >
+                    <CheckCircle size={24} color={accentColor} />
+                  </div>
+                  <span className="fw-semibold" style={{ color: accentColor }}>
+                    Insight #{item.id}
+                  </span>
+                </div>
+                <div style={{ color: accentColor, lineHeight: 1.6 }}>
+                  {item.text}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </>
+    </section>
   );
 };
 

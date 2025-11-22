@@ -1,4 +1,3 @@
-import Brwoser from "@/common/brwoser";
 import EmailIcon from "@/svg/email";
 import EmailTwo from "@/svg/email-2";
 import PhoneTwo from "@/svg/phone-2";
@@ -9,6 +8,10 @@ import React from "react";
 import Slider from "react-slick";
 
 import footer_logo from "@/assets/img/logo/logo-black.png";
+import { Mail } from "lucide-react";
+import { MailIcon } from "lucide-react";
+import { PhoneIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const footer_content = {
   bg_img: "/assets/img/footer/overly.png",
@@ -141,20 +144,32 @@ const FooterThree = () => {
     <>
       <div
         className="footer-bottom-content tp-browser-bg-shape"
-        style={{ backgroundImage: `url(${bg_img})` }}
+        style={{
+          backgroundColor: "#0b3937",
+          color: "#a9fa60",
+        }}
       >
         <div className="tp-browser-details-area pt-110 pb-30 p-relative">
           <div className="container">
             <div className="row align-items-center">
               <div className="col-xl-9 col-lg-9">
                 <div className="tp-browser-section-box d-flex justify-content-between align-items-center mb-30">
-                  <h3 className="tp-section-title-3">{title}</h3>
+                  <h3
+                    className="tp-section-title-3"
+                    style={{ color: "#a9fa60" }}
+                  >
+                    {title}
+                  </h3>
                 </div>
               </div>
               <div className="col-xl-3 col-lg-3">
                 <div className="tp-browser-btn text-lg-end text-start mb-40">
                   <Link
                     className="tp-btn-blue-lg tp-btn-hover"
+                    style={{
+                      backgroundColor: "#82c447",
+                      color: "white",
+                    }}
                     href="/service-details"
                   >
                     <span>{btn_text}</span>
@@ -176,9 +191,15 @@ const FooterThree = () => {
                 <Slider {...setting} className="footer-slide-active">
                   {footer_slider_data.map((item, i) => (
                     <div key={i} className="footer-slide-wrapper">
-                      <div className="footer-slide-item">
+                      <div
+                        className="footer-slide-item"
+                        style={{
+                          backgroundColor: "#82c447",
+                          color: "white",
+                        }}
+                      >
                         <i className="fal fa-check"></i>
-                        <span>{item}</span>
+                        <span style={{ color: "white" }}>{item}</span>
                       </div>
                     </div>
                   ))}
@@ -188,7 +209,10 @@ const FooterThree = () => {
           </div>
 
           <div className="tp-footer__pl-pr">
-            <div className="tp-footer__area tp-footer__tp-border-bottom">
+            <div
+              className="tp-footer__area tp-footer__tp-border-bottom"
+              style={{ color: "#a9fa60" }}
+            >
               <div className="container">
                 <div className="row">
                   <div
@@ -203,21 +227,30 @@ const FooterThree = () => {
                         </Link>
                       </div>
                       <div className="tp-footer__contact-info">
-                        <p>{description}</p>
+                        <p style={{ color: "#a9fa60" }}>{description}</p>
                         <ul>
                           <li>
                             <span>
-                              <PhoneTwo />
+                              <PhoneIcon style={{ color: "#a9fa60" }} />
                             </span>
-                            <Link className="first-child" href={`tel:${phone}`}>
+                            <Link
+                              className="first-child"
+                              href={`tel:${phone}`}
+                              style={{ color: "#a9fa60" }}
+                            >
                               {phone}
                             </Link>
                           </li>
                           <li>
                             <span>
-                              <EmailTwo />
+                              <MailIcon style={{ color: "#a9fa60" }} />
                             </span>
-                            <Link href={`mailto:${email}`}>{email}</Link>
+                            <Link
+                              style={{ color: "#a9fa60" }}
+                              href={`mailto:${email}`}
+                            >
+                              {email}
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -234,14 +267,22 @@ const FooterThree = () => {
                       <div
                         className={`tp-footer__widget footer-widget-3 ${item.cls_2}`}
                       >
-                        <h4 className="tp-footer__widget-title">
+                        <h4
+                          className="tp-footer__widget-title"
+                          style={{ color: "#a9fa60" }}
+                        >
                           {item.title}
                         </h4>
                         <div className="tp-footer__content">
                           <ul>
                             {item.links.map((link, i) => (
                               <li key={i}>
-                                <Link href={link.link}>{link.name}</Link>
+                                <Link
+                                  style={{ color: "#a9fa60" }}
+                                  href={link.link}
+                                >
+                                  {link.name}
+                                </Link>
                               </li>
                             ))}
                           </ul>
@@ -256,7 +297,10 @@ const FooterThree = () => {
                     data-wow-delay=".9s"
                   >
                     <div className="tp-footer__widget footer-widget-3 footer-col-3-4">
-                      <h4 className="tp-footer__widget-title">
+                      <h4
+                        className="tp-footer__widget-title"
+                        style={{ color: "#a9fa60" }}
+                      >
                         Our Newsletter
                       </h4>
                       <div className="tp-footer__input mb-35 p-relative">
@@ -266,19 +310,19 @@ const FooterThree = () => {
                             placeholder="Business email adress"
                           />
                           <span>
-                            <EmailIcon />
+                            <MailIcon style={{ color: "#a9fa60" }} />
                           </span>
                           <button
                             style={{
-                              backgroundColor: "#0b3937",
+                              backgroundColor: "#80bb4c",
                             }}
                           >
-                            <RightArrow />
+                            <ArrowRight style={{ color: "white" }} />
                           </button>
                         </form>
                       </div>
                       <div className="tp-footer__social-3">
-                        <h4>Social media</h4>
+                        <h4 style={{ color: "#a9fa60" }}>Social media</h4>
                         {social_links.map((l, i) => (
                           <Link
                             key={i}

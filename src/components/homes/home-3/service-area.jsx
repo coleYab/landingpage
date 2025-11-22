@@ -24,102 +24,171 @@ const { title, btn_text, bg_img, service_title, service_info } =
   service_content;
 
 const ServiceArea = () => {
+  const accentColor = "#0b3937";
+  const sectionStyles = {
+    backgroundColor: "#ffffff",
+    paddingTop: "50px",
+    paddingBottom: "90px",
+    color: accentColor,
+  };
+  const cardBase = {
+    backgroundColor: "#ffffff",
+    borderRadius: "24px",
+    border: "1px solid #dfe6e4",
+  };
+
   return (
-    <>
-      <div
-        className="tp-service-area pb-90 z-index"
-        style={{
-          // backgroundColor: "#eef3f1ff",
-          paddingTop: 50 + "px",
-        }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-12">
-              <div className="tp-service-section-wrapper mb-60 d-flex justify-content-center align-items-end">
-                <h3
-                  className="tp-section-title-3 wow tpfadeLeft"
-                  data-wow-duration=".9s"
-                  data-wow-delay=".3s"
-                >
-                  {title}
-                </h3>
-                {/* <Link
-                  className="tp-btn-blue-lg tp-btn-hover mb-10 alt-color-black wow tpfadeRight"
-                  data-wow-duration=".9s"
-                  data-wow-delay=".5s"
-                  href="/service-details"
-                >
-                  <span>{btn_text}</span>
-                  <b></b>
-                </Link> */}
-              </div>
+    <section className="tp-service-area z-index" style={sectionStyles}>
+      <div className="container">
+        <div className="row justify-content-center text-center mb-5">
+          <div className="col-lg-8">
+            {/* <span
+              className="text-uppercase"
+              style={{
+                fontSize: "14px",
+                letterSpacing: "0.2em",
+                color: "#7a8d88",
+              }}
+            >
+              {service_title}
+            </span> */}
+            <h3
+              className="tp-section-title-3 mt-3"
+              style={{
+                color: accentColor,
+                fontSize: "48px",
+                lineHeight: 1.1,
+              }}
+            >
+              {title}
+            </h3>
+            <p
+              className="mt-3"
+              style={{
+                color: "#54706a",
+                fontSize: "18px",
+                lineHeight: 1.6,
+              }}
+            >
+              {service_info}
+            </p>
+          </div>
+        </div>
+
+        <div className="row g-4 align-items-stretch">
+          <div className="col-xl-4">
+            <div
+              style={{
+                ...cardBase,
+                padding: "40px",
+                height: "100%",
+              }}
+            >
+              <h4
+                style={{
+                  fontSize: "28px",
+                  color: accentColor,
+                  marginBottom: "20px",
+                }}
+              >
+                Tailored AI Enablement
+              </h4>
+              <p
+                style={{
+                  color: "#54706a",
+                  lineHeight: 1.7,
+                }}
+              >
+                We combine strategy, training, and automation into flexible
+                programs that meet your team where they are. Explore our core
+                services or reach out for a bespoke roadmap.
+              </p>
+              <Link
+                href="/service-details"
+                className="tp-btn-blue-lg tp-btn-hover d-inline-flex align-items-center justify-content-center mt-4"
+                style={{
+                  backgroundColor: accentColor,
+                  color: "#ffffff",
+                  borderRadius: "999px",
+                  padding: "0 28px",
+                  minHeight: "54px",
+                  fontWeight: 600,
+                }}
+              >
+                {btn_text}
+              </Link>
             </div>
           </div>
 
-          <div className="row">
-            <div
-              className="col-xl-12 wow tpfadeLeft"
-              data-wow-duration=".9s"
-              data-wow-delay=".5s"
-            >
-              <div
-                className="tp-service-3-item mb-30 p-relative z-index"
-                style={{ backgroundImage: `url(${bg_img})` }}
-              >
-                <div className="tp-service-3-icon">
-                  <Image src={service_img_1} alt="theme-pure" />
-                </div>
-                <div className="tp-service-3-content">
-                  <span>{service_title}</span>
-                  <h4 className="tp-service-3-title-sm">
-                    <Link href="/service-details">{service_info}</Link>
-                  </h4>
-                </div>
-                <div className="tp-service-3-btn">
-                  <Link className="tp-btn-white-solid" href="/service-details">
-                    Learn More
-                  </Link>
-                </div>
-                <div className="tp-service-3-shape">
-                  <Image src={service_img_2} alt="theme-pure" />
-                </div>
-              </div>
-            </div>
-
-            {service_data.slice(0, 4).map((item, i) => (
-              <div
-                key={i}
-                className="col-xl-6 col-lg-6 col-md-6 wow tpfadeUp"
-                data-wow-duration=".9s"
-                data-wow-delay=".5s"
-              >
-                <div className="tp-service-sm-item mb-30 d-flex flex-column justify-content-between">
-                  <div className="tp-service-sm-icon">{item.icon}</div>
-                  <div className="tp-service-sm-content">
-                    <h3 className="tp-service-sm-title">{item.title}</h3>
-                    <h3
+          <div className="col-xl-8">
+            <div className="row g-4">
+              {service_data.slice(0, 4).map((item, i) => (
+                <div className="col-md-6" key={i}>
+                  <div
+                    style={{
+                      ...cardBase,
+                      padding: "32px",
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "18px",
+                    }}
+                  >
+                    <div
                       style={{
-                        fontWeight: 200,
-                        fontSize: 18 + "px",
-                        marginBottom: 50 + "px",
+                        width: "60px",
+                        height: "60px",
+                        borderRadius: "16px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: accentColor,
+                        fontSize: "24px",
                       }}
                     >
-                      <Link href="/service-details">{item.description} </Link>
-                    </h3>
-                    <div className="tp-service-sm-link">
-                      <Link href="/service-details">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4
+                        style={{
+                          color: accentColor,
+                          fontSize: "22px",
+                          marginBottom: "10px",
+                        }}
+                      >
+                        {item.title}
+                      </h4>
+                      <p
+                        style={{
+                          color: "#54706a",
+                          fontSize: "16px",
+                          lineHeight: 1.6,
+                          marginBottom: "18px",
+                        }}
+                      >
+                        {item.description}
+                      </p>
+                      <Link
+                        href="/service-details"
+                        style={{
+                          color: accentColor,
+                          fontWeight: 600,
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "8px",
+                        }}
+                      >
                         Learn More <i className="far fa-arrow-right"></i>
                       </Link>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

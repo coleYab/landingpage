@@ -1,28 +1,19 @@
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicEffect";
-import useTitleAnimation from "@/hooks/useTitleAnimation";
-import Brwoser from "@/common/brwoser";
-import BounceLine from "@/svg/bounce-line";
 import gsap from "gsap";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 
 import left_shape from "../../../../public/assets/img/hero/hero-left-shape-3-1.png";
-import gradient_bg from "../../../../public/assets/img/hero/hero-gradient-3.jpg";
-import img_1 from "../../../../public/assets/img/hero/hero.jpg";
-import img_2 from "../../../../public/assets/img/hero/hero-img-3-1-3.png";
 import Link from "next/link";
 
 const hero_content = {
   title_1: <>AI Transformation, </>,
   title_2: "When it's Done Right.",
-  //   title_2:
-  //     "Practical AI training, strategy, and automation enabling your organization to adopt AI with confidence.",
   info: (
     <>
       We make AI practical, safe, and valuable for your team and business
       through training, strategy, and automation solutions, helping you adopt AI
       with confidence and achieve meaningful results.
-      <br />
       <br />
       Our experts guide you through AI implementation, ensuring ethical use,
       maximum ROI, and smooth integration. Whether you're a startup or an
@@ -61,30 +52,50 @@ const HeroArea = () => {
       <div
         className="tp-hero-area tp-hero-pt pt-170 pb-70 p-relative"
         style={{
-          height: 100 + "vh",
+          minHeight: "100vh",
         }}
       >
         <div className="tp-hero-left-shape">
           <Image src={left_shape} alt="them-pure" />
         </div>
         <div className="tp-hero-gradient-bg">
-          <Image src={gradient_bg} alt="them-pure" />
+          <video
+            className="w-100 h-100"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+          >
+            <source src="/assets/video/background.mp4" type="video/mp4" />
+          </video>
         </div>
         <div className="container">
           <div className="row justify-content-center z-index-3">
             <div className="col-xl-11">
-              <div className="tp-hero-title-box text-center">
+              <div
+                className="tp-hero-title-box text-center"
+                style={{
+                  color: "#ffffff",
+                }}
+              >
                 <h2
                   className="tp-hero-title-3 hero-text-anim pb-5"
                   style={{
-                    color: "#0b3937",
+                    color: "#ffffff",
                   }}
                 >
                   <i>
                     <i
                       className="child-1"
                       style={{
-                        color: "#0b3937",
+                        color: "#ffffff",
                       }}
                     >
                       {title_1}
@@ -94,7 +105,7 @@ const HeroArea = () => {
                     <i
                       className="child-1"
                       style={{
-                        color: "#0b3937",
+                        color: "#ffffff",
                       }}
                     >
                       {title_2}
@@ -105,6 +116,9 @@ const HeroArea = () => {
                   className="tp-char-animation-2 wow tpfadeUp"
                   data-wow-duration=".9s"
                   data-wow-delay=".7s"
+                  style={{
+                    color: "#ffffff",
+                  }}
                 >
                   {info}
                 </p>
@@ -118,14 +132,26 @@ const HeroArea = () => {
                   className="tp-btn-blue-lg tp-btn-hover alt-color-black"
                   href="/new-service"
                 >
-                  <span>{btn_1}</span>
+                  <span
+                    style={{
+                      color: "#ffffff",
+                    }}
+                  >
+                    {btn_1}
+                  </span>
                   <b></b>
                 </Link>
                 <Link
                   className="tp-btn-border tp-btn-hover alt-color-black"
                   href="/service-details"
                 >
-                  <span>{btn_2}</span>
+                  <span
+                    style={{
+                      color: "#ffffff",
+                    }}
+                  >
+                    {btn_2}
+                  </span>
                   <b></b>
                 </Link>
               </div>
@@ -133,28 +159,8 @@ const HeroArea = () => {
                 className="tp-hero-browser-wrapper d-flex align-items-center justify-content-center wow tpfadeUp"
                 data-wow-duration=".9s"
                 data-wow-delay=".9s"
-              >
-                {/* <Brwoser /> */}
-              </div>
-              <div className="tp-hero-3-wrapper p-relative">
-                {/* <div className="tp-hero-3-border-wrap d-none d-md-block">
-                  <span className="redius-shape-1"></span>
-                  <span className="redius-shape-2"></span>
-                  <span className="redius-shape-3"></span>
-                </div> */}
-                {/* <div className="tp-hero-3-main-thumb z-index-5">
-                  <Image src={img_1} alt="them-pure" />
-                </div> */}
-                {/* <div className="tp-hero-3-shape-5 d-none d-lg-block wow frist-img animated">
-                  <Image src={img_2} alt="them-pure" />
-                </div> */}
-                {/* <div className="tp-hero-3-shape-6 d-none d-lg-block">
-                  <span>
-                    {" "}
-                    <BounceLine />{" "}
-                  </span>
-                </div> */}
-              </div>
+              ></div>
+              <div className="tp-hero-3-wrapper p-relative"></div>
             </div>
           </div>
         </div>
