@@ -52,12 +52,13 @@ const HeroArea = () => {
       <div
         className="tp-hero-area tp-hero-pt pt-170 pb-70 p-relative"
         style={{
+          backgroundColor: "#0b3937",
           minHeight: "100vh",
         }}
       >
-        <div className="tp-hero-left-shape">
+        {/* <div className="tp-hero-left-shape">
           <Image src={left_shape} alt="them-pure" />
-        </div>
+        </div> */}
         <div className="tp-hero-gradient-bg">
           <video
             className="w-100 h-100"
