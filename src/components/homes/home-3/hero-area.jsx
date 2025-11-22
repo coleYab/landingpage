@@ -47,6 +47,16 @@ const HeroArea = () => {
     });
   }, []);
 
+  useEffect(() => {
+    const video = document.querySelector("video");
+    if (video) {
+      video.play().catch(() => {
+        // Autoplay blocked, fallback: show poster only
+        console.log("Autoplay blocked on mobile");
+      });
+    }
+  }, []);
+
   return (
     <>
       <div
