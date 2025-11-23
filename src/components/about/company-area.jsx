@@ -43,7 +43,14 @@ const CompanyArea = () => {
           <div className="row ab-company-section-space">
             <div className="col-xl-6">
               <div className="ab-company-section-box">
-                <h4 className="inner-section-subtitle">{sub_title}</h4>
+                <h4
+                  className="inner-section-subtitle"
+                  style={{
+                    color: "#0b3937",
+                  }}
+                >
+                  {sub_title}
+                </h4>
                 <h3 className="tp-section-title">{title}</h3>
               </div>
             </div>
