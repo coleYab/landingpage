@@ -554,6 +554,10 @@ export const services = {
         "Start your AI journey with a personalized session designed around your goals, your industry, and your everyday work.",
       button: "Schedule your Coaching Session now",
     },
+    highlight:
+      "A confident, AI-enabled workforce that works faster, delivers higher-quality output, and uses AI safely, consistently, and responsibly.",
+    empower:
+      "Give your people the confidence, safety, and capability they need to thrive with AI today and tomorrow.",
     faqs: [
       {
         id: 1,

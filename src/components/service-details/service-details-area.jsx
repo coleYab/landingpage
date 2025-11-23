@@ -74,7 +74,7 @@ const ServiceDetailsArea = ({ initialTab }) => {
                 className="d-flex align-items-center mb-3 py-2 border-bottom" // Flex for alignment, spacing for modern rhythm
               >
                 <IconComponent
-                  className="me-3 fs-5"
+                  className="me-3"
                   style={{
                     color: "#0b3937",
                   }}
@@ -153,10 +153,41 @@ const ServiceDetailsArea = ({ initialTab }) => {
 
   const renderHighlights = () => {
     if (!service.highlight && !service.empower) return null;
+
     return (
-      <div className="sv-details-highlight p-4 mb-50 border rounded bg-white">
-        {service.highlight && <p className="lead mb-2">{service.highlight}</p>}
-        {service.empower && <p className="mb-0">{service.empower}</p>}
+      <div className="card mb-5 bg-white border-1">
+        <div className="card-body p-4 p-md-5">
+          {(service.highlight || service.empower) && (
+            <h3
+              className="card-title mb-4 fw-bold"
+              style={{
+                color: "#0b3937",
+              }}
+            >
+              Key Highlights
+            </h3>
+          )}
+
+          {service.highlight && (
+            <p className="lead fw-medium mb-3">
+              <i className="bi bi-check-circle-fill text-success me-2"></i>
+              {service.highlight}
+            </p>
+          )}
+
+          {service.empower && (
+            <p className="mb-4">
+              <i className="bi bi-star-fill me-2"></i>
+              {service.empower}
+            </p>
+          )}
+
+          <div className="mt-4">
+            <button className="tp-btn-blue-lg tp-btn-hover">
+              Contact us to get started
+            </button>
+          </div>
+        </div>
       </div>
     );
   };
@@ -423,7 +454,7 @@ const ServiceDetailsArea = ({ initialTab }) => {
               {renderServiceSpecificContent()}
               {service?.faqs?.length && (
                 <>
-                  <h3 className="sv-details-title mb-4">
+                  <h3 className="sv-details-title mb-4 mt-50">
                     Frequently Asked Questions
                   </h3>
                   <AnswerQuestion

@@ -14,8 +14,8 @@ export const metadata = {
 export const generateStaticParams = () =>
   serviceSlugs.map((service) => ({ service }));
 
-const ServiceDetailsDynamicPage = ({ params }) => {
-  const service = params?.service;
+const ServiceDetailsDynamicPage = async ({ params }) => {
+  const { service } = await params;
 
   if (!serviceSlugs.includes(service)) {
     notFound();
