@@ -7,7 +7,7 @@ import HeaderThree from "@/layout/headers/header-3";
 import { services, serviceTabs } from "./service-details-page";
 
 const ServiceDetails = ({ initialTab }) => {
-  const title = services[initialTab].title;
+  const title = services[initialTab]?.title || "overview";
   return (
     <>
       <HeaderThree />
