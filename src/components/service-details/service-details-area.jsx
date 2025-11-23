@@ -73,7 +73,12 @@ const ServiceDetailsArea = ({ initialTab }) => {
                 key={i}
                 className="d-flex align-items-center mb-3 py-2 border-bottom" // Flex for alignment, spacing for modern rhythm
               >
-                <IconComponent className="me-3 text-primary fs-5" />
+                <IconComponent
+                  className="me-3 fs-5"
+                  style={{
+                    color: "#0b3937",
+                  }}
+                />
                 <span className="flex-grow-1 text-muted lh-lg">{item}</span>
               </li>
             ))}
@@ -93,7 +98,7 @@ const ServiceDetailsArea = ({ initialTab }) => {
             const [heading, detail] = item.split(":");
 
             return (
-              <div key={index} className="col-md-6 pb-20">
+              <div key={index} className="col-md-6 pb-4">
                 <div className="service-card border rounded h-100 p-4">
                   <div className="d-flex justify-content-between align-items-start mb-3">
                     <div>
@@ -122,7 +127,12 @@ const ServiceDetailsArea = ({ initialTab }) => {
               className="col-md-6 mb-2"
             >
               <div className="d-flex align-items-start">
-                <i className={`${iconClass} text-primary me-2 mt-1`}></i>
+                <i
+                  className={`${iconClass} me-4 mt-1`}
+                  style={{
+                    color: "#0b3937",
+                  }}
+                ></i>
                 <span>{item}</span>
               </div>
             </div>
