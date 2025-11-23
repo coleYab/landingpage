@@ -17,7 +17,7 @@ export const services = {
   overview: {
     id: "overview",
     hero: hero_image,
-    title: "AI Transformation, Done Right",
+    title: "Our Services",
     subtitle: "Explore the services that move your organisation forward",
     intro:
       "Axonova Consulting helps organisations adopt AI with clarity, confidence, and measurable impact.",

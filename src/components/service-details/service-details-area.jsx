@@ -156,14 +156,13 @@ const ServiceDetailsArea = ({ initialTab }) => {
 
     return (
       <div className="sv-details-text mb-60">
-        <h2 className="sv-details-title mb-30">Our Services</h2>
+        {/* <h2 className="sv-details-title mb-30">Our Services</h2> */}
         <div className="row g-4">
           {service.serviceCards.map((card) => (
             <div key={card.id} className="col-md-6">
               <div
                 className="service-card border rounded h-100 p-4"
                 style={{
-                  // FIX 1: Set parent position to relative
                   position: "relative",
                   backgroundImage: `url(/assets/img/services/s6.png)`,
                   backgroundSize: "cover",
@@ -171,13 +170,11 @@ const ServiceDetailsArea = ({ initialTab }) => {
                   backgroundColor: "#1f2937",
                 }}
               >
-                {/* THE OVERLAY (zIndex: 1) */}
                 <div
                   className="position-absolute"
                   style={{
                     top: 0,
                     left: 0,
-                    // FIX 2: Set overlay dimensions to fill parent
                     width: "100%",
                     height: "100%",
                     backgroundColor: "#1f2937",
@@ -195,12 +192,12 @@ const ServiceDetailsArea = ({ initialTab }) => {
                         {card.title}
                       </h3>
                     </div>
-                    <span
+                    {/* <span
                       className="badge bg-primary-subtle text-primary"
                       style={{ color: "white" }}
                     >
                       {card.actionLabel}
-                    </span>
+                    </span> */}
                   </div>
                   <p className="mb-4" style={{ color: "white" }}>
                     {card.description}

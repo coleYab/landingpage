@@ -4,15 +4,17 @@ import FooterThree from "@/layout/footers/footer-3";
 import HeaderSix from "@/layout/headers/header-6";
 import ServiceDetailsArea from "./service-details-area";
 import HeaderThree from "@/layout/headers/header-3";
+import { services, serviceTabs } from "./service-details-page";
 
 const ServiceDetails = ({ initialTab }) => {
+  const title = services[initialTab].title;
   return (
     <>
       <HeaderThree />
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <BreadcrumbTwo title="Our Services" innertitle="Our Services" />
+            <BreadcrumbTwo title={title} innertitle={title} />
             <ServiceDetailsArea initialTab={initialTab} />
           </main>
           <FooterThree />
