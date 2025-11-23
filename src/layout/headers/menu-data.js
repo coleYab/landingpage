@@ -27,7 +27,7 @@ const menu_data = [
     id: 5,
     mega_menu: false,
     has_dropdown: false,
-    title: "AI Automation and Solutions",
+    title: "AI Automation and Solution",
     link: "/service/ai-automations",
     active: "",
   },

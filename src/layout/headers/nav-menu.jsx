@@ -5,7 +5,7 @@ import menu_data from "./menu-data";
 const NavMenu = () => {
   return (
     <>
-      <ul>
+      <ul className="d-flex justify-content-evenly">
         {menu_data.map((menu_item, i) => (
           <li key={i}>
             <Link href={menu_item.link}>{menu_item.title}</Link>

@@ -21,8 +21,11 @@ const HeaderThree = () => {
           }}
           className={`header-bottom__area header__space header-sticky-bg-2 z-index-5 header-sticky`}
         >
-          <div className="container">
-            <div className="row align-items-center justify-content-between">
+          <div
+            className=""
+            style={{ paddingLeft: "30px", paddingRight: "30px" }}
+          >
+            <div className="row align-items-center justify-content-lg-evenly justify-content-between">
               <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-2">
                 <div className="header-bottom__logo">
                   <Link href="/">
@@ -39,18 +42,13 @@ const HeaderThree = () => {
                 </div>
               </div>
               <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-2">
-                <div className="header-bottom__right d-flex align-items-center justify-content-end">
-                  {/* <div className="header-bottom__action">
-                              <Link className="d-none d-lg-inline-block header-bottom__action-2 border-none" href="/register">
-                                 <span>Log In</span>
-                              </Link>
-                           </div> */}
+                <div className="header-bottom__right d-flex align-items-center justify-content-start">
                   <div className="header-bottom__btn d-flex align-items-center">
                     <Link
                       className="tp-btn-blue-sm d-none d-md-inline-block tp-btn-hover alt-color-black"
                       href="/new-service"
                     >
-                      Start Now
+                      Contact Us
                     </Link>
                     <a
                       className="header-bottom__bar tp-menu-bar d-lg-none"

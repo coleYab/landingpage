@@ -267,7 +267,7 @@
     line-height: 1;
     letter-spacing: -0.04em;
     color: var(--tp-common-white);
-    font-family: var(--tp-ff-mont);
+    font-family: var(--tp-ff-heading);
     padding-bottom: 35px;
     @media #{$xxl} {
       font-size: 90px;
@@ -315,7 +315,7 @@
       font-size: 14px;
       line-height: 17px;
       color: rgba(255, 255, 255, 0.6);
-      font-family: var(--tp-ff-mont);
+      font-family: var(--tp-ff-heading);
       & span {
         color: var(--tp-common-white);
         padding: 0px 8px;
@@ -918,7 +918,7 @@
     z-index: 5;
     & span {
       display: block;
-      font-family: var(--tp-ff-mont);
+      font-family: var(--tp-ff-heading);
       font-weight: 500;
       font-size: 14px;
       color: #5f6168;

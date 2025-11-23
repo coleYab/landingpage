@@ -1,3 +1,9 @@
+// import bg1 from "../../assets/images/bg/bg1.jpg";
+import bg1 from "../../../public/assets/img/services/s1.png";
+import bg2 from "../../../public/assets/img/services/s2.png";
+import bg3 from "../../../public/assets/img/services/s3.png";
+import bg4 from "../../../public/assets/img/services/s4.png";
+
 const hero_image = "";
 export const serviceTabs = [
   { id: "overview", label: "Overview" },
@@ -27,6 +33,7 @@ export const services = {
           "Our hands-on programs teach employees how to use AI tools effectively, ethically, and confidently with real examples from their own roles.",
         actionLabel: "Learn More",
         targetTab: "ai-training",
+        background: bg1,
       },
       {
         id: "service-ai-consulting",
@@ -37,6 +44,7 @@ export const services = {
           "We help organisations identify high-value opportunities, build safe AI governance, and create an actionable roadmap that aligns with business goals.",
         actionLabel: "Explore Consulting",
         targetTab: "ai-consulting",
+        background: bg2,
       },
       {
         id: "service-ai-automations",
@@ -47,6 +55,7 @@ export const services = {
           "We design and implement automations that reduce admin, eliminate errors, and connect your systems for faster, more efficient operations.",
         actionLabel: "View Solutions",
         targetTab: "ai-automations",
+        background: bg3,
       },
       {
         id: "service-ai-coaching",
@@ -56,6 +65,7 @@ export const services = {
           "Personalised AI coaching for leaders and professionals. Get clarity on what AI means for your role and the practical steps you can apply immediately.",
         actionLabel: "Book Coaching",
         targetTab: "ai-coaching",
+        background: bg4,
       },
     ],
     cta: {

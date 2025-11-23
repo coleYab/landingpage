@@ -150,7 +150,13 @@ const FooterThree = () => {
         }}
       >
         <div className="tp-browser-details-area pt-110 pb-30 p-relative">
-          <div className="container">
+          <div
+            className="container"
+            style={{
+              paddingLeft: "30px",
+              paddingRight: "30px",
+            }}
+          >
             <div className="row align-items-center">
               <div className="col-xl-9 col-lg-9">
                 <div className="tp-browser-section-box d-flex justify-content-between align-items-center mb-30">

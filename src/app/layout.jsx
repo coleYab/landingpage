@@ -2,34 +2,41 @@ import "./globals.scss";
 import {
   DM_Serif_Display,
   Montserrat_Alternates,
-  Plus_Jakarta_Sans,
   Urbanist,
+  Manrope,
+  Sora,
 } from "next/font/google";
 
 import Script from "next/script";
 
-const dmSerifDisplay = DM_Serif_Display({
+const dmSerifDisplay = Manrope({
   weight: ["400"],
   subsets: ["latin"],
   variable: "--tp-ff-dm",
 });
 
-const montserratAlternates = Montserrat_Alternates({
+const montserratAlternates = Sora({
   weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
   variable: "--tp-ff-mont",
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const manrope = Manrope({
   weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
-  variable: ["--tp-ff-body", "--tp-ff-heading"],
+  variable: "--tp-ff-body",
 });
 
-const urbanist = Urbanist({
+const urbanist = Manrope({
   weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
   variable: "--tp-ff-urban",
+});
+
+const sora = Sora({
+  weight: ["300", "400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+  variable: "--tp-ff-heading",
 });
 
 export const metadata = {
@@ -42,7 +49,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <body
-        className={`${dmSerifDisplay.variable} ${montserratAlternates.variable} ${plusJakartaSans.variable} ${urbanist.variable}`}
+        className={`${dmSerifDisplay.variable} ${montserratAlternates.variable} ${manrope.variable} ${sora.variable} ${urbanist.variable}`}
       >
         <Script
           async

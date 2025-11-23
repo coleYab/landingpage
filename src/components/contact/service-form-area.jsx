@@ -23,7 +23,7 @@ const { sub_title, tilte, info } = contact_content;
 const RequestServiceArea = () => {
   return (
     <>
-      <div className="contact-form-area pb-120">
+      <div className="contact-form-area pb-120 pt-120">
         <div className="container">
           <div className="row gx-0">
             <div className="col-xl-5 col-lg-6">

@@ -1,139 +1,238 @@
-import React from "react";
-import { CheckCircle } from "lucide-react";
+import React, { useState } from "react";
+import { Phone, ChevronDown } from "lucide-react";
+// import s10 from "../../../public/assets/img/services/s10.png";
+// import s9 from "../../../public/assets/img/services/s9.png";
+// import s8 from "../../../public/assets/img/services/s8.png";
 
 const rated_content = {
   bg_img: "/assets/img/rate/rated-bg.jpg",
-  title: <>Why Choose Us</>,
-  reason: <>Reasons organisations trust Axonova</>,
+  title: "Why Choose Us",
+  intro:
+    "Reasons organisations trust Axonova to guide them through every stage of their AI journey — with clarity, confidence, and solutions built around their real-world needs.",
   points: [
     {
-      id: 2,
-      text: (
-        <>
-          <strong>1. Built for your people and processes</strong>
-          <br /> Everything we deliver is tailored to your organisation – your
-          roles, your systems, your challenges.
-        </>
-      ),
+      id: 1,
+      title: "Built for your people and processes",
+      description:
+        "Everything we deliver is tailored to your organisation – your roles, your systems, your challenges.",
     },
     {
-      id: 1,
-      text: (
-        <>
-          <strong>2. Practical, not theoretical</strong>
-          <br /> We focus on real tasks, real workflows, and real value.
-        </>
-      ),
+      id: 2,
+      title: "Practical, not theoretical",
+      description: "We focus on real tasks, real workflows, and real value.",
     },
     {
       id: 3,
-      text: (
-        <>
-          <strong>3. Safe and responsible, by design</strong>
-          <br /> Our methods embed governance, guardrails, and data safety into
-          every step of your AI journey.
-        </>
-      ),
+      title: "Safe and responsible, by design",
+      description:
+        "Our methods embed governance, guardrails, and data safety into every step of your AI journey.",
     },
     {
       id: 4,
-      text: (
-        <>
-          <strong>4. End‑to‑end support</strong>
-          <br /> From training to strategy to automation, we guide you through
-          every stage of AI adoption.
-        </>
-      ),
-      // img: icon1,
+      title: "End-to-end support",
+      description:
+        "From training to strategy to automation, we guide you through every stage of AI adoption.",
     },
     {
       id: 5,
-      text: (
-        <>
-          <strong>5. Measurable business impact</strong>
-          <br /> We track adoption, time saved, ROI, and quality improvements so
-          progress is always visible.
-        </>
-      ),
-      // img: icon2,
+      title: "Measurable business impact",
+      description:
+        "We track adoption, time saved, ROI, and quality improvements so progress is always visible.",
     },
     {
       id: 6,
-      text: (
-        <>
-          <strong>6. Clear, Simple, Actionable</strong>
-          <br /> Complexity is removed. Clarity is delivered. Your teams know
-          exactly what to do next.
-        </>
-      ),
+      title: "Clear, simple, actionable",
+      description:
+        "Complexity is removed. Clarity is delivered. Your teams know exactly what to do next.",
     },
   ],
 };
 
-const { title, reason, points } = rated_content;
-
 const RatedArea = () => {
-  const accentColor = "#0b3937";
+  const [activeId, setActiveId] = useState(2);
+
+  const theme = {
+    primary: "#0b3937",
+    accent: "#a9fa60",
+    accentLight: "#E8F7F5",
+    white: "#ffffff",
+  };
+
+  const toggleItem = (id) => {
+    setActiveId(activeId === id ? null : id);
+  };
 
   return (
-    <section className="tp-rated-area bg-white text-dark py-5">
+    <section
+      className="py-5"
+      style={{ backgroundColor: "#fff", fontFamily: "'Inter', sans-serif" }}
+    >
       <div className="container">
-        <div className="row justify-content-center mb-5">
-          <div className="col-lg-8 text-center">
-            <p
-              className="text-uppercase fw-semibold mb-2"
-              style={{ color: "#8aa09a", letterSpacing: "0.2em" }}
+        <div className="row align-items-center g-5">
+          <div className="col-lg-6">
+            <h2
+              className="fw-bold mb-3 display-6"
+              style={{ color: theme.primary }}
             >
-              {reason}
-            </p>
-            <h5
-              className="tp-section-title-3 fw-bold mb-3"
-              style={{ color: accentColor }}
-            >
-              {title}
-            </h5>
-            <div
-              className="mx-auto"
-              style={{
-                width: "80px",
-                height: "3px",
-                backgroundColor: "#a9fa60",
-              }}
-            ></div>
-          </div>
-        </div>
+              {rated_content.title}
+            </h2>
 
-        <div className="row g-4">
-          {points.map((item) => (
-            <div className="col-xl-4 col-lg-4 col-md-6" key={item.id}>
-              <div
-                className="card h-100 border-0 rounded-4 bg-white p-4"
+            <p className="mb-5" style={{ color: "#555", lineHeight: "1.7" }}>
+              {rated_content.intro}
+            </p>
+
+            <div className="d-flex flex-column gap-4 pt-4">
+              {rated_content.points.map((item) => {
+                const isActive = activeId === item.id;
+
+                return (
+                  <div
+                    key={item.id}
+                    className="accordion-item-custom"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => toggleItem(item.id)}
+                  >
+                    {/* Header Part */}
+                    <div className="d-flex align-items-center mb-2">
+                      <span
+                        className="me-3 d-flex align-items-center justify-content-center"
+                        style={{
+                          color: theme.primary,
+                          transition: "all 0.4s ease",
+                        }}
+                      >
+                        <ChevronDown
+                          size={20}
+                          strokeWidth={3}
+                          style={{
+                            transform: isActive
+                              ? "rotate(180deg)"
+                              : "rotate(0deg)",
+                            transition:
+                              "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)",
+                          }}
+                        />
+                      </span>
+
+                      <h5
+                        className="m-0 fw-medium"
+                        style={{ color: "#333", fontSize: "1.1rem" }}
+                      >
+                        {item.title}
+                      </h5>
+                    </div>
+
+                    {/* CHANGES MADE HERE: 
+                        The description box logic
+                    */}
+                    <div
+                      style={{
+                        display: "grid",
+                        gridTemplateRows: isActive ? "1fr" : "0fr",
+                        opacity: isActive ? 1 : 0.6,
+                        transition:
+                          "grid-template-rows 0.4s ease-out, opacity 0.4s ease-out",
+                      }}
+                    >
+                      <div style={{ overflow: "hidden" }}>
+                        <div
+                          // 1. Changed p-3 to p-4 for more padding
+                          // 2. Changed mt-1 to mt-3 for more top separation
+                          // 3. Changed rounded-1 to rounded-3 for softer corners
+                          className="p-4 mt-3 rounded-3"
+                          style={{
+                            backgroundColor: theme.primary,
+                            // Note: White text on bright green might be hard to read.
+                            // If it is, change theme.white to theme.primary below.
+                            color: theme.accent,
+                            boxShadow: "0 4px 12px rgba(44, 165, 141, 0.2)",
+                          }}
+                        >
+                          <p
+                            // 4. Removed 'small' class
+                            // 5. Added 'lh-lg' for taller line height
+                            className="m-0 fw-medium lh-lg"
+                            // 6. Manually increased font size
+                            style={{ fontSize: "1.05rem", color: theme.accent }}
+                          >
+                            {item.description}
+                          </p>
+                        </div>
+                        {/* Added slightly more margin at bottom of expanded state */}
+                        <div style={{ height: "15px" }}></div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div
+              style={{
+                width: "100%",
+              }}
+              className="d-flex justify-content-center"
+            >
+              <button
+                type="button"
+                className="tp-btn-blue-lg tp-btn-hover text-white border-0 mt-4 shadow-sm"
                 style={{
-                  color: accentColor,
-                  border: "1px solid #e5ebe8",
+                  fontSize: "1rem",
+                  fontWeight: "500",
+                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow =
+                    "0 6px 15px rgba(44, 165, 141, 0.4)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                <div className="d-flex align-items-center gap-3 mb-3">
-                  <div
-                    className="d-inline-flex align-items-center justify-content-center rounded-circle"
-                    style={{
-                      width: "48px",
-                      height: "48px",
-                      backgroundColor: "#eef5f3",
-                    }}
-                  >
-                    <CheckCircle size={24} color={accentColor} />
-                  </div>
-                  <span className="fw-semibold" style={{ color: accentColor }}>
-                    Insight #{item.id}
-                  </span>
-                </div>
-                <div style={{ color: accentColor, lineHeight: 1.6 }}>
-                  {item.text}
-                </div>
+                Contact Us
+              </button>
+            </div>
+          </div>
+
+          {/* --- Right Column: Image Collage --- */}
+          <div className="col-lg-6">
+            <div className="row g-3 h-100">
+              <div className="col-8">
+                <div
+                  className="w-100 h-100 rounded-4 shadow-sm"
+                  style={{
+                    backgroundImage: `url('/assets/img/services/s10.png')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    minHeight: "400px",
+                  }}
+                ></div>
+              </div>
+
+              <div className="col-4 d-flex flex-column gap-3">
+                <div
+                  className="flex-grow-1 rounded-4 shadow-sm"
+                  style={{
+                    backgroundImage: "url('/assets/img/services/s9.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    minHeight: "190px",
+                  }}
+                ></div>
+                <div
+                  className="flex-grow-1 rounded-4 shadow-sm"
+                  style={{
+                    backgroundImage: "url('/assets/img/services/s8.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    minHeight: "190px",
+                  }}
+                ></div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

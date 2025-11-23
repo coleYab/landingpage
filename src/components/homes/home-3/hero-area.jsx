@@ -66,7 +66,7 @@ const HeroArea = () => {
           minHeight: "100vh",
         }}
       >
-        <div className="tp-hero-gradient-bg">
+        {/* <div className="tp-hero-gradient-bg">
           <video
             className="w-100 h-100"
             autoPlay
@@ -84,6 +84,38 @@ const HeroArea = () => {
           >
             <source src="/assets/video/background.mp4" type="video/mp4" />
           </video>
+        </div> */}
+        <div className="tp-hero-gradient-bg">
+          <video
+            className="w-100 h-100"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+          >
+            <source src="/assets/video/background.mp4" type="video/mp4" />
+          </video>
+
+          {/* NEW: Video Overlay Element */}
+          <div
+            className="position-absolute w-100 h-100"
+            style={{
+              top: 0,
+              left: 0,
+              // Set the required color with opacity for transparency
+              backgroundColor: "#0b3937",
+              opacity: 0.8, // Adjust opacity for desired visibility of the video
+              // Use a lower z-index than the main content (container z-index-3)
+              zIndex: 1,
+            }}
+          ></div>
         </div>
         <div className="container">
           <div className="row justify-content-center z-index-3">

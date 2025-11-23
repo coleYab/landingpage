@@ -160,27 +160,61 @@ const ServiceDetailsArea = ({ initialTab }) => {
         <div className="row g-4">
           {service.serviceCards.map((card) => (
             <div key={card.id} className="col-md-6">
-              <div className="service-card border rounded h-100 p-4">
-                <div className="d-flex justify-content-between align-items-start mb-3">
-                  <div>
-                    <span className="text-uppercase text-muted fw-semibold">
-                      {/* {card.tagline} */}
+              <div
+                className="service-card border rounded h-100 p-4"
+                style={{
+                  // FIX 1: Set parent position to relative
+                  position: "relative",
+                  backgroundImage: `url(/assets/img/services/s6.png)`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  backgroundColor: "#1f2937",
+                }}
+              >
+                {/* THE OVERLAY (zIndex: 1) */}
+                <div
+                  className="position-absolute"
+                  style={{
+                    top: 0,
+                    left: 0,
+                    // FIX 2: Set overlay dimensions to fill parent
+                    width: "100%",
+                    height: "100%",
+                    backgroundColor: "#1f2937",
+                    opacity: 0.8,
+                    borderRadius: "0.5rem",
+                    zIndex: 1,
+                  }}
+                ></div>
+
+                <div style={{ position: "relative", zIndex: 2 }}>
+                  <div className="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                      <span className="text-uppercase text-muted fw-semibold"></span>
+                      <h3 className="mt-2 mb-3" style={{ color: "white" }}>
+                        {card.title}
+                      </h3>
+                    </div>
+                    <span
+                      className="badge bg-primary-subtle text-primary"
+                      style={{ color: "white" }}
+                    >
+                      {card.actionLabel}
                     </span>
-                    <h3 className="mt-2 mb-3">{card.title}</h3>
                   </div>
-                  <span className="badge bg-primary-subtle text-primary">
-                    {card.actionLabel}
-                  </span>
+                  <p className="mb-4" style={{ color: "white" }}>
+                    {card.description}
+                  </p>
+                  <Link
+                    href={`/service/${card.targetTab}`}
+                    type="button"
+                    style={{ color: "white" }}
+                    className="tp-btn-border tp-btn-hover"
+                  >
+                    <span style={{ color: "white" }}>{card.actionLabel}</span>
+                    <b></b>
+                  </Link>
                 </div>
-                <p className="mb-4">{card.description}</p>
-                <Link
-                  href={`/service/${card.targetTab}`}
-                  type="button"
-                  className="tp-btn-border tp-btn-hover"
-                >
-                  <span>{card.actionLabel}</span>
-                  <b></b>
-                </Link>
               </div>
             </div>
           ))}
@@ -377,7 +411,7 @@ const ServiceDetailsArea = ({ initialTab }) => {
     <div className="sv-details-area pt-100 pb-100">
       <div className="container">
         <div className="row">
-          <div className="col-xl-10 mx-auto">
+          <div className="col-xl-12 mx-auto">
             <div className="sv-details-wrapper">
               {renderServiceSpecificContent()}
               {service?.faqs?.length && (
