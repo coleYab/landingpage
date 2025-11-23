@@ -98,7 +98,7 @@ const ServiceDetailsArea = ({ initialTab }) => {
             const [heading, detail] = item.split(":");
 
             return (
-              <div key={index} className="col-md-6 pb-4">
+              <div key={index} className="col-md-6">
                 <div className="service-card border rounded h-100 p-4">
                   <div className="d-flex justify-content-between align-items-start mb-3">
                     <div>
@@ -183,9 +183,19 @@ const ServiceDetailsArea = ({ initialTab }) => {
           )}
 
           <div className="mt-4">
-            <button className="tp-btn-blue-lg tp-btn-hover">
-              Contact us to get started
-            </button>
+            <Link
+              className="tp-btn-blue-lg tp-btn-hover alt-color-black"
+              href="/new-service"
+            >
+              <span
+                style={{
+                  color: "white",
+                }}
+              >
+                Start Now
+              </span>
+              <b></b>
+            </Link>
           </div>
         </div>
       </div>
@@ -446,7 +456,7 @@ const ServiceDetailsArea = ({ initialTab }) => {
   };
 
   return (
-    <div className="sv-details-area pt-100 pb-100">
+    <div className="sv-details-area pt-100 mb-50">
       <div className="container">
         <div className="row">
           <div className="col-xl-12 mx-auto">

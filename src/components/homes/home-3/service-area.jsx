@@ -1,6 +1,7 @@
 import service_data from "@/data/service-data";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 const service_content = {
   title: <>Our Services</>,
@@ -80,6 +81,17 @@ const ServiceArea = () => {
                 height: "100%",
               }}
             >
+              <Image
+                src="/assets/img/card/services/service5.webp"
+                alt="Tailored AI Enablement"
+                width={400}
+                height={350}
+                layout="responsive"
+                style={{
+                  marginBottom: "20px",
+                  borderRadius: "5px",
+                }}
+              />
               <h4
                 style={{
                   fontSize: "28px",
@@ -122,12 +134,16 @@ const ServiceArea = () => {
                 <div className="col-md-6" key={i}>
                   <div
                     style={{
+                      backgroundImage: `linear-gradient(rgba(11, 57, 55, 0.85), rgba(11, 57, 55, 0.85)), url(${item.bg_img})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
                       ...cardBase,
                       padding: "32px",
                       height: "100%",
                       display: "flex",
                       flexDirection: "column",
                       gap: "18px",
+                      color: "#ffffff",
                     }}
                   >
                     <div
@@ -138,7 +154,7 @@ const ServiceArea = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        color: accentColor,
+                        color: "white",
                         fontSize: "24px",
                       }}
                     >
@@ -147,7 +163,7 @@ const ServiceArea = () => {
                     <div>
                       <h4
                         style={{
-                          color: accentColor,
+                          color: "#ffffff",
                           fontSize: "22px",
                           marginBottom: "10px",
                         }}
@@ -156,7 +172,7 @@ const ServiceArea = () => {
                       </h4>
                       <p
                         style={{
-                          color: "#54706a",
+                          color: "#ffffff",
                           fontSize: "16px",
                           lineHeight: 1.6,
                           marginBottom: "18px",
@@ -167,7 +183,7 @@ const ServiceArea = () => {
                       <Link
                         href="/service-details"
                         style={{
-                          color: accentColor,
+                          color: "#ffffff",
                           fontWeight: 600,
                           display: "inline-flex",
                           alignItems: "center",

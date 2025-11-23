@@ -72,7 +72,7 @@ const CardArea = ({ style_service, spacing = "pt-175 pb-185" }) => {
               data-wow-duration=".9s"
               data-wow-delay=".5s"
             >
-              <div className="tp-card-thumb-wrapper p-relative">
+              <div className="tp-card-thumb-wrapper p-relative my-auto">
                 {card_images.map((item, i) => (
                   <div
                     key={i}

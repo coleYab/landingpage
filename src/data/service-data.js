@@ -9,6 +9,7 @@ const service_data = [
     icon: <ServiceIconOne />,
     img: <ServiceIconOne />,
     title: "AI Training",
+    bg_img: "/assets/img/card/services/service1.png",
     description: (
       <>
         Practical AI training for teams that want to work faster, smarter, and
@@ -21,6 +22,7 @@ const service_data = [
     id: 2,
     icon: <ServiceIconTwo />,
     img: <ServiceIconTwo />,
+    bg_img: "/assets/img/card/services/service2.png",
     title: "AI Consulting",
     description: (
       <>
@@ -34,6 +36,7 @@ const service_data = [
     id: 3,
     icon: <ServiceIconThree />,
     img: <ServiceIconThree />,
+    bg_img: "/assets/img/card/services/service3.png",
     title: "AI Solutions & Automations",
     description: (
       <>
@@ -47,6 +50,7 @@ const service_data = [
     id: 4,
     icon: <ServiceIconFoure />,
     img: <ServiceIconFoure />,
+    bg_img: "/assets/img/card/services/service4.webp",
     title: "AI Coaching",
     description: (
       <>
