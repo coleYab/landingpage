@@ -143,13 +143,13 @@ const FooterThree = () => {
   return (
     <>
       <div
-        className="footer-bottom-content tp-browser-bg-shape"
+        className="footer-bottom-content tp-browser-bg-shape pt-110"
         style={{
           backgroundColor: "#0b3937",
           color: "#a9fa60",
         }}
       >
-        <div className="tp-browser-details-area pt-110 pb-30 p-relative">
+        {/* <div className="tp-browser-details-area pt-110 pb-30 p-relative">
           <div
             className="container"
             style={{
@@ -188,10 +188,10 @@ const FooterThree = () => {
               <div className="col-12">{description}</div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <footer>
-          <div className="tp-footer-slide pb-80">
+          {/* <div className="tp-footer-slide pb-80">
             <div className="container-fluid g-0">
               <div className="row g-0 justify-content-center">
                 <Slider {...setting} className="footer-slide-active">
@@ -212,7 +212,7 @@ const FooterThree = () => {
                 </Slider>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="tp-footer__pl-pr">
             <div
