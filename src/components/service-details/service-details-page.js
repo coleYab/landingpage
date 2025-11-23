@@ -555,9 +555,9 @@ export const services = {
       button: "Schedule your Coaching Session now",
     },
     highlight:
-      "A confident, AI-enabled workforce that works faster, delivers higher-quality output, and uses AI safely, consistently, and responsibly.",
+      "Practical, personalised AI confidence — giving you the clarity to make smarter decisions, work more efficiently, and stay ahead in a rapidly changing landscape.",
     empower:
-      "Give your people the confidence, safety, and capability they need to thrive with AI today and tomorrow.",
+      "Empower yourself or your team with the skills, understanding, and strategic awareness needed to use AI effectively, responsibly, and with real impact.",
     faqs: [
       {
         id: 1,

@@ -119,7 +119,7 @@ const Section = ({ content }) => {
                     <li key={i}>
                       <BadgeCheck
                         style={{
-                          color: "#a9fa60",
+                          color: "#0b3937",
                           marginRight: "10px",
                         }}
                       />

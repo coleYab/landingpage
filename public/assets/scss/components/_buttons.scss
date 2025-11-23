@@ -654,7 +654,7 @@
     position: absolute;
     width: 0px;
     height: 0px;
-    background-color: var(--tp-common-black);
+    // background-color: var(--tp-common-black);
     border-radius: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -663,29 +663,29 @@
     z-index: 1;
   }
 
-  &:hover {
-    & b {
-      width: 400px;
-      height: 400px;
-      display: inline-block;
-    }
-  }
+  // &:hover {
+  //   & b {
+  //     width: 400px;
+  //     height: 400px;
+  //     display: inline-block;
+  //   }
+  // }
 
-  &.alt-color {
-    & b {
-      background-color: var(--tp-theme-1);
-    }
-  }
-  &.alt-color-black {
-    & b {
-      background-color: var(--tp-common-black);
-    }
-  }
-  &.alt-color-white {
-    & b {
-      background-color: var(--tp-common-white);
-    }
-  }
+  // &.alt-color {
+  //   & b {
+  //     background-color: var(--tp-theme-1);
+  //   }
+  // }
+  // &.alt-color-black {
+  //   & b {
+  //     background-color: var(--tp-common-black);
+  //   }
+  // }
+  // &.alt-color-white {
+  //   & b {
+  //     background-color: var(--tp-common-white);
+  //   }
+  // }
 }
 .tp-btn-price {
   display: inline-block;
