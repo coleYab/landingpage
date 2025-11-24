@@ -117,8 +117,18 @@ const HeroArea = () => {
             }}
           ></div>
         </div>
-        <div className="container">
-          <div className="row justify-content-center z-index-3">
+        <div
+          className="container"
+          style={{
+            height: "75vh",
+          }}
+        >
+          <div
+            className="row justify-content-center align-items-evenly z-index-3"
+            style={{
+              height: "100%",
+            }}
+          >
             <div className="col-xl-11">
               <div
                 className="tp-hero-title-box text-center"
@@ -196,11 +206,11 @@ const HeroArea = () => {
                   <b></b>
                 </Link>
               </div>
-              <div
+              {/* <div
                 className="tp-hero-browser-wrapper d-flex align-items-center justify-content-center wow tpfadeUp"
                 data-wow-duration=".9s"
                 data-wow-delay=".9s"
-              ></div>
+              ></div> */}
               <div className="tp-hero-3-wrapper p-relative"></div>
             </div>
           </div>

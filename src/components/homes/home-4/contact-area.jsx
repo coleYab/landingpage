@@ -69,7 +69,11 @@ const ContactArea = () => {
                 <div className="tp-contact-shape">
                   <Image src={shape_1} alt="theme-pure" />
                 </div>
-                <div className="row">
+                <form
+                  method="post"
+                  action="https://formspree.io/f/xjkdkord"
+                  className="row"
+                >
                   <div className="col-xl-6">
                     <div className="tp-contact-input mb-20">
                       <input type="text" placeholder="Full name" required />
@@ -121,7 +125,7 @@ const ContactArea = () => {
                       </button>
                     </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>

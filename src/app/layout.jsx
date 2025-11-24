@@ -7,6 +7,7 @@ import {
   Sora,
 } from "next/font/google";
 
+import { ToastContainer } from "react-toastify";
 import Script from "next/script";
 
 const dmSerifDisplay = Manrope({
@@ -48,6 +49,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
+      <style>
+        {`
+          .progress {
+            background-color: #0b3937;
+          }
+        `}
+      </style>
       <body
         className={`${dmSerifDisplay.variable} ${montserratAlternates.variable} ${manrope.variable} ${sora.variable} ${urbanist.variable}`}
       >
@@ -67,6 +75,7 @@ export default function RootLayout({ children }) {
         </Script>
 
         {children}
+        <ToastContainer />
       </body>
     </html>
   );
