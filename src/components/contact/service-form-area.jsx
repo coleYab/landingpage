@@ -1,6 +1,8 @@
 import ContactUsForm from "@/forms/contact-us-form";
 import ServiceRequestForm from "@/forms/service-request-form";
 import SendIcon from "@/svg/send-icon";
+import Image from "next/image";
+import img from "../../../public/assets/img/start/newservice.jpeg";
 import Link from "next/link";
 import React from "react";
 const contact_content = {
@@ -28,7 +30,7 @@ const RequestServiceArea = () => {
           <div className="row gx-0">
             <div className="col-xl-5 col-lg-6">
               <div className="contact-form-left">
-                <div className="contact-form-section-box pb-80">
+                <div className="contact-form-section-box pb-0">
                   <h5
                     className="inner-section-subtitle"
                     style={{
@@ -40,21 +42,24 @@ const RequestServiceArea = () => {
                   <h4 className="tp-section-title pb-10">{tilte}</h4>
                   <p>{info}</p>
                 </div>
-                <div className="contact-form-social-box p-relative">
-                  <div className="contact-form-social-item">
-                    <Link href="#">
-                      <i className="fab fa-facebook-f"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="fab fa-twitter"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="fab fa-linkedin-in"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="fab fa-instagram"></i>
-                    </Link>
-                  </div>
+
+                <div
+                  className="position-relative mb-4 rounded-3 shadow-lg"
+                  style={{
+                    paddingTop: "60.25%",
+                    overflow: "hidden",
+                  }}
+                >
+                  <Image
+                    src={img}
+                    alt="Ready to work together"
+                    fill
+                    className="img-fluid"
+                    style={{
+                      objectFit: "cover",
+                      position: "absolute",
+                    }}
+                  />
                 </div>
               </div>
             </div>
