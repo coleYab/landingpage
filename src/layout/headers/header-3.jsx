@@ -17,6 +17,7 @@ const HeaderThree = () => {
         <div
           id="header-sticky"
           style={{
+            paddingRight: "30px",
             background: "white",
           }}
           className={`header-bottom__area header__space header-sticky-bg-2 z-index-5 header-sticky`}

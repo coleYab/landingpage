@@ -3,8 +3,12 @@ import bg1 from "../../../public/assets/img/services/s1.png";
 import bg2 from "../../../public/assets/img/services/s2.png";
 import bg3 from "../../../public/assets/img/services/s3.png";
 import bg4 from "../../../public/assets/img/services/s4.png";
+import srvHeroOverview from "../../../public/assets/img/srv/aiimg.png";
+import srvHeroTraining from "../../../public/assets/img/srv/aiimg1.png";
+import srvHeroConsulting from "../../../public/assets/img/srv/aiimg2.png";
+import srvHeroAutomations from "../../../public/assets/img/srv/aiimg3.png";
 
-const hero_image = "";
+const hero_image = srvHeroOverview;
 export const serviceTabs = [
   { id: "overview", label: "Overview" },
   { id: "ai-training", label: "AI Training" },
@@ -83,7 +87,7 @@ export const services = {
   },
   "ai-training": {
     id: "ai-training",
-    hero: hero_image,
+    hero: srvHeroTraining,
     title: "AI Training",
     subtitle:
       "Practical, hands-on AI Training for every team - No technical skills needed",
@@ -276,7 +280,7 @@ export const services = {
   },
   "ai-consulting": {
     id: "ai-consulting",
-    hero: hero_image,
+    hero: srvHeroConsulting,
     title: "AI Consulting",
     subtitle: "End-to-End AI Strategy and Roadmap for successful AI Adoption",
     intro:
@@ -402,7 +406,7 @@ export const services = {
   },
   "ai-automations": {
     id: "ai-automations",
-    hero: hero_image,
+    hero: srvHeroAutomations,
     title: "AI Automations and Solutions",
     subtitle:
       "Automate repetitive work and integrate your systems for faster, more accurate operations",
@@ -516,7 +520,7 @@ export const services = {
   },
   "ai-coaching": {
     id: "ai-coaching",
-    hero: hero_image,
+    hero: srvHeroTraining,
     title: "AI Coaching",
     subtitle:
       "A personalised one-on-one AI Coaching for Leaders, Founders, and Professionals",

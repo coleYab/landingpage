@@ -9,6 +9,8 @@ import CompanyArea from "./company-area";
 import HeaderThree from "@/layout/headers/header-3";
 import FooterThree from "@/layout/footers/footer-3";
 import BreadcrumbTwo from "@/common/breadcrumbs/breadcrumb-2";
+import MissionArea from "./missions";
+import Approaches from "./approachs";
 
 const About = () => {
   return (
@@ -16,6 +18,8 @@ const About = () => {
       <HeaderThree />
       <BreadcrumbTwo title="About" innertitle="About" />
       <CompanyArea />
+      <Approaches />
+      <MissionArea />
       <AboutArea />
       {/* <CtaArea /> */}
       <FooterThree style_contact={true} style_team={true} />

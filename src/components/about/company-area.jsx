@@ -1,14 +1,9 @@
-import VideoPopup from "@/modals/video-popup";
-import React, { useState } from "react";
+import Image from "next/image";
+import React from "react";
 
 const company_content = {
   sub_title: "ABOUT AXONOVA CONSULTING",
-  title: (
-    <>
-      AI Transformation, <br />
-      Done Right.
-    </>
-  ),
+  title: <>AI Transformation, Done Right.</>,
   info_1: (
     <>
       Axonova Consulting helps organisations adopt AI with clarity, confidence,
@@ -29,106 +24,112 @@ const company_content = {
       at the centre.
     </>
   ),
+  images: [
+    {
+      src: "/assets/img/about/new/gkmc.jpg",
+      alt: "AI Virtual Assistant for Organization Transformation",
+      width: 500,
+      height: 350,
+    },
+    {
+      src: "/assets/img/about/new/gkmc.jpg",
+      alt: "JetBrains Junie Agentic AI Coding Assistant",
+      width: 500,
+      height: 350,
+    },
+  ],
 };
 
-const { sub_title, title, info_1, info_2, info_3 } = company_content;
+const { sub_title, title, info_1, info_2, info_3, images } = company_content;
+
+// We keep minimal custom styles for specific brand consistency
+const customStyles = {
+  // Styles for the background image section
+  backgroundSection: {
+    // backgroundImage: `url(${images[0].src})`, // Use the first image as background
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    position: "relative", // Needed for absolute positioning of overlay
+    color: "#0b3937", // Default text color for contrast
+    minHeight: "500px", // Ensure enough height to see the background
+    display: "flex",
+    alignItems: "center",
+  },
+  // Overlay to make text readable
+  overlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "rgba(228, 227, 227, 0.5)", // Dark semi-transparent overlay
+    zIndex: 1, // Ensure overlay is behind text
+  },
+  // Subtitle style for contrast
+  subtitle: {
+    letterSpacing: "2px",
+    fontSize: "14px",
+    fontWeight: 700,
+    color: "#0b3937", // Lighter color for subtitle
+  },
+  // Ensure content is above the overlay
+  contentZIndex: {
+    position: "relative",
+    zIndex: 2,
+  },
+};
 
 const CompanyArea = () => {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
-
   return (
-    <>
-      <div className="ab-company-area pt-105 pb-100">
-        <div className="container">
-          <div className="row ab-company-section-space">
-            <div className="col-xl-6">
-              <div className="ab-company-section-box">
-                <h4
-                  className="inner-section-subtitle"
-                  style={{
-                    color: "#0b3937",
-                  }}
-                >
-                  {sub_title}
-                </h4>
-                <h3 className="tp-section-title">{title}</h3>
-              </div>
-            </div>
-            <div
-              className="col-xl-6 wow tpfadeRight"
-              data-wow-duration=".9s"
-              data-wow-delay=".5s"
-            >
-              <div className="ab-company-right">
-                <div className="ab-company-section-text">
-                  <p className="pb-10">{info_1}</p>
-                  <p className="pb-10">{info_2}</p>
-                  <p>
-                    <span>{info_3}</span>
-                  </p>
-                </div>
-              </div>
+    <section
+      className="ab-company-area py-5"
+      style={customStyles.backgroundSection}
+    >
+      {/* Background Overlay */}
+      {/* <div style={customStyles.overlay}></div> */}
+
+      <div className="container" style={customStyles.contentZIndex}>
+        {/* Header Section */}
+        <div className="row justify-content-center mb-5">
+          <div className="col-lg-10 col-xl-8 text-center text-white">
+            <div className="ab-company-section-box">
+              <h4 className="text-uppercase mb-2" style={customStyles.subtitle}>
+                {sub_title}
+              </h4>
+              <h3 className="fw-bold mb-4 display-6">{title}</h3>
             </div>
           </div>
-          {/* <div className="row align-items-center">
-            <div className="col-xl-4">
-              <div className="ab-company-video">
-                <a className="popup-video" onClick={() => setIsVideoOpen(true)}>
-                  <i className="fas fa-play"></i>
-                </a>
-                <span>Watch Demo</span>
-              </div>
-            </div>
-            <div className="col-xl-8">
-              <div className="row">
-                <div className="col-md-4 col-sm-4 mb-40">
-                  <div className="ab-company-fun-fact-wrap d-flex justify-content-start">
-                    <div className="ab-company-fun-fact">
-                      <span>Working With</span>
-                      <h4>
-                        100<em>+</em>
-                      </h4>
-                      <p>Companies</p>
-                    </div>
-                  </div>
-                </div>
+        </div>
 
-                <div className="col-md-4 col-sm-4 mb-40">
-                  <div className="ab-company-fun-fact-wrap d-flex justify-content-md-center justify-content-left">
-                    <div className="ab-company-fun-fact">
-                      <span>Worked With</span>
-                      <h4>
-                        50<em></em>
-                      </h4>
-                      <p>Leaders</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-4 col-sm-4 mb-40">
-                  <div className="ab-company-fun-fact-wrap ab-company-border-none d-flex justify-content-md-center justify-content-left">
-                    <div className="ab-company-fun-fact">
-                      <span>Experience</span>
-                      <h4>
-                        5<em>+</em>
-                      </h4>
-                      <p>Years</p>
-                    </div>
-                  </div>
-                </div>
+        {/* Content Section */}
+        <div className="row justify-content-center">
+          <div
+            className="col-lg-11 col-xl-11 wow tpfadeRight text-white"
+            data-wow-duration=".9s"
+            data-wow-delay=".5s"
+          >
+            <div className="ab-company-right text-center">
+              <div
+                className="lead mb-4"
+                style={{ fontWeight: 500, color: "#0b3937" }}
+              >
+                <p className="mb-3 fw-bold" style={{ color: "#0b3937" }}>
+                  {info_1}
+                </p>
+                <p className="mb-3 fw-bold" style={{ color: "#0b3937" }}>
+                  {info_2}
+                </p>
+                <p className="mb-0 fw-bold" style={{ color: "#0b3937" }}>
+                  {info_3}
+                </p>
               </div>
+              {/* Individual images are removed as one is now the background */}
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
-
-      {/* video modal start */}
-      <VideoPopup
-        isVideoOpen={isVideoOpen}
-        setIsVideoOpen={setIsVideoOpen}
-        videoId={"EW4ZYb3mCZk"}
-      />
-      {/* video modal end */}
-    </>
+    </section>
   );
 };
 

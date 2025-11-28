@@ -49,13 +49,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <style>
-        {`
-          .progress {
-            background-color: #0b3937;
-          }
-        `}
-      </style>
       <body
         className={`${dmSerifDisplay.variable} ${montserratAlternates.variable} ${manrope.variable} ${sora.variable} ${urbanist.variable}`}
       >

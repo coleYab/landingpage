@@ -21,8 +21,8 @@ const hero_content = {
       digital transformation.
     </>
   ),
-  btn_1: "Get Started",
-  btn_2: "Learn More",
+  btn_1: "Get Started with Axonova",
+  btn_2: "Take Ai Readiness Assesment",
 };
 // const hero_content = {
 //    title_1: <>Great <span>Customer</span></>,
@@ -194,7 +194,7 @@ const HeroArea = () => {
                 </Link>
                 <Link
                   className="tp-btn-border tp-btn-hover alt-color-black"
-                  href="/service-details"
+                  href="/assesment"
                 >
                   <span
                     style={{

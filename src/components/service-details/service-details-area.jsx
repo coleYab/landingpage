@@ -31,14 +31,57 @@ const ServiceDetailsArea = ({ initialTab }) => {
         <h3 className="sv-details-text-title pb-20">Training Programs</h3>
         <div className="row">
           {service.modules.map((module, index) => (
+            // <div
+            //   key={`${service.id}-module-${index}`}
+            //   className="col-md-6 mb-30"
+            // >
+            //   <div
+            //     className="service-module p-4 h-100 border rounded"
+            //     style={{
+            //       backgroundImage: `url('/assets/img/srv/gg/onc2.png')`, // Replace {imageUrl} with your image prop/variable
+            //       backgroundSize: "cover", // Ensures the image covers the whole card
+            //       backgroundPosition: "center", // Centers the image
+            //       color: "white",
+            //     }}
+            //   >
+            //     <h4 className="module-title mb-3">{module.title}</h4>
+            //     <p className="mb-3">{module.description}</p>
+            //     <p className="mb-0">
+            //       <strong>Outcome:</strong> {module.outcome}
+            //     </p>
+            //   </div>
+            // </div>
             <div
               key={`${service.id}-module-${index}`}
               className="col-md-6 mb-30"
             >
-              <div className="service-module p-4 h-100 border rounded">
-                <h4 className="module-title mb-3">{module.title}</h4>
-                <p className="mb-3">{module.description}</p>
-                <p className="mb-0">
+              <div
+                className="service-module p-4 h-100 border rounded"
+                style={{
+                  // The linear-gradient comes first, creating the overlay
+                  backgroundImage: `linear-gradient(rgba(11, 57, 55, 0.7), rgba(11, 57, 55, 0.7)), url('/assets/img/srv/gg/onc2.png')`,
+                  backgroundSize: "cover", // Ensures the image covers the whole card
+                  backgroundPosition: "center", // Centers the image
+                  color: "#a9fa60", // Sets all text inside this div to #a9fa60
+                }}
+              >
+                <h4
+                  className="module-title mb-3"
+                  style={{
+                    color: "#a9fa60",
+                  }}
+                >
+                  {module.title}
+                </h4>
+                <p
+                  className="mb-3"
+                  style={{
+                    color: "#a9fa60",
+                  }}
+                >
+                  {module.description}
+                </p>
+                <p className="mb-0" style={{ color: "#a9fa60" }}>
                   <strong>Outcome:</strong> {module.outcome}
                 </p>
               </div>
@@ -66,7 +109,6 @@ const ServiceDetailsArea = ({ initialTab }) => {
         <h3 className="sv-details-text-title fw-bold pb-3 mb-4">{title}</h3>
         <div className="tp-about__list">
           <ul className="list-unstyled">
-            {" "}
             {/* Remove default bullets for clean look */}
             {items.map((item, i) => (
               <li
@@ -87,29 +129,53 @@ const ServiceDetailsArea = ({ initialTab }) => {
       </div>
     );
   };
-
   const renderApproachCards = () => {
     if (!service.ourApproach?.length) return null;
+
     return (
       <div className="sv-details-text mb-50">
         <h3 className="sv-details-text-title pb-20">Our Approach</h3>
-        <div className="row g-4">
-          {service.ourApproach.map((item, index) => {
-            const [heading, detail] = item.split(":");
+        <div className="approach-list">
+          {" "}
+          {/* Custom class for styling the list container */}
+          <ul className="list-unstyled">
+            {" "}
+            {/* Use list-unstyled to remove default bullets */}
+            {service.ourApproach.map((item, index) => {
+              // Check if item is a string before splitting
+              if (typeof item !== "string" || !item.includes(":")) {
+                // Optional: Handle malformed data gracefully
+                console.warn(`Skipping malformed approach item: ${item}`);
+                return null;
+              }
 
-            return (
-              <div key={index} className="col-md-6">
-                <div className="service-card border rounded h-100 p-4">
-                  <div className="d-flex justify-content-between align-items-start mb-3">
-                    <div>
-                      <h3 className="mt-2 mb-3">{heading}</h3>
-                    </div>
+              // Trim to clean up any extra whitespace from the split parts
+              const [rawHeading, rawDetail] = item.split(":");
+              const heading = rawHeading.trim();
+              const detail = rawDetail.trim();
+
+              return (
+                <li
+                  key={index}
+                  className="approach-item py-3 mb-3 border-bottom d-flex align-items-start"
+                >
+                  {/* Step Number/Icon */}
+                  <div className="approach-step-number flex-shrink-0 me-4">
+                    <span className="h4 fw-bold">0{index + 1}.</span>
                   </div>
-                  <p className="mb-4">{detail}</p>
-                </div>
-              </div>
-            );
-          })}
+
+                  {/* Content */}
+                  <div className="approach-content flex-grow-1">
+                    <h4 className="mt-0 mb-2">
+                      {/* Using a span inside h4 to make the heading slightly less dominant */}
+                      <span className="fw-semibold text-dark">{heading}</span>
+                    </h4>
+                    <p className="text-secondary mb-0">{detail}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     );
@@ -146,56 +212,136 @@ const ServiceDetailsArea = ({ initialTab }) => {
     <div className="sv-details-title-box mb-55">
       <h1 className="sv-details-title">{service.title}</h1>
       <h3 className="sv-details-subtitle mb-20">{service.subtitle}</h3>
+      {renderHero()}
       <p className="lead">{service.intro}</p>
       {service.overview && <p>{service.overview}</p>}
     </div>
   );
 
+  // const renderHighlights = () => {
+  //   if (!service.highlight && !service.empower) return null;
+
+  //   return (
+  //     <div className="card mb-5 bg-white border-1">
+  //       <div className="card-body p-4 p-md-5">
+  //         {(service.highlight || service.empower) && (
+  //           <h3
+  //             className="card-title mb-4 fw-bold"
+  //             style={{
+  //               color: "#0b3937",
+  //             }}
+  //           >
+  //             Key Highlights
+  //           </h3>
+  //         )}
+
+  //         {service.highlight && (
+  //           <p className="lead fw-medium mb-3">
+  //             <i className="bi bi-check-circle-fill text-success me-2"></i>
+  //             {service.highlight}
+  //           </p>
+  //         )}
+
+  //         {service.empower && (
+  //           <p className="mb-4">
+  //             <i className="bi bi-star-fill me-2"></i>
+  //             {service.empower}
+  //           </p>
+  //         )}
+
+  //         <div className="mt-4">
+  //           <Link
+  //             className="tp-btn-blue-lg tp-btn-hover alt-color-black"
+  //             href="/new-service"
+  //           >
+  //             <span
+  //               style={{
+  //                 color: "white",
+  //               }}
+  //             >
+  //               Start Now
+  //             </span>
+  //             <b></b>
+  //           </Link>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // };
+
   const renderHighlights = () => {
     if (!service.highlight && !service.empower) return null;
 
     return (
-      <div className="card mb-5 bg-white border-1">
-        <div className="card-body p-4 p-md-5">
-          {(service.highlight || service.empower) && (
-            <h3
-              className="card-title mb-4 fw-bold"
-              style={{
-                color: "#0b3937",
-              }}
-            >
-              Key Highlights
-            </h3>
-          )}
-
-          {service.highlight && (
-            <p className="lead fw-medium mb-3">
-              <i className="bi bi-check-circle-fill text-success me-2"></i>
-              {service.highlight}
-            </p>
-          )}
-
-          {service.empower && (
-            <p className="mb-4">
-              <i className="bi bi-star-fill me-2"></i>
-              {service.empower}
-            </p>
-          )}
-
-          <div className="mt-4">
-            <Link
-              className="tp-btn-blue-lg tp-btn-hover alt-color-black"
-              href="/new-service"
-            >
-              <span
+      <div
+        style={{
+          width: "100%",
+        }}
+      >
+        <div
+          className="card mb-5 border-1"
+          style={{
+            // SETTING THE BACKGROUND OF THE ENTIRE THING TO #0b3937
+            backgroundColor: "#0b3937",
+            color: "white", // Ensure text is visible against the dark background
+          }}
+        >
+          <div className="card-body p-4 p-md-5">
+            {(service.highlight || service.empower) && (
+              <h3
+                className="card-title mb-4 fw-bold"
                 style={{
-                  color: "white",
+                  // CHANGING HEADING COLOR TO #a9fa60 (Bright Green)
+                  color: "#a9fa60",
                 }}
               >
-                Start Now
-              </span>
-              <b></b>
-            </Link>
+                Key Highlights
+              </h3>
+            )}
+
+            {service.highlight && (
+              // Adjusted text color and icon color for visibility
+              <p className="lead fw-medium mb-3" style={{ color: "white" }}>
+                <i
+                  className="bi bi-check-circle-fill me-2"
+                  style={{ color: "#a9fa60" }} // Using #a9fa60 for the icon
+                ></i>
+                {service.highlight}
+              </p>
+            )}
+
+            {service.empower && (
+              // Adjusted text color and icon color for visibility
+              <p className="mb-4" style={{ color: "white" }}>
+                <i
+                  className="bi bi-star-fill me-2"
+                  style={{ color: "#a9fa60" }} // Using #a9fa60 for the icon
+                ></i>
+                {service.empower}
+              </p>
+            )}
+
+            <div className="mt-4">
+              <Link
+                // Styling the button with #a9fa60 for a strong visual contrast
+                className="tp-btn-blue-lg tp-btn-hover alt-color-black"
+                href="/new-service"
+                style={{
+                  backgroundColor: "#a9fa60",
+                  borderColor: "#a9fa60",
+                }}
+              >
+                <span
+                  style={{
+                    // Ensure button text is dark for readability against bright green
+                    color: "#0b3937",
+                  }}
+                >
+                  Start Now
+                </span>
+                <b></b>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -357,6 +503,43 @@ const ServiceDetailsArea = ({ initialTab }) => {
             <p className="mb-0">{service.about.closing}</p>
           </div>
         )}
+      </div>
+    );
+  };
+
+  const renderHero = () => {
+    if (!service.hero) return null;
+
+    return (
+      <div className="sv-details-hero mb-40">
+        <div
+          className="position-relative overflow-hidden rounded-4"
+          style={{
+            backgroundColor: "#0b3937",
+          }}
+        >
+          <Image
+            src={service.hero}
+            alt={service.title}
+            className="w-100"
+            style={{
+              objectFit: "cover",
+              maxHeight: 420,
+              width: "100%",
+              filter: "saturate(1.05)",
+              opacity: 0.95,
+            }}
+            priority
+          />
+          <div
+            className="position-absolute top-0 start-0 w-100 h-100"
+            style={{
+              background:
+                "linear-gradient(120deg, rgba(255,255,255,0.15), rgba(11,57,55,0.55))",
+              mixBlendMode: "multiply",
+            }}
+          ></div>
+        </div>
       </div>
     );
   };
