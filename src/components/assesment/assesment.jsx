@@ -8,9 +8,13 @@ import {
   BarChart3,
   AlertCircle,
   RotateCcw,
+  Mail,
+  User,
+  Building,
 } from "lucide-react";
 import { Zap } from "lucide-react";
 import { Eye } from "lucide-react";
+import NiceSelect from "@/ui/nice-select";
 
 // --- CUSTOM STYLES & CONSTANTS ---
 const BRAND_COLOR = "#0b3937";
@@ -347,6 +351,116 @@ const QuestionCard = ({ question, answer, onAnswer }) => {
   );
 };
 
+// --- NEW DATA CAPTURE COMPONENT (FIXED) ---
+const DataCaptureForm = ({ onSubmit, onSkip }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+  });
+  const [validationError, setValidationError] = useState(null);
+
+  // FIX: Updated handleChange to correctly update the state for all fields
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setValidationError(null); // Clear error on change
+  };
+
+  // FIX: Updated handleSubmit to correctly use the formData and call onSubmit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email) {
+      setValidationError(
+        "All fields are required to view the detailed results."
+      );
+      return;
+    }
+    // Simple email validation
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      setValidationError("Please enter a valid email address.");
+      return;
+    }
+
+    // Pass the validated data back to the parent component
+    onSubmit(formData);
+  };
+
+  return (
+    <div className="card border-0 animate-fade-in p-4 p-md-5">
+      <div className="card-body">
+        <div className="text-center mb-5">
+          <h2 className="fw-bold mb-3" style={styles.brandText}>
+            Unlock Your AI Readiness Report
+          </h2>
+          <p className="lead text-secondary">
+            Enter your details to receive your comprehensive score and a
+            customized action plan.
+          </p>
+        </div>
+
+        {validationError && (
+          <div
+            className="alert alert-danger d-flex align-items-center mb-4 rounded-3"
+            role="alert"
+          >
+            <AlertCircle className="me-2 flex-shrink-0" size={20} />
+            <div>{validationError}</div>
+          </div>
+        )}
+
+        <div className="tp-contact-input-wrapper p-relative">
+          <form onSubmit={handleSubmit} className="box">
+            <div className="row gx-20">
+              <div className="col-12">
+                <div className="postbox__comment-input mb-30">
+                  <input
+                    type="text"
+                    className="inputText"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    style={{
+                      borderColor: "#0b3937",
+                      color: "#0b3937",
+                    }}
+                  />
+                  <span className="floating-label">Full Name</span>
+                </div>
+              </div>
+              <div className="col-12">
+                <div className="postbox__comment-input mb-30">
+                  <input
+                    type="email"
+                    className="inputText"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    style={{
+                      borderColor: "#0b3937",
+                      color: "#0b3937",
+                    }}
+                  />
+                  <span className="floating-label">Your Email</span>
+                </div>
+              </div>
+              <div className="col-xxl-12">
+                <div className="postbox__btn-box w-100 d-flex justify-content-center">
+                  <button className="submit-btn px-5 rounded-pill">
+                    Send your Request
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+// --- END NEW DATA CAPTURE COMPONENT ---
+
 const ResultCard = ({ result, totalScore, onRestart }) => {
   if (!result) return null; // Function to handle the "Start Now" action (you'd replace this with actual routing or logic)
 
@@ -453,7 +567,11 @@ export default function AssesmentProblems() {
   const [answers, setAnswers] = useState({});
   const [activeTab, setActiveTab] = useState(0);
   const [showResults, setShowResults] = useState(false);
+  // NEW STATE: Control visibility of the data capture form
+  const [showDataCapture, setShowDataCapture] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
+  // NEW STATE: To store the captured data
+  const [capturedData, setCapturedData] = useState(null);
 
   // Derive sections uniquely from data
   const sections = useMemo(() => {
@@ -487,6 +605,44 @@ export default function AssesmentProblems() {
     if (errorMsg) setErrorMsg(null);
   };
 
+  const getRecommendation = (score) => {
+    if (score >= 80) return RECOMMENDATIONS.leader;
+    if (score >= 60) return RECOMMENDATIONS.explorer;
+    if (score >= 40) return RECOMMENDATIONS.beginner;
+    return RECOMMENDATIONS.unprepared;
+  };
+
+  // NEW FUNCTION: Handles the form submission (from DataCaptureForm) or skip
+  const handleDataCaptureComplete = async (data = null) => {
+    setCapturedData(data);
+    const recommendation = getRecommendation(totalScore);
+
+    try {
+      // API call now includes the data collected
+      await fetch("/api/assessment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          answers,
+          totalScore,
+          recommendationTitle: recommendation.title,
+          userData: data, // Include user data here
+        }),
+      });
+    } catch (error) {
+      console.error("Failed to persist assessment results", error);
+    }
+
+    // Final step: show results and switch tab
+    setShowDataCapture(false);
+    setShowResults(true);
+    setActiveTab(sections.length);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // UPDATED: This now triggers the Data Capture Form
   const calculateResult = () => {
     if (answeredCount < totalQuestions) {
       setErrorMsg(
@@ -496,17 +652,9 @@ export default function AssesmentProblems() {
       return;
     }
 
-    setShowResults(true);
-    // Switch to the results tab (which is index = sections.length)
-    setActiveTab(sections.length);
+    // Instead of immediately showing results, show the data capture form
+    setShowDataCapture(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const getRecommendation = (score) => {
-    if (score >= 80) return RECOMMENDATIONS.leader;
-    if (score >= 60) return RECOMMENDATIONS.explorer;
-    if (score >= 40) return RECOMMENDATIONS.beginner;
-    return RECOMMENDATIONS.unprepared;
   };
 
   const isSectionComplete = (sectionName) => {
@@ -519,6 +667,8 @@ export default function AssesmentProblems() {
   const handleRestart = () => {
     setAnswers({});
     setShowResults(false);
+    setShowDataCapture(false); // Reset data capture state
+    setCapturedData(null); // Reset captured data
     setActiveTab(0);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -537,8 +687,8 @@ export default function AssesmentProblems() {
           .tabs-container {
             overflow-x: auto;
             white-space: nowrap;
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
           }
           .tabs-container::-webkit-scrollbar {
             display: none;
@@ -561,8 +711,8 @@ export default function AssesmentProblems() {
             <div className="row align-items-center gy-3">
               <div className="col-md-8">
                 {/* <h1 className="fw-bold mb-1" style={styles.brandText}>
-                  AI Readiness Assessment
-                </h1> */}
+                  AI Readiness Assessment
+                </h1> */}
                 <p className="text-secondary mb-0 small">
                   Evaluate your strategic, technical, and cultural readiness.
                 </p>
@@ -602,6 +752,7 @@ export default function AssesmentProblems() {
                     label={section}
                     isActive={activeTab === idx}
                     onClick={() => {
+                      setShowDataCapture(false); // Hide capture form if user navigates back
                       setActiveTab(idx);
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
@@ -617,11 +768,14 @@ export default function AssesmentProblems() {
                   label="Results"
                   isActive={activeTab === sections.length}
                   onClick={() => {
-                    setActiveTab(sections.length);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    if (showResults) {
+                      // Only allow navigation if results are generated
+                      setActiveTab(sections.length);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
                   }}
                   isResultTab={true}
-                  disabled={!showResults} // Only clickable after calculation
+                  disabled={!showResults} // Only clickable after calculation is fully complete
                 />
               </div>
             </div>
@@ -646,9 +800,14 @@ export default function AssesmentProblems() {
             </div>
           )}
 
-          {/* Conditional Rendering: Questions vs Results */}
-
-          {isResultsTab ? (
+          {/* Conditional Rendering: Questions vs Data Capture Form vs Results */}
+          {showDataCapture ? (
+            /* Data Capture Form View */
+            <DataCaptureForm
+              onSubmit={handleDataCaptureComplete}
+              onSkip={() => handleDataCaptureComplete({ skipped: true })}
+            />
+          ) : isResultsTab ? (
             /* Results View */
             <ResultCard
               result={getRecommendation(totalScore)}
@@ -683,8 +842,8 @@ export default function AssesmentProblems() {
             </div>
           )}
 
-          {/* Navigation Buttons (Hide if on Results tab) */}
-          {!isResultsTab && (
+          {/* Navigation Buttons (Hide if on Results or Data Capture tab) */}
+          {!isResultsTab && !showDataCapture && (
             <div className="d-flex flex-column flex-sm-row justify-content-between gap-3 pt-4 border-top mt-5">
               <button
                 onClick={() => {
@@ -713,14 +872,14 @@ export default function AssesmentProblems() {
                 </button>
               ) : (
                 <button
-                  onClick={calculateResult}
+                  onClick={calculateResult} // Now triggers data capture form
                   // UPDATED: Added rounded-pill for full rounded button
                   className="btn btn-dark btn-lg fw-bold d-flex align-items-center justify-content-center shadow rounded-pill"
                   style={{
                     backgroundColor: "#0b3937",
                   }}
                 >
-                  <Eye size={20} className="me-2" /> View Results
+                  <Eye size={20} className="me-2" /> Finish & View Results
                 </button>
               )}
             </div>
