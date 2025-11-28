@@ -448,7 +448,7 @@ const DataCaptureForm = ({ onSubmit, onSkip }) => {
               <div className="col-xxl-12">
                 <div className="postbox__btn-box w-100 d-flex justify-content-center">
                   <button className="submit-btn px-5 rounded-pill">
-                    Send your Request
+                    See My Result
                   </button>
                 </div>
               </div>
@@ -548,14 +548,6 @@ const ResultCard = ({ result, totalScore, onRestart }) => {
             >
               <Zap size={20} className="me-2" /> Level Up With Axonova
             </button>
-            {/* <button
-              onClick={onRestart}
-              // UPDATED: Added rounded-pill for full rounded button
-              className="btn btn-outline-secondary btn-lg fw-bold d-flex align-items-center justify-content-center rounded-pill"
-            >
-              <RotateCcw size={16} className="me-2" />
-              Restart Assessment
-            </button> */}
           </div>
         </div>
       </div>
