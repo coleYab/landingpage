@@ -49,6 +49,11 @@ export const metadata = {
     creator: "@AxonovaOfficial",
     images: ["https://axonovaconsulting.co.uk/assets/img/logo/logo-small.png"],
   },
+
+     robots: {
+    index: true,
+    follow: true,
+  },
 };
 const ServiceDetailsPage = () => {
   return (

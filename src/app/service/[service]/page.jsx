@@ -78,6 +78,11 @@ export async function generateMetadata({ params }) {
       creator: "@AxonovaOfficial",
       images: ["https://www.axonova.com/assets/img/logo/logo-small.png"],
     },
+
+     robots: {
+    index: true,
+    follow: true,
+  },
   };
 }
 
