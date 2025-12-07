@@ -11,16 +11,36 @@ import about_img_5 from "@/assets/img/about/about-5.png";
 import { BadgeCheck } from "lucide-react";
 import RightArrow from "@/svg/right-arrow";
 
+const approach_cards = [
+  {
+    icon: <BadgeCheck size={32} color="#0b3937" fill="#a9fa60" />,
+    title: "1. Simple",
+    description:
+      "We cut through complexity and explain AI in clear, human language. No buzzwords. No tech jargon. No confusion.",
+  },
+  {
+    icon: <BadgeCheck size={32} color="#0b3937" fill="#a9fa60" />,
+    title: "2. Practical",
+    description:
+      "We focus on real tasks, real workflows, and real value. If it doesn’t help your people work better tomorrow, we don’t recommend it.",
+  },
+  {
+    icon: <BadgeCheck size={32} color="#0b3937" fill="#a9fa60" />,
+    title: "3. Safe",
+    description:
+      "Governance, guardrails, and responsible AI use are built into every engagement. Your data, your people, and your organisation stay protected.",
+  },
+];
+
 // approach content
 const approach_content = {
   title: "OUR APPROACH",
   sub_title: "Simple. Practical. Safe.",
   des: (
     <>
-      Everything we deliver follows three core principles:
-      <br />
-      This approach ensures AI becomes a trusted tool - not a risk, not a
-      distraction, and not another project that never gets used.
+      Everything we deliver follows three core principles: This approach ensures
+      AI becomes a trusted tool - not a risk, not a distraction, and not another
+      project that never gets used.
     </>
   ),
   about_list: [
@@ -52,9 +72,23 @@ const Approaches = () => {
             data-wow-delay=".6s"
           >
             <div className="tp-about__right">
-              <div className="tp-about__section-box">
+              <div className="tp-about__section-box text-center">
                 {/* Changed subtitle to white */}
-                <h4
+                <h4 className="tp-section-title" style={{ color: "#a9fa60" }}>
+                  {title}
+                </h4>
+                {sub_title && (
+                  <h3
+                    className="tp-section-title mb-15"
+                    style={{
+                      color: "#a9fa60",
+                      fontSize: "26px",
+                    }}
+                  >
+                    {sub_title}
+                  </h3>
+                )}
+                {/* <h4
                   className="tp-section-subtitle"
                   style={{ color: "#fff", background: "#a8ef6b" }}
                 >
@@ -68,26 +102,53 @@ const Approaches = () => {
                   >
                     {sub_title}
                   </h3>
-                )}
+                )} */}
                 {/* Changed paragraph to #a9fa60 (inherits from parent div, but added for clarity) */}
                 <p style={{ color: "#a9fa60" }}>{des}</p>
               </div>
-              <div className="tp-about__list">
-                <ul>
-                  {about_list.map((item, i) => (
-                    // Changed list item content to #a9fa60
-                    <li key={i} style={{ color: "#a9fa60" }}>
-                      <BadgeCheck
-                        style={{
-                          // Kept BadgeCheck color for a subtle accent or you can change it to '#a9fa60' or a bright accent color
-                          color: "#a9fa60",
-                          marginRight: "10px",
-                        }}
-                      />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="row justify-content-center g-4 mt-4">
+                {approach_cards.map((card, i) => (
+                  <div
+                    key={i}
+                    className="col-lg-4 col-md-6 wow tpfadeUp"
+                    data-wow-duration=".9s"
+                    data-wow-delay={`${i * 0.2 + 0.3}s`}
+                  >
+                    <div
+                      className="tp-approach-card"
+                      style={{
+                        backgroundColor: "#1c4a48", // Slightly lighter dark green for card background
+                        color: "#a9fa60",
+                        padding: "30px",
+                        borderRadius: "10px",
+                        border: "1px solid #a9fa6050", // Subtle border
+                        minHeight: "250px",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                      }}
+                    >
+                      <div className="d-flex align-items-center justify-content-start col-12">
+                        {/* <div className="mb-3 me-3">{card.icon}</div> */}
+                        <h4
+                          className="tp-approach-card-title mb-2"
+                          style={{
+                            color: "#fff",
+                            fontSize: "1.5rem",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          {card.title}
+                        </h4>
+                      </div>
+
+                      {/* Description */}
+                      <p style={{ color: "#a9fa60", opacity: 0.9 }}>
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

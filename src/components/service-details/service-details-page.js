@@ -5,6 +5,7 @@ import bg3 from "../../../public/assets/img/services/s3.png";
 import bg4 from "../../../public/assets/img/services/s4.png";
 import srvHeroOverview from "../../../public/assets/img/srv/aiimg.png";
 import srvHeroTraining from "../../../public/assets/img/srv/aiimg1.png";
+import srvHeroCoaching from "../../../public/assets/img/srv/aiimg4.png";
 import srvHeroConsulting from "../../../public/assets/img/srv/aiimg2.png";
 import srvHeroAutomations from "../../../public/assets/img/srv/aiimg3.png";
 
@@ -88,6 +89,7 @@ export const services = {
   "ai-training": {
     id: "ai-training",
     hero: srvHeroTraining,
+    highlightButtonText: "Enroll in AI Training",
     title: "AI Training",
     subtitle:
       "Practical, hands-on AI Training for every team - No technical skills needed",
@@ -280,6 +282,7 @@ export const services = {
   },
   "ai-consulting": {
     id: "ai-consulting",
+    highlightButtonText: "Book AI Consultation",
     hero: srvHeroConsulting,
     title: "AI Consulting",
     subtitle: "End-to-End AI Strategy and Roadmap for successful AI Adoption",
@@ -406,6 +409,7 @@ export const services = {
   },
   "ai-automations": {
     id: "ai-automations",
+    highlightButtonText: "Explore AI Solutions",
     hero: srvHeroAutomations,
     title: "AI Automations and Solutions",
     subtitle:
@@ -520,7 +524,8 @@ export const services = {
   },
   "ai-coaching": {
     id: "ai-coaching",
-    hero: srvHeroTraining,
+    highlightButtonText: "Schedule AI Coaching",
+    hero: srvHeroCoaching,
     title: "AI Coaching",
     subtitle:
       "A personalised one-on-one AI Coaching for Leaders, Founders, and Professionals",

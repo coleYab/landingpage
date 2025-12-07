@@ -35,14 +35,14 @@ const HeaderThree = () => {
                   </Link>
                 </div>
               </div>
-              <div className="col-xxl-8 col-xl-8 col-lg-8 d-none d-lg-block">
+              <div className="col-xxl-6 col-xl-6 col-lg-6 d-none d-lg-block">
                 <div className="header-bottom__main-menu header-bottom__main-menu-3">
                   <nav id="mobile-menu">
                     <NavMenu />
                   </nav>
                 </div>
               </div>
-              <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-2">
+              <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-2">
                 <div className="header-bottom__right d-flex align-items-center justify-content-start">
                   <div className="header-bottom__btn d-flex align-items-center">
                     <Link
@@ -50,6 +50,17 @@ const HeaderThree = () => {
                       href="/new-service"
                     >
                       Contact Us
+                    </Link>
+                    <Link
+                      className="tp-btn-blue-sm d-none d-lg-inline-block d-md-none tp-btn-hover alt-color-black"
+                      style={{
+                        paddingLeft: "15px",
+                        paddingRight: "15px",
+                        backgroundColor: "#80bb4c",
+                      }}
+                      href="/assesment"
+                    >
+                      Assess your AI readiness
                     </Link>
                     <a
                       className="header-bottom__bar tp-menu-bar d-lg-none"

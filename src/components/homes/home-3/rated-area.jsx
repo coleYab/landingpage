@@ -45,6 +45,11 @@ const rated_content = {
       description:
         "Complexity is removed. Clarity is delivered. Your teams know exactly what to do next.",
     },
+    {
+      id: 7,
+      title: "How can we help you?",
+      has: true,
+    },
   ],
 };
 
@@ -136,27 +141,131 @@ const RatedArea = () => {
                     >
                       <div style={{ overflow: "hidden" }}>
                         <div
-                          // 1. Changed p-3 to p-4 for more padding
-                          // 2. Changed mt-1 to mt-3 for more top separation
-                          // 3. Changed rounded-1 to rounded-3 for softer corners
                           className="p-4 mt-3 rounded-3"
                           style={{
                             backgroundColor: theme.primary,
-                            // Note: White text on bright green might be hard to read.
-                            // If it is, change theme.white to theme.primary below.
                             color: theme.accent,
                             boxShadow: "0 4px 12px rgba(44, 165, 141, 0.2)",
                           }}
                         >
-                          <p
-                            // 4. Removed 'small' class
-                            // 5. Added 'lh-lg' for taller line height
-                            className="m-0 fw-medium lh-lg"
-                            // 6. Manually increased font size
-                            style={{ fontSize: "1.05rem", color: theme.accent }}
-                          >
-                            {item.description}
-                          </p>
+                          {item?.has ? (
+                            <form
+                              onClick={(e) => e.stopPropagation()}
+                              onSubmit={async (e) => {
+                                e.preventDefault();
+                                const formData = new FormData(e.target);
+
+                                const response = await fetch(
+                                  "https://formspree.io/f/xjkdkord",
+                                  {
+                                    method: "POST",
+                                    body: formData,
+                                    headers: { Accept: "application/json" },
+                                  }
+                                );
+
+                                if (response.ok) {
+                                  toast.success(
+                                    "Your request has been sent successfully"
+                                  );
+                                } else {
+                                  toast.error("Something went wrong");
+                                }
+                              }}
+                              className="box"
+                            >
+                              <div className="row gx-20">
+                                <div className="col-12">
+                                  <div className="postbox__comment-input mb-30">
+                                    <input
+                                      type="text"
+                                      className="inputText"
+                                      name="name"
+                                      required
+                                      style={{
+                                        borderColor: "#0b3937",
+                                        color: "#0b3937",
+                                      }}
+                                    />
+                                    <span
+                                      className="floating-label"
+                                      style={{ color: "black" }}
+                                    >
+                                      Full Name
+                                    </span>
+                                  </div>
+                                </div>
+                                <div className="col-12">
+                                  <div className="postbox__comment-input mb-30">
+                                    <input
+                                      type="email"
+                                      className="inputText"
+                                      name="email"
+                                      required
+                                      style={{
+                                        borderColor: "#0b3937",
+                                        color: "#0b3937",
+                                      }}
+                                    />
+                                    <span
+                                      className="floating-label"
+                                      style={{
+                                        color: "black",
+                                      }}
+                                    >
+                                      Your Email
+                                    </span>
+                                  </div>
+                                </div>
+                                <div className="col-xxl-12">
+                                  <div className="postbox__comment-input mb-30">
+                                    <textarea
+                                      name="message"
+                                      className="textareaText"
+                                      required
+                                      style={{
+                                        borderColor: "#0b3937",
+                                        color: "#0b3937",
+                                      }}
+                                    ></textarea>
+                                    <span
+                                      className="floating-label-2"
+                                      style={{
+                                        color: "black",
+                                      }}
+                                    >
+                                      Message...
+                                    </span>
+                                  </div>
+                                </div>
+                                <div className="col-xxl-12">
+                                  <div className="postbox__btn-box">
+                                    <button
+                                      className="submit-btn w-100 rounded"
+                                      style={{
+                                        backgroundColor: "#a9fa60",
+                                      }}
+                                    >
+                                      Get in touch
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          ) : (
+                            <p
+                              // 4. Removed 'small' class
+                              // 5. Added 'lh-lg' for taller line height
+                              className="m-0 fw-medium lh-lg"
+                              // 6. Manually increased font size
+                              style={{
+                                fontSize: "1.05rem",
+                                color: theme.accent,
+                              }}
+                            >
+                              {item.description}
+                            </p>
+                          )}
                         </div>
                         {/* Added slightly more margin at bottom of expanded state */}
                         <div style={{ height: "15px" }}></div>

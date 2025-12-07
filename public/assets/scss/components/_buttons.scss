@@ -275,6 +275,7 @@
     color: var(--tp-common-white);
   }
   &:hover {
+    color: white;
     & span {
       color: var(--tp-common-white);
       transition-delay: 0.1s;
@@ -362,9 +363,9 @@
     z-index: 5;
     transition: 0.3s;
     color: var(--tp-common-black);
-    &:hover {
-      color: var(--tp-common-black);
-    }
+    // &:hover {
+    //   color: var(--tp-common-black);
+    // }
   }
   &.inner-color {
     background: #ffce5a;
@@ -438,7 +439,7 @@
   }
   &:hover {
     background-color: transparent;
-    color: var(--tp-common-black);
+    // color: var(--tp-common-black);
     &::after {
       transform: scaleY(1);
       transform-origin: top;
@@ -506,9 +507,9 @@
   font-size: 15px;
   transition: 0.3s;
   &:hover {
-    background-color: var(--tp-common-yellow-3);
-    color: var(--tp-common-black);
-    border-color: var(--tp-common-yellow-3);
+    // background-color: var(--tp-common-yellow-3);
+    // color: var(--tp-common-black);
+    // border-color: var(--tp-common-yellow-3);
   }
 }
 .tp-btn-grey {

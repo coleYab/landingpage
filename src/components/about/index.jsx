@@ -16,12 +16,11 @@ const About = () => {
   return (
     <>
       <HeaderThree />
-      <BreadcrumbTwo title="About" innertitle="About" />
+      <BreadcrumbTwo title="About us" innertitle="About us" />
       <CompanyArea />
       <Approaches />
       <MissionArea />
       <AboutArea />
-      {/* <CtaArea /> */}
       <FooterThree style_contact={true} style_team={true} />
     </>
   );

@@ -113,6 +113,9 @@ const ServiceDetailsArea = ({ initialTab }) => {
             {items.map((item, i) => (
               <li
                 key={i}
+                style={{
+                  paddingLeft: "0px",
+                }}
                 className="d-flex align-items-center mb-3 py-2 border-bottom" // Flex for alignment, spacing for modern rhythm
               >
                 <IconComponent
@@ -136,11 +139,7 @@ const ServiceDetailsArea = ({ initialTab }) => {
       <div className="sv-details-text mb-50">
         <h3 className="sv-details-text-title pb-20">Our Approach</h3>
         <div className="approach-list">
-          {" "}
-          {/* Custom class for styling the list container */}
           <ul className="list-unstyled">
-            {" "}
-            {/* Use list-unstyled to remove default bullets */}
             {service.ourApproach.map((item, index) => {
               // Check if item is a string before splitting
               if (typeof item !== "string" || !item.includes(":")) {
@@ -157,18 +156,17 @@ const ServiceDetailsArea = ({ initialTab }) => {
               return (
                 <li
                   key={index}
+                  style={{
+                    paddingLeft: "0px",
+                  }}
                   className="approach-item py-3 mb-3 border-bottom d-flex align-items-start"
                 >
-                  {/* Step Number/Icon */}
                   <div className="approach-step-number flex-shrink-0 me-4">
                     <span className="h4 fw-bold">0{index + 1}.</span>
                   </div>
-
-                  {/* Content */}
                   <div className="approach-content flex-grow-1">
                     <h4 className="mt-0 mb-2">
-                      {/* Using a span inside h4 to make the heading slightly less dominant */}
-                      <span className="fw-semibold text-dark">{heading}</span>
+                      <span className="fw-semibold">{heading}</span>
                     </h4>
                     <p className="text-secondary mb-0">{detail}</p>
                   </div>
@@ -281,49 +279,44 @@ const ServiceDetailsArea = ({ initialTab }) => {
         <div
           className="card mb-5 border-1"
           style={{
-            // SETTING THE BACKGROUND OF THE ENTIRE THING TO #0b3937
             backgroundColor: "#0b3937",
-            color: "white", // Ensure text is visible against the dark background
+            color: "white",
           }}
         >
           <div className="card-body p-4 p-md-5">
             {(service.highlight || service.empower) && (
               <h3
-                className="card-title mb-4 fw-bold"
+                className="card-title mb-4 fw-bold text-center"
                 style={{
-                  // CHANGING HEADING COLOR TO #a9fa60 (Bright Green)
                   color: "#a9fa60",
                 }}
               >
-                Key Highlights
+                Core Benefits & Outcomes
               </h3>
             )}
 
             {service.highlight && (
-              // Adjusted text color and icon color for visibility
               <p className="lead fw-medium mb-3" style={{ color: "white" }}>
-                <i
+                {/* <i
                   className="bi bi-check-circle-fill me-2"
-                  style={{ color: "#a9fa60" }} // Using #a9fa60 for the icon
-                ></i>
+                  style={{ color: "#a9fa60" }}
+                ></i> */}
                 {service.highlight}
               </p>
             )}
 
             {service.empower && (
-              // Adjusted text color and icon color for visibility
               <p className="mb-4" style={{ color: "white" }}>
-                <i
+                {/* <i
                   className="bi bi-star-fill me-2"
-                  style={{ color: "#a9fa60" }} // Using #a9fa60 for the icon
-                ></i>
+                  style={{ color: "#a9fa60" }}
+                ></i> */}
                 {service.empower}
               </p>
             )}
 
-            <div className="mt-4">
+            <div className="mt-4 d-flex justify-content-center">
               <Link
-                // Styling the button with #a9fa60 for a strong visual contrast
                 className="tp-btn-blue-lg tp-btn-hover alt-color-black"
                 href="/new-service"
                 style={{
@@ -333,11 +326,10 @@ const ServiceDetailsArea = ({ initialTab }) => {
               >
                 <span
                   style={{
-                    // Ensure button text is dark for readability against bright green
                     color: "#0b3937",
                   }}
                 >
-                  Start Now
+                  {service.highlightButtonText}
                 </span>
                 <b></b>
               </Link>
@@ -561,7 +553,152 @@ const ServiceDetailsArea = ({ initialTab }) => {
           <>
             {renderOverview()}
             {renderModules()}
+
+            <div
+              style={{
+                position: "relative",
+                // Changed to Primary Color: #0b3937
+                backgroundColor: "#0b3937",
+                height: "100px",
+                width: "100%",
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "30px",
+                color: "white",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  overflow: "hidden",
+                  lineHeight: 0,
+                }}
+              >
+                <svg
+                  viewBox="0 0 1440 320"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    position: "relative",
+                    display: "block",
+                    width: "calc(100% + 1.3px)",
+                    height: "100px",
+                  }}
+                >
+                  <path
+                    // Changed fill to Primary Color: #0b3937
+                    fill="#0b3937"
+                    fillOpacity="1"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,186.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    // Changed fill to Secondary Color: #a9fa60
+                    fill="#a9fa60"
+                    fillOpacity="1"
+                    d="M0,256L48,250.7C96,245,192,235,288,208C384,181,480,139,576,144C672,149,768,203,864,229.3C960,256,1056,256,1152,234.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth="2"
+                    d="M480,130 C600,120, 700,200, 864,220 C960,240, 1050,220, 1150,190"
+                  ></path>
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="1.5"
+                    d="M900,200 C1000,240, 1100,200, 1300,100"
+                  ></path>
+
+                  <path
+                    fill="#ffffff"
+                    fillOpacity="1"
+                    d="M0,288L48,280C96,272,192,256,288,250.7C384,245,480,248,576,256C672,264,768,272,864,266.7C960,261,1056,256,1152,245.3C1248,235,1344,229,1392,226.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
             {renderChecklist("Why It Works", service.benefits)}
+
+            {/* <div
+              style={{
+                position: "relative",
+                // Changed to Primary Color: #0b3937
+                backgroundColor: "#0b3937",
+                height: "100px",
+                width: "100%",
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "30px",
+                color: "white",
+              }}
+            >
+              <div
+                class="wave-container"
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  overflow: "hidden",
+                  lineHeight: 0,
+                }}
+              >
+                <svg
+                  viewBox="0 0 1440 320"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    position: "relative",
+                    display: "block",
+                    width: "calc(100% + 1.3px)",
+                    height: "100px",
+                  }}
+                >
+                  <path
+                    // Changed fill to Primary Color: #0b3937
+                    fill="#0b3937"
+                    fillOpacity="1"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,186.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    // Changed fill to Secondary Color: #a9fa60
+                    fill="#a9fa60"
+                    fillOpacity="1"
+                    d="M0,256L48,250.7C96,245,192,235,288,208C384,181,480,139,576,144C672,149,768,203,864,229.3C960,256,1056,256,1152,234.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth="2"
+                    d="M480,130 C600,120, 700,200, 864,220 C960,240, 1050,220, 1150,190"
+                  ></path>
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="1.5"
+                    d="M900,200 C1000,240, 1100,200, 1300,100"
+                  ></path>
+
+                  <path
+                    fill="#ffffff"
+                    fillOpacity="1"
+                    d="M0,288L48,280C96,272,192,256,288,250.7C384,245,480,248,576,256C672,264,768,272,864,266.7C960,261,1056,256,1152,245.3C1248,235,1344,229,1392,226.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+                </svg>
+              </div>
+            </div> */}
             {renderHighlights()}
           </>
         );
@@ -569,7 +706,151 @@ const ServiceDetailsArea = ({ initialTab }) => {
         return (
           <>
             {renderOverview()}
+
+            <div
+              style={{
+                position: "relative",
+                // Changed to Primary Color: #0b3937
+                backgroundColor: "#0b3937",
+                height: "100px",
+                width: "100%",
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "30px",
+                color: "white",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  overflow: "hidden",
+                  lineHeight: 0,
+                }}
+              >
+                <svg
+                  viewBox="0 0 1440 320"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    position: "relative",
+                    display: "block",
+                    width: "calc(100% + 1.3px)",
+                    height: "100px",
+                  }}
+                >
+                  <path
+                    // Changed fill to Primary Color: #0b3937
+                    fill="#0b3937"
+                    fillOpacity="1"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,186.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    // Changed fill to Secondary Color: #a9fa60
+                    fill="#a9fa60"
+                    fillOpacity="1"
+                    d="M0,256L48,250.7C96,245,192,235,288,208C384,181,480,139,576,144C672,149,768,203,864,229.3C960,256,1056,256,1152,234.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth="2"
+                    d="M480,130 C600,120, 700,200, 864,220 C960,240, 1050,220, 1150,190"
+                  ></path>
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="1.5"
+                    d="M900,200 C1000,240, 1100,200, 1300,100"
+                  ></path>
+
+                  <path
+                    fill="#ffffff"
+                    fillOpacity="1"
+                    d="M0,288L48,280C96,272,192,256,288,250.7C384,245,480,248,576,256C672,264,768,272,864,266.7C960,261,1056,256,1152,245.3C1248,235,1344,229,1392,226.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
             {renderChecklist("What we cover", service.whatWeCover)}
+
+            <div
+              style={{
+                position: "relative",
+                // Changed to Primary Color: #0b3937
+                backgroundColor: "#0b3937",
+                height: "100px",
+                width: "100%",
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "30px",
+                color: "white",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  overflow: "hidden",
+                  lineHeight: 0,
+                }}
+              >
+                <svg
+                  viewBox="0 0 1440 320"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    position: "relative",
+                    display: "block",
+                    width: "calc(100% + 1.3px)",
+                    height: "100px",
+                  }}
+                >
+                  <path
+                    // Changed fill to Primary Color: #0b3937
+                    fill="#0b3937"
+                    fillOpacity="1"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,186.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    // Changed fill to Secondary Color: #a9fa60
+                    fill="#a9fa60"
+                    fillOpacity="1"
+                    d="M0,256L48,250.7C96,245,192,235,288,208C384,181,480,139,576,144C672,149,768,203,864,229.3C960,256,1056,256,1152,234.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth="2"
+                    d="M480,130 C600,120, 700,200, 864,220 C960,240, 1050,220, 1150,190"
+                  ></path>
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="1.5"
+                    d="M900,200 C1000,240, 1100,200, 1300,100"
+                  ></path>
+
+                  <path
+                    fill="#ffffff"
+                    fillOpacity="1"
+                    d="M0,288L48,280C96,272,192,256,288,250.7C384,245,480,248,576,256C672,264,768,272,864,266.7C960,261,1056,256,1152,245.3C1248,235,1344,229,1392,226.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
             {renderChecklist(
               "How we work",
               service.howWeWork,
@@ -582,11 +863,155 @@ const ServiceDetailsArea = ({ initialTab }) => {
         return (
           <>
             {renderOverview()}
+
+            <div
+              style={{
+                position: "relative",
+                // Changed to Primary Color: #0b3937
+                backgroundColor: "#0b3937",
+                height: "100px",
+                width: "100%",
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "30px",
+                color: "white",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  overflow: "hidden",
+                  lineHeight: 0,
+                }}
+              >
+                <svg
+                  viewBox="0 0 1440 320"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    position: "relative",
+                    display: "block",
+                    width: "calc(100% + 1.3px)",
+                    height: "100px",
+                  }}
+                >
+                  <path
+                    // Changed fill to Primary Color: #0b3937
+                    fill="#0b3937"
+                    fillOpacity="1"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,186.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    // Changed fill to Secondary Color: #a9fa60
+                    fill="#a9fa60"
+                    fillOpacity="1"
+                    d="M0,256L48,250.7C96,245,192,235,288,208C384,181,480,139,576,144C672,149,768,203,864,229.3C960,256,1056,256,1152,234.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth="2"
+                    d="M480,130 C600,120, 700,200, 864,220 C960,240, 1050,220, 1150,190"
+                  ></path>
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="1.5"
+                    d="M900,200 C1000,240, 1100,200, 1300,100"
+                  ></path>
+
+                  <path
+                    fill="#ffffff"
+                    fillOpacity="1"
+                    d="M0,288L48,280C96,272,192,256,288,250.7C384,245,480,248,576,256C672,264,768,272,864,266.7C960,261,1056,256,1152,245.3C1248,235,1344,229,1392,226.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
             {renderChecklist(
               "Examples of what we automate",
               service.whatWeAutomate,
               "fal fa-robot"
             )}
+            <div
+              style={{
+                position: "relative",
+                // Changed to Primary Color: #0b3937
+                backgroundColor: "#0b3937",
+                height: "100px",
+                width: "100%",
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "30px",
+                color: "white",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  overflow: "hidden",
+                  lineHeight: 0,
+                }}
+              >
+                <svg
+                  viewBox="0 0 1440 320"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    position: "relative",
+                    display: "block",
+                    width: "calc(100% + 1.3px)",
+                    height: "100px",
+                  }}
+                >
+                  <path
+                    // Changed fill to Primary Color: #0b3937
+                    fill="#0b3937"
+                    fillOpacity="1"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,186.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    // Changed fill to Secondary Color: #a9fa60
+                    fill="#a9fa60"
+                    fillOpacity="1"
+                    d="M0,256L48,250.7C96,245,192,235,288,208C384,181,480,139,576,144C672,149,768,203,864,229.3C960,256,1056,256,1152,234.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth="2"
+                    d="M480,130 C600,120, 700,200, 864,220 C960,240, 1050,220, 1150,190"
+                  ></path>
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="1.5"
+                    d="M900,200 C1000,240, 1100,200, 1300,100"
+                  ></path>
+
+                  <path
+                    fill="#ffffff"
+                    fillOpacity="1"
+                    d="M0,288L48,280C96,272,192,256,288,250.7C384,245,480,248,576,256C672,264,768,272,864,266.7C960,261,1056,256,1152,245.3C1248,235,1344,229,1392,226.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
             {renderApproachCards()}
             {renderHighlights()}
           </>
@@ -595,12 +1020,156 @@ const ServiceDetailsArea = ({ initialTab }) => {
         return (
           <>
             {renderOverview()}
+
+            <div
+              style={{
+                position: "relative",
+                // Changed to Primary Color: #0b3937
+                backgroundColor: "#0b3937",
+                height: "100px",
+                width: "100%",
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "30px",
+                color: "white",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  overflow: "hidden",
+                  lineHeight: 0,
+                }}
+              >
+                <svg
+                  viewBox="0 0 1440 320"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    position: "relative",
+                    display: "block",
+                    width: "calc(100% + 1.3px)",
+                    height: "100px",
+                  }}
+                >
+                  <path
+                    // Changed fill to Primary Color: #0b3937
+                    fill="#0b3937"
+                    fillOpacity="1"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,186.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    // Changed fill to Secondary Color: #a9fa60
+                    fill="#a9fa60"
+                    fillOpacity="1"
+                    d="M0,256L48,250.7C96,245,192,235,288,208C384,181,480,139,576,144C672,149,768,203,864,229.3C960,256,1056,256,1152,234.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth="2"
+                    d="M480,130 C600,120, 700,200, 864,220 C960,240, 1050,220, 1150,190"
+                  ></path>
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="1.5"
+                    d="M900,200 C1000,240, 1100,200, 1300,100"
+                  ></path>
+
+                  <path
+                    fill="#ffffff"
+                    fillOpacity="1"
+                    d="M0,288L48,280C96,272,192,256,288,250.7C384,245,480,248,576,256C672,264,768,272,864,266.7C960,261,1056,256,1152,245.3C1248,235,1344,229,1392,226.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
             {renderSplitList("What you'll learn", service.whatYoullLearn)}
             {renderSplitList(
               "Who this is for",
               service.whoThisIsFor,
               "fal fa-user-check"
             )}
+
+            <div
+              style={{
+                position: "relative",
+                // Changed to Primary Color: #0b3937
+                backgroundColor: "#0b3937",
+                height: "100px",
+                width: "100%",
+                overflow: "hidden",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "30px",
+                color: "white",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  width: "100%",
+                  overflow: "hidden",
+                  lineHeight: 0,
+                }}
+              >
+                <svg
+                  viewBox="0 0 1440 320"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    position: "relative",
+                    display: "block",
+                    width: "calc(100% + 1.3px)",
+                    height: "100px",
+                  }}
+                >
+                  <path
+                    // Changed fill to Primary Color: #0b3937
+                    fill="#0b3937"
+                    fillOpacity="1"
+                    d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,186.7C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    // Changed fill to Secondary Color: #a9fa60
+                    fill="#a9fa60"
+                    fillOpacity="1"
+                    d="M0,256L48,250.7C96,245,192,235,288,208C384,181,480,139,576,144C672,149,768,203,864,229.3C960,256,1056,256,1152,234.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.3)"
+                    strokeWidth="2"
+                    d="M480,130 C600,120, 700,200, 864,220 C960,240, 1050,220, 1150,190"
+                  ></path>
+                  <path
+                    fill="none"
+                    stroke="rgba(255,255,255,0.2)"
+                    strokeWidth="1.5"
+                    d="M900,200 C1000,240, 1100,200, 1300,100"
+                  ></path>
+
+                  <path
+                    fill="#ffffff"
+                    fillOpacity="1"
+                    d="M0,288L48,280C96,272,192,256,288,250.7C384,245,480,248,576,256C672,264,768,272,864,266.7C960,261,1056,256,1152,245.3C1248,235,1344,229,1392,226.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
             {renderChecklist(
               "Session includes",
               service.sessionIncludes,

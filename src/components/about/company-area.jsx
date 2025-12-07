@@ -1,9 +1,14 @@
 import Image from "next/image";
 import React from "react";
 
+// --- Data remains the same, but using  tags for bolding ---
 const company_content = {
-  sub_title: "ABOUT AXONOVA CONSULTING",
-  title: <>AI Transformation, Done Right.</>,
+  // sub_title: "ABOUT AXONOVA CONSULTING",
+  title: (
+    <>
+      AI Transformation, <span>Done Right.</span>
+    </>
+  ),
   info_1: (
     <>
       Axonova Consulting helps organisations adopt AI with clarity, confidence,
@@ -40,93 +45,92 @@ const company_content = {
   ],
 };
 
-const { sub_title, title, info_1, info_2, info_3, images } = company_content;
+const { sub_title, title, info_1, info_2, info_3 } = company_content;
 
-// We keep minimal custom styles for specific brand consistency
+// --- Custom Styles (Updated for EVEN LARGER Text and Uniform Color) ---
+const PRIMARY_COLOR = "#0b3937"; // Requested dark teal/green color
+
 const customStyles = {
-  // Styles for the background image section
-  backgroundSection: {
-    // backgroundImage: `url(${images[0].src})`, // Use the first image as background
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    position: "relative", // Needed for absolute positioning of overlay
-    color: "#0b3937", // Default text color for contrast
-    minHeight: "500px", // Ensure enough height to see the background
-    display: "flex",
-    alignItems: "center",
+  // 1. White Background Section Style
+  whiteSection: {
+    backgroundColor: "#ffffff", // White background
+    paddingTop: "6rem",
+    paddingBottom: "6rem",
+    color: PRIMARY_COLOR, // Default text color is the requested dark teal
   },
-  // Overlay to make text readable
-  overlay: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    backgroundColor: "rgba(228, 227, 227, 0.5)", // Dark semi-transparent overlay
-    zIndex: 1, // Ensure overlay is behind text
-  },
-  // Subtitle style for contrast
+  // Subtitle style (Slightly larger for hierarchy)
   subtitle: {
-    letterSpacing: "2px",
-    fontSize: "14px",
+    letterSpacing: "3px",
+    fontSize: "1.05rem", // Increased subtitle size
     fontWeight: 700,
-    color: "#0b3937", // Lighter color for subtitle
+    color: PRIMARY_COLOR,
   },
-  // Ensure content is above the overlay
-  contentZIndex: {
-    position: "relative",
-    zIndex: 2,
+  // 2. Text style for body content (Significantly LARGER Font Size for visibility)
+  bodyText: {
+    fontSize: "1.5rem", // SIGNIFICANTLY LARGER font size (approx 24px)
+    lineHeight: "1.6", // Adjusted line height for readability at a larger size
+    fontWeight: 400,
+    color: PRIMARY_COLOR,
   },
+  // Card-like containers for content blocks
+  contentBlock: {
+    padding: "30px",
+    borderRadius: "10px",
+    backgroundColor: "#f8f9fa",
+    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.05)",
+    height: "100%",
+  },
+  // Custom style to ensure the 'Done Right' span also uses the primary color
+  titleSpan: {
+    color: PRIMARY_COLOR,
+  },
+};
+
+// Component that renders each column for reusability
+const ColumnBlock = ({ content }) => {
+  return (
+    // 3. Three-column layout
+    <div className="col-lg-4 col-md-6 mb-4">
+      <div style={customStyles.contentBlock}>
+        <p className="mb-0" style={customStyles.bodyText}>
+          {content}
+        </p>
+      </div>
+    </div>
+  );
 };
 
 const CompanyArea = () => {
   return (
-    <section
-      className="ab-company-area py-5"
-      style={customStyles.backgroundSection}
-    >
-      {/* Background Overlay */}
-      {/* <div style={customStyles.overlay}></div> */}
-
-      <div className="container" style={customStyles.contentZIndex}>
-        {/* Header Section */}
+    // Applying the white background and styling
+    <section className="ab-company-area" style={customStyles.whiteSection}>
+      <div className="container">
+        {/* Header Section (Centered) */}
         <div className="row justify-content-center mb-5">
-          <div className="col-lg-10 col-xl-8 text-center text-white">
+          <div className="col-lg-10 col-xl-8 text-center">
             <div className="ab-company-section-box">
-              <h4 className="text-uppercase mb-2" style={customStyles.subtitle}>
+              {/* 1. About Us subtitle */}
+              <p className="text-uppercase mb-2" style={customStyles.subtitle}>
                 {sub_title}
-              </h4>
-              <h3 className="fw-bold mb-4 display-6">{title}</h3>
+              </p>
+              {/* Large, striking title. Using h1 for maximum impact/visibility, while still using display-5 class */}
+              <h1
+                className="fw-bold mb-4 display-4" // Changed display-5 to display-4 for bigger title
+                style={{ color: PRIMARY_COLOR }}
+              >
+                {/* Explicitly setting the color for both parts of the title */}
+                AI Transformation,{" "}
+                <span style={customStyles.titleSpan}>Done Right.</span>
+              </h1>
             </div>
           </div>
         </div>
 
-        {/* Content Section */}
-        <div className="row justify-content-center">
-          <div
-            className="col-lg-11 col-xl-11 wow tpfadeRight text-white"
-            data-wow-duration=".9s"
-            data-wow-delay=".5s"
-          >
-            <div className="ab-company-right text-center">
-              <div
-                className="lead mb-4"
-                style={{ fontWeight: 500, color: "#0b3937" }}
-              >
-                <p className="mb-3 fw-bold" style={{ color: "#0b3937" }}>
-                  {info_1}
-                </p>
-                <p className="mb-3 fw-bold" style={{ color: "#0b3937" }}>
-                  {info_2}
-                </p>
-                <p className="mb-0 fw-bold" style={{ color: "#0b3937" }}>
-                  {info_3}
-                </p>
-              </div>
-              {/* Individual images are removed as one is now the background */}
-            </div>
-          </div>
+        {/* Content Section - Three columns */}
+        <div className="row justify-content-center g-4">
+          <ColumnBlock content={info_1} />
+          <ColumnBlock content={info_2} />
+          <ColumnBlock content={info_3} />
         </div>
       </div>
     </section>

@@ -9,6 +9,7 @@ import HeroBanner from "../../common/hero-banner";
 import OfficeLocation from "./office-location";
 import FooterThree from "@/layout/footers/footer-3";
 import HeaderThree from "@/layout/headers/header-3";
+import BreadcrumbTwo from "@/common/breadcrumbs/breadcrumb-2";
 
 const Contact = () => {
   return (
@@ -17,9 +18,8 @@ const Contact = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <Breadcrumb title_top="Get In" title_bottom="Get In" />
-            <HeroBanner bg_img="/assets/img/contact/contact-banner.jpg" />
-            <OfficeLocation />
+            <BreadcrumbTwo title="Contact us" innertitle="Contact us" />
+            {/* <OfficeLocation /> */}
             <ContactFormArea />
           </main>
           <FooterThree style_contact={true} style_team={true} />

@@ -10,6 +10,7 @@ const ContactUsForm = () => {
         onSubmit={async (e) => {
           e.preventDefault();
           const formData = new FormData(e.target);
+          23;
 
           const response = await fetch("https://formspree.io/f/xjkdkord", {
             method: "POST",
@@ -23,6 +24,8 @@ const ContactUsForm = () => {
             toast.error("Something went wrong");
           }
         }}
+        // method="POST"
+        // action="https://formspree.io/f/xjkdkord"
         className="box"
       >
         <div className="row gx-20">
@@ -72,7 +75,7 @@ const ContactUsForm = () => {
           </div>
           <div className="col-xxl-12">
             <div className="postbox__btn-box">
-              <button className="submit-btn w-100">Send your Request</button>
+              <button className="submit-btn w-100">Get in touch</button>
             </div>
           </div>
         </div>

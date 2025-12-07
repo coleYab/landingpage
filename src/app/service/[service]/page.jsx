@@ -23,14 +23,11 @@ export const generateStaticParams = () =>
  */
 export async function generateMetadata({ params }) {
   const { service } = params;
-  
-  // A helper function to capitalize the first letter for better titles
-  const capitalize = (s) => s.charAt(0).toUpperCase() + s.slice(1).replace(/-/g, ' ');
-  const serviceTitle = capitalize(service);
 
+  const serviceTitle = service;
   return {
     title: {
-      default: `${serviceTitle} Services | Axonova Services`,
+      default: `${service} Services | Axonova Services`,
       template: "%s | Axonova Services",
     },
 
@@ -79,17 +76,16 @@ export async function generateMetadata({ params }) {
       images: ["https://www.axonova.com/assets/img/logo/logo-small.png"],
     },
 
-     robots: {
-    index: true,
-    follow: true,
-  },
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 
-
 const ServiceDetailsDynamicPage = async ({ params }) => {
   // params is already an object containing the route segment, no need for await
-  const { service } = params; 
+  const { service } = params;
 
   if (!serviceSlugs.includes(service)) {
     notFound();

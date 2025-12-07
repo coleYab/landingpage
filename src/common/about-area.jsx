@@ -43,10 +43,17 @@ const Section = ({ content }) => {
         {/* Header Section */}
         <div className="row mb-5">
           <div className="col-lg-12">
-            <div className="tp-about__section-box">
-              <h4 className="tp-section-subtitle">{title}</h4>
+            <div className="tp-about__section-box align-items-center d-flex flex-column">
+              <h4 className="tp-section-title">{title}</h4>
               {sub_title && (
-                <h3 className="tp-section-title mb-15">{sub_title}</h3>
+                <h3
+                  className="tp-section-title mb-15"
+                  style={{
+                    fontSize: "26px",
+                  }}
+                >
+                  {sub_title}
+                </h3>
               )}
               <p>{des}</p>
             </div>
@@ -105,7 +112,7 @@ const Section = ({ content }) => {
                       />
                     </div>
 
-                    <h5 className="fw-bold mb-3" style={{ color: "#000" }}>
+                    <h5 className="fw-bold mb-3" style={{ color: "#0b3937" }}>
                       {valTitle}
                     </h5>
 

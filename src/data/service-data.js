@@ -37,7 +37,7 @@ const service_data = [
     icon: <ServiceIconThree />,
     img: <ServiceIconThree />,
     bg_img: "/assets/img/card/services/service3.png",
-    title: "AI Solutions & Automations",
+    title: "AI Automations & Solutions",
     description: (
       <>
         Secure, reliable AI-powered automations that optimise workflows and

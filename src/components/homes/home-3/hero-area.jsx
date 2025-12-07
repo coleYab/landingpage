@@ -8,21 +8,41 @@ import Link from "next/link";
 
 const hero_content = {
   title_1: <>AI Transformation, </>,
-  title_2: "When it's Done Right.",
+  title_2: "Done Right.",
   info: (
     <>
-      We make AI practical, safe, and valuable for your team and business
-      through training, strategy, and automation solutions, helping you adopt AI
-      with confidence and achieve meaningful results.
-      <br />
-      Our experts guide you through AI implementation, ensuring ethical use,
-      maximum ROI, and smooth integration. Whether you're a startup or an
-      enterprise, we tailor our approach to meet your needs and accelerate your
-      digital transformation.
+      <p
+        style={{
+          paddingTop: 30 + "px",
+          paddingBottom: 30 + "px",
+          color: "#a9fa60",
+        }}
+      >
+        We make AI practical, safe, and valuable for your team and business
+        through training, strategy, and automation solutions, helping you adopt
+        AI with confidence and achieve meaningful results.
+      </p>
+      <p
+        style={{
+          paddingBottom: 30 + "px",
+          color: "#a9fa60",
+        }}
+      >
+        Our experts guide you through AI implementation, ensuring ethical use,
+        maximum ROI, and smooth integration.
+      </p>
+      <p
+        style={{
+          color: "#a9fa60",
+        }}
+      >
+        Whether you're a startup or an enterprise, we tailor our approach to
+        meet your needs and accelerate your digital transformation.
+      </p>
     </>
   ),
   btn_1: "Get Started with Axonova",
-  btn_2: "Take Ai Readiness Assesment",
+  btn_2: "Assess Your AI Readiness",
 };
 // const hero_content = {
 //    title_1: <>Great <span>Customer</span></>,
@@ -163,7 +183,7 @@ const HeroArea = () => {
                     </i>
                   </i>
                 </h2>
-                <p
+                <div
                   className="tp-char-animation-2 wow tpfadeUp"
                   data-wow-duration=".9s"
                   data-wow-delay=".7s"
@@ -172,7 +192,7 @@ const HeroArea = () => {
                   }}
                 >
                   {info}
-                </p>
+                </div>
               </div>
               <div
                 className="tp-hero-btn-3 text-center wow tpfadeUp mt-8"

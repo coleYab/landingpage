@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { CircleCheck } from "lucide-react";
 
 const sales_content = {
-  title: <>Bring AI into Your Organisation the Right Way</>,
+  title: <>Bring AI into your organisation the right way</>,
   dub_title: <>Start Your AI Adoption Journey with Clarity and Confidence</>,
   description: (
     <>

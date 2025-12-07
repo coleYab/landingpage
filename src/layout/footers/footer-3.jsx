@@ -34,10 +34,13 @@ const footer_content = {
       title: "Services",
       delay: ".7s",
       links: [
-        { name: "AI Training", link: "/service-details" },
-        { name: "AI Consulting", link: "/service-details" },
-        { name: "AI Solutions & Automations", link: "/service-details" },
-        { name: "AI Coaching", link: "/service-details" },
+        { name: "AI Training", link: "/service/ai-training" },
+        { name: "AI Consulting", link: "/service/ai-consulting" },
+        {
+          name: "AI Automations & Solutions",
+          link: "/service/ai-automations",
+        },
+        { name: "AI Coaching", link: "/service/ai-coaching" },
       ],
     },
     {
