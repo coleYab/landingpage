@@ -31,59 +31,197 @@ const ServiceDetailsArea = ({ initialTab }) => {
         <h3 className="sv-details-text-title pb-20">Training Programs</h3>
         <div className="row">
           {service.modules.map((module, index) => (
-            // <div
-            //   key={`${service.id}-module-${index}`}
-            //   className="col-md-6 mb-30"
-            // >
-            //   <div
-            //     className="service-module p-4 h-100 border rounded"
-            //     style={{
-            //       backgroundImage: `url('/assets/img/srv/gg/onc2.png')`, // Replace {imageUrl} with your image prop/variable
-            //       backgroundSize: "cover", // Ensures the image covers the whole card
-            //       backgroundPosition: "center", // Centers the image
-            //       color: "white",
-            //     }}
-            //   >
-            //     <h4 className="module-title mb-3">{module.title}</h4>
-            //     <p className="mb-3">{module.description}</p>
-            //     <p className="mb-0">
-            //       <strong>Outcome:</strong> {module.outcome}
-            //     </p>
-            //   </div>
-            // </div>
             <div
               key={`${service.id}-module-${index}`}
               className="col-md-6 mb-30"
             >
-              <div
-                className="service-module p-4 h-100 border rounded"
-                style={{
-                  // The linear-gradient comes first, creating the overlay
-                  backgroundImage: `linear-gradient(rgba(11, 57, 55, 0.7), rgba(11, 57, 55, 0.7)), url('/assets/img/srv/gg/onc2.png')`,
-                  backgroundSize: "cover", // Ensures the image covers the whole card
-                  backgroundPosition: "center", // Centers the image
-                  color: "#a9fa60", // Sets all text inside this div to #a9fa60
-                }}
-              >
-                <h4
-                  className="module-title mb-3"
-                  style={{
-                    color: "#a9fa60",
-                  }}
-                >
-                  {module.title}
-                </h4>
-                <p
-                  className="mb-3"
-                  style={{
-                    color: "#a9fa60",
-                  }}
-                >
-                  {module.description}
-                </p>
-                <p className="mb-0" style={{ color: "#a9fa60" }}>
-                  <strong>Outcome:</strong> {module.outcome}
-                </p>
+              <style jsx>{`
+                .modern-card {
+                  position: relative;
+                  height: 450px;
+                  border-radius: 16px;
+                  overflow: hidden;
+                  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+                  cursor: pointer;
+                  background-color: #000;
+                }
+
+                /* BASE IMAGE LAYER */
+                .state-image-layer {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  z-index: 1;
+                }
+
+                .bg-image {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-image: url("/assets/img/modules/${index + 1}.png");
+                  background-size: cover;
+                  background-position: center;
+                  transition: transform 0.5s ease;
+                }
+
+                .modern-card:hover .bg-image {
+                  transform: scale(1.05);
+                }
+
+                /* NEW COLOR OVERLAY (#0b3937) */
+                .bg-color-overlay {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba(
+                    11,
+                    57,
+                    55,
+                    0.6
+                  ); /* #0b3937 with transparency */
+                  z-index: 2;
+                }
+
+                /* Bottom gradient for readability */
+                .bg-overlay {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background: linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0) 40%,
+                    rgba(0, 0, 0, 0.8) 100%
+                  );
+                  z-index: 3;
+                }
+
+                .image-layer-content {
+                  position: absolute;
+                  bottom: 0;
+                  left: 0;
+                  width: 100%;
+                  padding: 30px;
+                  color: #fff;
+                  z-index: 4;
+                }
+
+                /* HOVER LAYER */
+                .state-hover-layer {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  z-index: 10;
+                  background-color: #0b3937;
+                  padding: 30px;
+                  opacity: 0;
+                  transition: opacity 0.4s ease-in-out;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  color: #a9fa60;
+                }
+
+                .modern-card:hover .state-hover-layer {
+                  opacity: 1;
+                }
+
+                .eyebrow {
+                  font-size: 0.85rem;
+                  font-weight: 600;
+                  letter-spacing: 1px;
+                  text-transform: uppercase;
+                  opacity: 0.8;
+                  margin-bottom: 10px;
+                  display: block;
+                }
+
+                .card-title {
+                  font-size: 1.6rem;
+                  font-weight: 700;
+                  line-height: 1.3;
+                  margin-bottom: 15px;
+                  color: #fff;
+                }
+
+                .hover-description {
+                  font-size: 1rem;
+                  line-height: 1.5;
+                  margin-bottom: 20px;
+                  opacity: 0.95;
+                }
+
+                .purchase-btn {
+                  border: none;
+                  padding: 12px 24px;
+                  border-radius: 8px;
+                  font-weight: 700;
+                  width: 100%;
+                  text-transform: uppercase;
+                  font-size: 0.9rem;
+                  letter-spacing: 0.5px;
+                  transition: all 0.2s ease;
+                  cursor: pointer;
+                  margin-top: auto;
+                }
+
+                .purchase-btn:hover {
+                  background-color: #f0f0f0;
+                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                }
+              `}</style>
+
+              <div className="modern-card">
+                <div className="state-image-layer">
+                  <div className="bg-image"></div>
+
+                  {/* NEW COLOR OVERLAY */}
+                  <div className="bg-color-overlay"></div>
+
+                  <div className="bg-overlay"></div>
+
+                  <div className="image-layer-content">
+                    <span className="eyebrow" style={{ color: "#a9fa60" }}>
+                      Module
+                    </span>
+                    <h4 className="card-title">{module.title}</h4>
+                  </div>
+                </div>
+
+                <div className="state-hover-layer">
+                  <span className="eyebrow">Overview</span>
+                  <h4 className="card-title" style={{ color: "#a9fa60" }}>
+                    {module.title}
+                  </h4>
+                  <p className="hover-description" style={{ color: "#a9fa60" }}>
+                    {module.description}
+                  </p>
+                  <p
+                    className="hover-description"
+                    style={{ fontSize: "0.9rem", color: "#a9fa60" }}
+                  >
+                    <strong>Outcome:</strong> {module.outcome}
+                  </p>
+
+                  <button
+                    className="purchase-btn"
+                    style={{
+                      backgroundColor: "#a9fa60",
+                      color: "#0b3937",
+                    }}
+                  >
+                    Purchase Module
+                  </button>
+                </div>
               </div>
             </div>
           ))}
@@ -124,7 +262,10 @@ const ServiceDetailsArea = ({ initialTab }) => {
                     color: "#0b3937",
                   }}
                 />
-                <span className="flex-grow-1 text-muted lh-lg">{item}</span>
+                {/* Changed span className to include fw-bold and fs-5 for bigger font */}
+                <span className="flex-grow-1 text-muted fw-bold fs-5 lh-lg">
+                  {item}
+                </span>
               </li>
             ))}
           </ul>
@@ -183,7 +324,8 @@ const ServiceDetailsArea = ({ initialTab }) => {
     if (!items?.length) return null;
     return (
       <div className="sv-details-text mb-40">
-        <h3 className="sv-details-text-title pb-20">{title}</h3>
+        {/* Title: Made bolder (fw-bold) and slightly bigger (fs-4) */}
+        <h3 className="sv-details-text-title fw-bold fs-4 pb-20">{title}</h3>
         <div className="row g-4">
           {items.map((item, index) => (
             <div
@@ -195,9 +337,12 @@ const ServiceDetailsArea = ({ initialTab }) => {
                   className={`${iconClass} me-4 mt-1`}
                   style={{
                     color: "#0b3937",
+                    // Icon: Made bigger (1.5rem)
+                    fontSize: "1.5rem",
                   }}
                 ></i>
-                <span>{item}</span>
+                {/* List Item Text: Made bolder (fw-bold) and slightly bigger (fs-5) */}
+                <span className="fw-bold fs-5">{item}</span>
               </div>
             </div>
           ))}
@@ -208,11 +353,15 @@ const ServiceDetailsArea = ({ initialTab }) => {
 
   const renderOverview = () => (
     <div className="sv-details-title-box mb-55">
-      <h1 className="sv-details-title">{service.title}</h1>
-      <h3 className="sv-details-subtitle mb-20">{service.subtitle}</h3>
+      <h1 className="sv-details-title fw-bold">{service.title}</h1>
+
+      <h3 className="sv-details-subtitle fw-bold fs-4 mb-20">
+        {service.subtitle}
+      </h3>
+
       {renderHero()}
-      <p className="lead">{service.intro}</p>
-      {service.overview && <p>{service.overview}</p>}
+      <p className="lead fw-bold fs-5">{service.intro}</p>
+      {service.overview && <p className="fw-bold fs-5">{service.overview}</p>}
     </div>
   );
 

@@ -27,7 +27,7 @@ export const services = {
     intro:
       "Axonova Consulting helps organisations adopt AI with clarity, confidence, and measurable impact.",
     overview:
-      "From training and coaching to strategy and automation, we tailor every engagement to your teams, workflows, and goals.",
+      "From training and coaching to strategy and automations, we tailor every engagement to your teams, workflows, and goals.",
     serviceCards: [
       {
         id: "service-ai-training",
@@ -430,7 +430,7 @@ export const services = {
       "Process Analysis: Understand your workflows and identify bottlenecks.",
       "Opportunity Selection: Choose high-impact automations with measurable ROI.",
       "Design and Build: Create secure, audit-ready workflows tailored to your environment.",
-      "Testing & Human Oversight: Automation that drafts, humans approve.",
+      "Testing & Human Oversight: Automations that drafts, humans approve.",
       "Deployment & Monitoring: Ensure stability, accuracy, and adoption.",
     ],
     highlight:

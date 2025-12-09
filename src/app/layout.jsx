@@ -41,7 +41,7 @@ const sora = Sora({
 });
 
 export const metadata = {
-  title: "Axonova Consulting – Practical AI Training, Strategy & Automation",
+  title: "Axonova Consulting – Practical AI Training, Strategy & Automations",
   description:
     "Axonova Consulting helps organisations adopt AI with clarity and confidence through practical AI Training, Consulting, Automations & Solutions, and personalised AI Coaching.",
 };

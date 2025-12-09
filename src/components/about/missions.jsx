@@ -33,7 +33,7 @@ const mission_content = {
     "Empower teams with practical AI skills that deliver real results.",
     "Ensure safe and responsible AI adoption with embedded governance and ethical practices.",
     "Tailor AI solutions and guidance to fit your organisation's workflows, roles, and industry.",
-    "Provide end-to-end support from strategy and training to automation and coaching.",
+    "Provide end-to-end support from strategy and training to automations and coaching.",
     "Deliver measurable business impact through time savings, efficiency gains, and ROI tracking.",
     "Simplify complexity, making AI understandable and actionable for everyone.",
     "Build long-term AI adoption strategies that are scalable and sustainable.",
@@ -84,7 +84,7 @@ const mission_data = [
     title: "End-to-End Support",
     description: (
       <>
-        Provide end-to-end support from strategy and training to automation and
+        Provide end-to-end support from strategy and training to automations and
         coaching.
       </>
     ),

@@ -1,24 +1,24 @@
 import Wrapper from "@/layouts/wrapper";
 import HomeThree from "@/components/homes/home-3";
 
-
 export const metadata = {
   // Title: Optimized for the main homepage, using brand and key offering
   title: {
-    default: "Axonova AI Consulting | Practical Strategy, Training & Automation",
+    default:
+      "Axonova AI Consulting | Practical Strategy, Training & Automations",
     template: "%s | Axonova AI Consulting",
   },
 
   // Detailed Description: The main value proposition and key services.
   description:
-    "AI Transformation, Done Right. Axonova provides practical AI training, strategy, and automation solutions, enabling your organization to adopt AI safely, confidently, and with measurable value.",
+    "AI Transformation, Done Right. Axonova provides practical AI training, strategy, automations and solutions, enabling your organization to adopt AI safely, confidently, and with measurable value.",
 
   // Keywords: Essential terms for search engines
   keywords: [
     "AI consulting firm",
     "AI strategy services",
     "AI training and adoption",
-    "AI automation solutions",
+    "AI automations and solutions",
     "Business AI transformation",
     "Responsible AI governance",
     "Axonova Digital Agency",
@@ -31,8 +31,9 @@ export const metadata = {
 
   // --- Open Graph (og): For sharing on platforms like LinkedIn and Facebook ---
   openGraph: {
-    title: "Axonova AI Consulting: Strategy, Training, & Automation",
-    description: "We make AI practical, safe, and valuable for your people and your business. Start your AI journey with confidence.",
+    title: "Axonova AI Consulting: Strategy, Training, & Automations",
+    description:
+      "We make AI practical, safe, and valuable for your people and your business. Start your AI journey with confidence.",
     url: "https://www.axonova.com/",
     siteName: "Axonova AI Consulting",
     images: [
@@ -51,19 +52,20 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "AI Transformation, Done Right | Axonova",
-    description: "Practical AI training, strategy, and automation enabling your organization to adopt AI with confidence.",
+    description:
+      "Practical AI training, strategy, and automations enabling your organization to adopt AI with confidence.",
     creator: "@AxonovaOfficial",
     images: ["https://axonovaconsulting.co.uk/assets/img/logo/logo-small.png"],
   },
-  
+
   // --- General SEO Tags ---
   robots: {
     index: true,
     follow: true,
-    'max-snippet': -1,
-    'max-image-preview': 'large',
-    'max-video-preview': -1,
-  }
+    "max-snippet": -1,
+    "max-image-preview": "large",
+    "max-video-preview": -1,
+  },
 };
 
 const HomePage = () => {

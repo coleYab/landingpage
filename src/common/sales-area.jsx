@@ -22,7 +22,7 @@ const sales_content = {
     {
       id: 1,
       color: "yellow-1",
-      list: "Practical AI strategy, and automation tailored to your organisation.",
+      list: "Practical AI strategy, and automations tailored to your organisation.",
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const sales_content = {
     {
       id: 3,
       color: "green-3",
-      list: "End-to-end guidance from training and coaching to automation.",
+      list: "End-to-end guidance from training and coaching to automations.",
     },
   ],
 

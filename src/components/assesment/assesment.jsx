@@ -101,7 +101,7 @@ const QUESTIONS_DATA = [
     id: "q8",
     section: "Technology & Data",
     tag: "EXISTING TOOLS",
-    text: "Do you already use automation or analytics tools (e.g., BI dashboards)?",
+    text: "Do you already use automations or analytics tools (e.g., BI dashboards)?",
   },
 
   {
@@ -120,7 +120,7 @@ const QUESTIONS_DATA = [
     id: "q11",
     section: "Culture & Change",
     tag: "RESISTANCE",
-    text: 'Are fears or resistance to AI and automation high? (Note: Select "Fully in place" if resistance is LOW)',
+    text: 'Are fears or resistance to AI and automations high? (Note: Select "Fully in place" if resistance is LOW)',
   },
   {
     id: "q12",
@@ -238,7 +238,7 @@ const RECOMMENDATIONS = {
     insight: "Your business is primed to scale AI as a core capability.",
     steps: [
       "Scale AI across multiple functions.",
-      "Explore advanced applications (generative AI, predictive models, automation).",
+      "Explore advanced applications (generative AI, predictive models, automations).",
       "Develop an enterprise-wide AI playbook.",
       "Build long-term AI roadmap aligned to innovation or product strategy.",
     ],
@@ -309,7 +309,7 @@ const QuestionCard = ({ question, answer, onAnswer }) => {
         <div className="row g-2">
           {SCORES.map((score) => {
             let pointValue = score.value;
-            // Q11 Logic: "Are fears or resistance to AI and automation high?"
+            // Q11 Logic: "Are fears or resistance to AI and automations high?"
             // We want LOW resistance (0) to map to a HIGH score (5).
             // Original Score 0 (Not at all high) -> pointValue 5
             // Original Score 5 (Fully high) -> pointValue 0

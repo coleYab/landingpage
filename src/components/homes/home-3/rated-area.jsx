@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Phone, ChevronDown } from "lucide-react";
+import Link from "next/link";
 // import s10 from "../../../public/assets/img/services/s10.png";
 // import s9 from "../../../public/assets/img/services/s9.png";
 // import s8 from "../../../public/assets/img/services/s8.png";
@@ -45,11 +46,11 @@ const rated_content = {
       description:
         "Complexity is removed. Clarity is delivered. Your teams know exactly what to do next.",
     },
-    {
-      id: 7,
-      title: "How can we help you?",
-      has: true,
-    },
+    // {
+    //   id: 7,
+    //   title: "How can we help you?",
+    //   has: true,
+    // },
   ],
 };
 
@@ -282,8 +283,8 @@ const RatedArea = () => {
               }}
               className="d-flex justify-content-center"
             >
-              <button
-                type="button"
+              <Link
+                href="/new-service"
                 className="tp-btn-blue-lg tp-btn-hover text-white border-0 mt-4 shadow-sm"
                 style={{
                   fontSize: "1rem",
@@ -300,8 +301,8 @@ const RatedArea = () => {
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                Contact Us
-              </button>
+                How Can we help you?
+              </Link>
             </div>
           </div>
 

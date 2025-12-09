@@ -8,12 +8,12 @@ export const metadata = {
   },
 
   description:
-    "Adopt AI with confidence. Axonova offers practical AI training, strategic consulting, automation solutions, and personalized coaching to ensure safe, valuable, and measurable AI transformation for your business.",
+    "Adopt AI with confidence. Axonova offers practical AI training, strategic consulting, automations solutions, and personalized coaching to ensure safe, valuable, and measurable AI transformation for your business.",
 
   keywords: [
     "AI consulting services",
     "AI training for business",
-    "AI automation solutions",
+    "AI automations and solutions",
     "AI strategy and roadmap",
     "AI transformation consulting",
     "Practical AI adoption",
@@ -26,7 +26,7 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "AI Transformation: Strategy, Training, and Automation | Axonova",
+    title: "AI Transformation: Strategy, Training, and Automations | Axonova",
     description: "End-to-end AI consulting that delivers measurable business impact. Explore our services for practical, safe, and valuable AI adoption.",
     url: "https://axonovaconsulting.co.uk/service-details",
     siteName: "Axonova Consulting",

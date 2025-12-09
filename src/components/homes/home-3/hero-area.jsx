@@ -13,18 +13,18 @@ const hero_content = {
     <>
       <p
         style={{
-          paddingTop: 30 + "px",
-          paddingBottom: 30 + "px",
+          paddingTop: 10 + "px",
+          paddingBottom: 15 + "px",
           color: "#a9fa60",
         }}
       >
         We make AI practical, safe, and valuable for your team and business
-        through training, strategy, and automation solutions, helping you adopt
+        through training, strategy, and automations solutions, helping you adopt
         AI with confidence and achieve meaningful results.
       </p>
       <p
         style={{
-          paddingBottom: 30 + "px",
+          paddingBottom: 15 + "px",
           color: "#a9fa60",
         }}
       >

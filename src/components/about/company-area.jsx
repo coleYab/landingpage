@@ -4,11 +4,7 @@ import React from "react";
 // --- Data remains the same, but using  tags for bolding ---
 const company_content = {
   // sub_title: "ABOUT AXONOVA CONSULTING",
-  title: (
-    <>
-      AI Transformation, <span>Done Right.</span>
-    </>
-  ),
+  title: <>AI Transformation, Done Right.</>,
   info_1: (
     <>
       Axonova Consulting helps organisations adopt AI with clarity, confidence,
@@ -24,7 +20,7 @@ const company_content = {
   ),
   info_3: (
     <>
-      From training and coaching to strategy and automation, we guide
+      From training and coaching to strategy and automations, we guide
       organisations through AI transformation the right way — with your people
       at the centre.
     </>
@@ -115,12 +111,10 @@ const CompanyArea = () => {
               </p>
               {/* Large, striking title. Using h1 for maximum impact/visibility, while still using display-5 class */}
               <h1
-                className="fw-bold mb-4 display-4" // Changed display-5 to display-4 for bigger title
+                className="fw-bold mb-4 display-5" // Changed display-5 to display-4 for bigger title
                 style={{ color: PRIMARY_COLOR }}
               >
-                {/* Explicitly setting the color for both parts of the title */}
-                AI Transformation,{" "}
-                <span style={customStyles.titleSpan}>Done Right.</span>
+                AI Transformation, Done Right.
               </h1>
             </div>
           </div>
