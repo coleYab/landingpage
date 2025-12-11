@@ -216,7 +216,7 @@ const ServiceDetailsArea = ({ initialTab }) => {
                   </p>
 
                   <Link
-                    className="purchase-btn"
+                    className="purchase-btn tp-btn-blue-lg"
                     href={"/new-service"}
                     style={{
                       backgroundColor: "#a9fa60",
