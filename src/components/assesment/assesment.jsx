@@ -1,20 +1,22 @@
 import React, { useState, useMemo } from "react";
+import { toast } from "react-toastify";
 import {
   CheckCircle2,
   Circle,
   ChevronRight,
   ChevronLeft,
-  Calculator,
   BarChart3,
   AlertCircle,
-  RotateCcw,
-  Mail,
+  Zap,
+  Eye,
   User,
-  Building,
+  Clock,
+  Target,
+  ShieldCheck,
+  BookOpen,
+  Sparkles,
+  Info,
 } from "lucide-react";
-import { Zap } from "lucide-react";
-import { Eye } from "lucide-react";
-import NiceSelect from "@/ui/nice-select";
 
 // --- CUSTOM STYLES & CONSTANTS ---
 const BRAND_COLOR = "#0b3937";
@@ -52,7 +54,6 @@ const styles = {
 };
 
 // --- DATA STORAGE ---
-
 const QUESTIONS_DATA = [
   {
     id: "q1",
@@ -78,7 +79,7 @@ const QUESTIONS_DATA = [
     tag: "CHAMPION",
     text: "Is someone in leadership actively championing AI adoption?",
   },
-
+  // ... (Truncated for brevity, same data as before)
   {
     id: "q5",
     section: "Technology & Data",
@@ -103,7 +104,6 @@ const QUESTIONS_DATA = [
     tag: "EXISTING TOOLS",
     text: "Do you already use automations or analytics tools (e.g., BI dashboards)?",
   },
-
   {
     id: "q9",
     section: "Culture & Change",
@@ -128,7 +128,6 @@ const QUESTIONS_DATA = [
     tag: "RECOGNITION",
     text: "Do you celebrate small wins and innovation from within teams?",
   },
-
   {
     id: "q13",
     section: "Skills & Capability",
@@ -153,7 +152,6 @@ const QUESTIONS_DATA = [
     tag: "SPECIALISTS",
     text: "Do you have (or plan to develop) internal AI champions or specialists?",
   },
-
   {
     id: "q17",
     section: "Process Readiness",
@@ -198,10 +196,10 @@ const RECOMMENDATIONS = {
       "You’re just beginning your AI journey. Cultural readiness, basic digital maturity, and awareness need to be strengthened.",
     steps: [
       "Develop leadership alignment on strategic AI value.",
-      "Run internal workshops on AI potential and risks to build awareness.",
+      "Run internal workshops on AI potential and risks.",
       "Train employees on AI Foundations.",
       "Audit your existing digital systems and gaps.",
-      "Identify one non-technical team to experiment with AI (e.g. HR, marketing).",
+      "Identify one non-technical team to experiment with AI.",
     ],
   },
   beginner: {
@@ -226,7 +224,7 @@ const RECOMMENDATIONS = {
       "You have the infrastructure and cultural openness to begin embedding AI more deeply into operations.",
     steps: [
       "Scale successful pilots across departments.",
-      "Address weak spots (e.g., governance, infrastructure, staff skills).",
+      "Address weak spots (e.g., governance, infrastructure).",
       "Prioritize 2–3 high-value AI use cases with measurable ROI.",
       "Build a structured change management approach.",
     ],
@@ -238,9 +236,9 @@ const RECOMMENDATIONS = {
     insight: "Your business is primed to scale AI as a core capability.",
     steps: [
       "Scale AI across multiple functions.",
-      "Explore advanced applications (generative AI, predictive models, automations).",
+      "Explore advanced applications (generative AI, predictive models).",
       "Develop an enterprise-wide AI playbook.",
-      "Build long-term AI roadmap aligned to innovation or product strategy.",
+      "Build long-term AI roadmap aligned to innovation strategy.",
     ],
   },
 };
@@ -255,6 +253,8 @@ const TabButton = ({
   completed,
   disabled,
   isResultTab,
+  isStartTab,
+  isIntroTab,
 }) => {
   let btnStyle = styles.inactiveTab;
   if (isActive) btnStyle = styles.activeTab;
@@ -263,7 +263,6 @@ const TabButton = ({
   return (
     <button
       onClick={disabled ? undefined : onClick}
-      // Added d-md-flex to ensure it only appears on medium+ screens as a flex item
       className="btn btn-link text-decoration-none rounded-0 px-4 py-3 d-none d-md-flex align-items-center flex-grow-1 flex-md-grow-0"
       style={btnStyle}
       disabled={disabled}
@@ -274,12 +273,22 @@ const TabButton = ({
           width: "24px",
           height: "24px",
           fontSize: "0.75rem",
-          backgroundColor: completed || isResultTab ? BRAND_COLOR : "#e9ecef",
-          color: completed || isResultTab ? "#fff" : "#6c757d",
+          backgroundColor:
+            completed || isResultTab || isStartTab || isIntroTab
+              ? BRAND_COLOR
+              : "#e9ecef",
+          color:
+            completed || isResultTab || isStartTab || isIntroTab
+              ? "#fff"
+              : "#6c757d",
           opacity: disabled ? 0.5 : 1,
         }}
       >
-        {isResultTab ? (
+        {isStartTab ? (
+          <User size={14} />
+        ) : isIntroTab ? (
+          <Info size={14} />
+        ) : isResultTab ? (
           <BarChart3 size={14} />
         ) : completed ? (
           <CheckCircle2 size={14} />
@@ -295,7 +304,7 @@ const TabButton = ({
 const QuestionCard = ({ question, answer, onAnswer }) => {
   return (
     <div
-      className="card shadow-sm border-0 mb-4"
+      className="card shadow-sm border-0 mb-4 animate-fade-in"
       style={{ borderRadius: "12px" }}
     >
       <div className="card-body p-4">
@@ -309,10 +318,6 @@ const QuestionCard = ({ question, answer, onAnswer }) => {
         <div className="row g-2">
           {SCORES.map((score) => {
             let pointValue = score.value;
-            // Q11 Logic: "Are fears or resistance to AI and automations high?"
-            // We want LOW resistance (0) to map to a HIGH score (5).
-            // Original Score 0 (Not at all high) -> pointValue 5
-            // Original Score 5 (Fully high) -> pointValue 0
             if (question.id === "q11") {
               pointValue = 5 - score.value;
             }
@@ -328,7 +333,10 @@ const QuestionCard = ({ question, answer, onAnswer }) => {
                     transition: "all 0.2s",
                     ...(isSelected
                       ? styles.optionSelected
-                      : { backgroundColor: "#fff", borderColor: "#dee2e6" }),
+                      : {
+                          backgroundColor: "#fff",
+                          borderColor: "#dee2e6",
+                        }),
                   }}
                 >
                   <div className="me-2 d-flex align-items-center">
@@ -351,50 +359,45 @@ const QuestionCard = ({ question, answer, onAnswer }) => {
   );
 };
 
-// --- NEW DATA CAPTURE COMPONENT (FIXED) ---
-const DataCaptureForm = ({ onSubmit, onSkip }) => {
+// --- 1. DATA CAPTURE COMPONENT (Step 0) ---
+const DataCaptureForm = ({ onSubmit, savedData }) => {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
+    name: savedData?.name || "",
+    email: savedData?.email || "",
+    company: savedData?.company || "",
   });
   const [validationError, setValidationError] = useState(null);
 
-  // FIX: Updated handleChange to correctly update the state for all fields
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setValidationError(null); // Clear error on change
+    setValidationError(null);
   };
 
-  // FIX: Updated handleSubmit to correctly use the formData and call onSubmit
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email) {
       setValidationError(
-        "All fields are required to view the detailed results."
+        "Name and Email are required to start the assessment."
       );
       return;
     }
-    // Simple email validation
     if (!/\S+@\S+\.\S+/.test(formData.email)) {
       setValidationError("Please enter a valid email address.");
       return;
     }
-
-    // Pass the validated data back to the parent component
     onSubmit(formData);
   };
 
   return (
-    <div className="card border-0 animate-fade-in p-4 p-md-5">
+    <div className="card border-0 animate-fade-in p-2 p-md-4">
       <div className="card-body">
         <div className="text-center mb-5">
           <h2 className="fw-bold mb-3" style={styles.brandText}>
-            Unlock Your AI Readiness Report
+            Let's Get Started
           </h2>
           <p className="lead text-secondary">
-            Enter your details to receive your comprehensive score and a
-            customized action plan.
+            Tell us a little about yourself so we can personalize your AI
+            readiness report.
           </p>
         </div>
 
@@ -442,13 +445,34 @@ const DataCaptureForm = ({ onSubmit, onSkip }) => {
                       color: "#0b3937",
                     }}
                   />
-                  <span className="floating-label">Your Email</span>
+                  <span className="floating-label">Work Email</span>
+                </div>
+              </div>
+              <div className="col-12">
+                <div className="postbox__comment-input mb-30">
+                  <input
+                    type="text"
+                    className="inputText"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    style={{
+                      borderColor: "#0b3937",
+                      color: "#0b3937",
+                    }}
+                  />
+                  <span className="floating-label">
+                    Company Name (Optional)
+                  </span>
                 </div>
               </div>
               <div className="col-xxl-12">
                 <div className="postbox__btn-box w-100 d-flex justify-content-center">
-                  <button className="submit-btn px-5 rounded-pill">
-                    See My Result
+                  <button
+                    className="submit-btn px-5 rounded-pill d-flex align-items-center"
+                    type="submit"
+                  >
+                    Next Step <ChevronRight className="ms-2" size={18} />
                   </button>
                 </div>
               </div>
@@ -459,15 +483,137 @@ const DataCaptureForm = ({ onSubmit, onSkip }) => {
     </div>
   );
 };
-// --- END NEW DATA CAPTURE COMPONENT ---
 
-const ResultCard = ({ result, totalScore, onRestart }) => {
-  if (!result) return null; // Function to handle the "Start Now" action (you'd replace this with actual routing or logic)
+// --- 2. NEW ASSESSMENT INTRO COMPONENT (Step 1) ---
+const AssessmentIntro = ({ onStart, onBack, userName }) => {
+  return (
+    <div className="card border-0 animate-fade-in p-4 p-md-5">
+      <div className="card-body">
+        <div className="text-center mb-5">
+          <h2 className="fw-bold mb-3" style={styles.brandText}>
+            Welcome, {userName || "Guest"}!
+          </h2>
+          <p className="lead text-secondary">
+            You are about to evaluate your organization's AI Maturity.
+          </p>
+        </div>
 
-  const handleStartNow = () => {
-    alert(
-      `Redirecting you to the "${result.title}" action plan page for the next steps!`
-    ); // In a real app, you would use: // navigate('/start-ai-journey/' + result.title.replace(/\s/g, '-'));
+        <div className="row g-4 mb-5">
+          <div className="col-md-6">
+            <div
+              className="p-4 rounded-4 h-100 border"
+              style={{ backgroundColor: "#f8f9fa" }}
+            >
+              <div
+                className="d-flex align-items-center mb-3"
+                style={styles.brandText}
+              >
+                <Target size={24} className="me-2" />
+                <h5 className="fw-bold mb-0">What We Measure</h5>
+              </div>
+              <p className="text-muted small mb-0">
+                We analyze 5 key pillars: Strategy, Leadership, Data
+                Infrastructure, Corporate Culture, and Skills Readiness.
+              </p>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div
+              className="p-4 rounded-4 h-100 border"
+              style={{ backgroundColor: "#f8f9fa" }}
+            >
+              <div
+                className="d-flex align-items-center mb-3"
+                style={styles.brandText}
+              >
+                <Sparkles size={24} className="me-2" />
+                <h5 className="fw-bold mb-0">What You Get</h5>
+              </div>
+              <p className="text-muted small mb-0">
+                A customized readiness score out of 100, a maturity
+                classification (e.g., "Explorer"), and a tailored action plan.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="d-flex justify-content-center gap-4 text-muted my-5">
+          <div className="d-flex align-items-center">
+            <Clock size={18} className="me-2" /> 2-3 Minutes
+          </div>
+          <div className="d-flex align-items-center">
+            <BookOpen size={18} className="me-2" /> 20 Questions
+          </div>
+          <div className="d-flex align-items-center">
+            <ShieldCheck size={18} className="me-2" /> Private Data
+          </div>
+        </div>
+
+        <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 border-top pt-4">
+          <button
+            onClick={onBack}
+            className="btn btn-outline-secondary btn-lg fw-bold rounded-pill"
+          >
+            Edit Details
+          </button>
+          <button
+            onClick={onStart}
+            className="btn btn-dark btn-lg fw-bold d-flex align-items-center justify-content-center shadow rounded-pill"
+            style={{ backgroundColor: "#0b3937" }}
+          >
+            Start Assessment <ChevronRight size={20} className="ms-2" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// --- 3. RESULT COMPONENT ---
+const ResultCard = ({ result, totalScore, userData, onRestart }) => {
+  if (!result) return null;
+
+  const handleStartNow = async () => {
+    // await fetch("/api/start-now", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({
+    //     answers,
+    //     totalScore,
+    //     recommendationTitle: recommendation.title,
+    //     userData: capturedData,
+    //     name: capturedData?.name,
+    //     email: capturedData?.email,
+    //   }),
+    // });
+    // console.log(totalScore);
+    // console.log(userData);
+    // e.preventDefault();
+    const data = {
+      name: userData.name,
+      email: userData.email,
+      company: userData.company || "Unkown Company",
+      message: "Wants to get started after the ai assesment",
+    };
+
+    const formData = new FormData();
+    for (const key in data) {
+      if (Object.hasOwnProperty.call(data, key)) {
+        formData.append(key, data[key]);
+      }
+    }
+
+    const response = await fetch("https://formspree.io/f/xjkdkord", {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      toast.success("Your request has been sent successfully");
+    } else {
+      toast.error("Something went wrong");
+    }
   };
 
   return (
@@ -476,9 +622,9 @@ const ResultCard = ({ result, totalScore, onRestart }) => {
         <div className="d-flex flex-column flex-md-row justify-content-between align-items-center">
           <div>
             <p className="text-uppercase text-muted fw-bold small mb-1">
-              Total Readiness Score
+              Assessment Report For:{" "}
+              <span className="text-dark">{userData?.name || "Guest"}</span>
             </p>
-
             <div className="d-flex align-items-baseline">
               <span className="display-4 fw-bold text-dark">{totalScore}</span>
               <span className="h4 text-muted ms-2">/ 100</span>
@@ -486,7 +632,6 @@ const ResultCard = ({ result, totalScore, onRestart }) => {
           </div>
 
           <div
-            // UPDATED: Changed rounded-4 to rounded-5 for a deeper curve on the result alert box
             className={`alert ${result.alertClass} mt-3 mt-md-0 mb-0 text-center text-md-end px-5 py-3 rounded-5`}
           >
             <h3 className="alert-heading fw-bold mb-0">{result.title}</h3>
@@ -540,13 +685,18 @@ const ResultCard = ({ result, totalScore, onRestart }) => {
           <div className="d-flex flex-column flex-sm-row justify-content-center pt-4 border-top gap-3">
             <button
               onClick={handleStartNow}
-              // UPDATED: Added rounded-pill for full rounded button
               className="btn btn-dark btn-lg fw-bold d-flex align-items-center justify-content-center shadow rounded-pill"
               style={{
                 backgroundColor: "#0b3937",
               }}
             >
               <Zap size={20} className="me-2" /> Level Up With Axonova
+            </button>
+            <button
+              onClick={onRestart}
+              className="btn btn-outline-secondary btn-lg fw-bold rounded-pill"
+            >
+              Start Over
             </button>
           </div>
         </div>
@@ -557,18 +707,25 @@ const ResultCard = ({ result, totalScore, onRestart }) => {
 
 export default function AssesmentProblems() {
   const [answers, setAnswers] = useState({});
+  // Step 0 = User Info
+  // Step 1 = Intro / Overview
+  // Step 2..N = Questions
+  // Step Last = Results
   const [activeTab, setActiveTab] = useState(0);
-  const [showResults, setShowResults] = useState(false);
-  // NEW STATE: Control visibility of the data capture form
-  const [showDataCapture, setShowDataCapture] = useState(false);
-  const [errorMsg, setErrorMsg] = useState(null);
-  // NEW STATE: To store the captured data
   const [capturedData, setCapturedData] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
+  const [showResults, setShowResults] = useState(false);
 
   // Derive sections uniquely from data
   const sections = useMemo(() => {
     return [...new Set(QUESTIONS_DATA.map((q) => q.section))];
   }, []);
+
+  // --- TAB INDICES ---
+  const TAB_INFO = 0;
+  const TAB_INTRO = 1; // New Step
+  const TAB_FIRST_QUESTION = 2; // Shifted by 1
+  const TAB_RESULTS = sections.length + 2;
 
   const totalScore = Object.values(answers).reduce(
     (acc, curr) => acc + curr,
@@ -579,15 +736,21 @@ export default function AssesmentProblems() {
   const answeredCount = Object.keys(answers).length;
   const progress = (answeredCount / totalQuestions) * 100;
 
-  // Determine if we are on the results tab
-  const isResultsTab = activeTab === sections.length;
-  const currentSectionName = isResultsTab
-    ? "Assessment Results"
-    : sections[activeTab];
+  // Determine Current View
+  const isInfoTab = activeTab === TAB_INFO;
+  const isIntroTab = activeTab === TAB_INTRO;
+  const isResultsTab = activeTab === TAB_RESULTS;
 
-  const currentQuestions = isResultsTab
-    ? []
-    : QUESTIONS_DATA.filter((q) => q.section === currentSectionName);
+  // Since activeTab 2 corresponds to section index 0
+  const currentSectionIndex = activeTab - 2;
+  const currentSectionName =
+    currentSectionIndex >= 0 && currentSectionIndex < sections.length
+      ? sections[currentSectionIndex]
+      : null;
+
+  const currentQuestions = currentSectionName
+    ? QUESTIONS_DATA.filter((q) => q.section === currentSectionName)
+    : [];
 
   const handleAnswer = (questionId, value) => {
     setAnswers((prev) => ({
@@ -604,48 +767,51 @@ export default function AssesmentProblems() {
     return RECOMMENDATIONS.unprepared;
   };
 
-  // NEW FUNCTION: Handles the form submission (from DataCaptureForm) or skip
-  const handleDataCaptureComplete = async (data = null) => {
+  // STEP 1: Handle Info Form Submit -> Go to Intro
+  const handleInfoSubmit = (data) => {
     setCapturedData(data);
+    setActiveTab(TAB_INTRO);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // STEP 2: Handle Intro Start -> Go to First Question
+  const handleStartAssessment = () => {
+    setActiveTab(TAB_FIRST_QUESTION);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // STEP 3: Handle Final Calculation
+  const finishAssessment = async () => {
+    if (answeredCount < totalQuestions) {
+      setErrorMsg(
+        `You have answered ${answeredCount} out of ${totalQuestions} questions. Please complete all sections.`
+      );
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
     const recommendation = getRecommendation(totalScore);
 
     try {
-      // API call now includes the data collected
+      // Mock API call
       await fetch("/api/assessment", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           answers,
           totalScore,
           recommendationTitle: recommendation.title,
-          userData: data, // Include user data here
+          userData: capturedData,
+          name: capturedData?.name,
+          email: capturedData?.email,
         }),
       });
     } catch (error) {
       console.error("Failed to persist assessment results", error);
     }
 
-    // Final step: show results and switch tab
-    setShowDataCapture(false);
     setShowResults(true);
-    setActiveTab(sections.length);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  // UPDATED: This now triggers the Data Capture Form
-  const calculateResult = () => {
-    if (answeredCount < totalQuestions) {
-      setErrorMsg(
-        `You have answered ${answeredCount} out of ${totalQuestions} questions. Please complete all sections to get an accurate report.`
-      );
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      return;
-    }
-
-    // Instead of immediately showing results, show the data capture form
-    setShowDataCapture(true);
+    setActiveTab(TAB_RESULTS);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -659,9 +825,8 @@ export default function AssesmentProblems() {
   const handleRestart = () => {
     setAnswers({});
     setShowResults(false);
-    setShowDataCapture(false); // Reset data capture state
-    setCapturedData(null); // Reset captured data
-    setActiveTab(0);
+    setCapturedData(null);
+    setActiveTab(TAB_INFO);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -675,12 +840,11 @@ export default function AssesmentProblems() {
           .btn-brand:hover { background-color: #082d2b; color: white; }
           .progress-bar-brand { background-color: ${BRAND_COLOR}; }
           
-          /* Custom Scrollbar for tabs on mobile */
           .tabs-container {
             overflow-x: auto;
             white-space: nowrap;
-            -ms-overflow-style: none; /* IE and Edge */
-            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
           }
           .tabs-container::-webkit-scrollbar {
             display: none;
@@ -702,16 +866,13 @@ export default function AssesmentProblems() {
           <div className="container py-4">
             <div className="row align-items-center gy-3">
               <div className="col-md-8">
-                {/* <h1 className="fw-bold mb-1" style={styles.brandText}>
-                  AI Readiness Assessment
-                </h1> */}
                 <p className="text-secondary mb-0 small">
                   Evaluate your strategic, technical, and cultural readiness.
                 </p>
               </div>
             </div>
 
-            {/* Progress Bar */}
+            {/* Progress Bar (Only show if we have past the intro tab) */}
             <div className="mt-4">
               <div className="d-flex justify-content-between small fw-bold text-secondary mb-1">
                 <span>Progress</span>
@@ -733,41 +894,74 @@ export default function AssesmentProblems() {
             </div>
           </div>
 
-          {/* Tab Navigation (Hidden on small screens using d-none d-md-block) */}
+          {/* Tab Navigation */}
           <div className="border-top mt-3 d-none d-md-block">
             <div className="d-flex px-0 px-md-3 justify-content-center">
               <div className="d-flex tabs-container">
-                {/* Section Tabs */}
-                {sections.map((section, idx) => (
-                  <TabButton
-                    key={section}
-                    label={section}
-                    isActive={activeTab === idx}
-                    onClick={() => {
-                      setShowDataCapture(false); // Hide capture form if user navigates back
-                      setActiveTab(idx);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                    count={idx + 1}
-                    completed={isSectionComplete(section)}
-                    disabled={false}
-                  />
-                ))}
+                {/* 1. START TAB */}
+                <TabButton
+                  key="Your Details"
+                  label="Your Details"
+                  isActive={activeTab === TAB_INFO}
+                  onClick={() => {
+                    setActiveTab(TAB_INFO);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  completed={capturedData !== null}
+                  isStartTab={true}
+                  disabled={false}
+                />
 
-                {/* Results Tab */}
+                {/* 2. OVERVIEW TAB (NEW) */}
+                <TabButton
+                  key="Overview"
+                  label="Overview"
+                  isActive={activeTab === TAB_INTRO}
+                  onClick={() => {
+                    if (capturedData) {
+                      setActiveTab(TAB_INTRO);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }
+                  }}
+                  completed={activeTab > TAB_INTRO}
+                  isIntroTab={true}
+                  disabled={!capturedData}
+                />
+
+                {/* 3. QUESTION SECTIONS */}
+                {sections.map((section, idx) => {
+                  const sectionTabIdx = idx + 2; // Offset by 2 (Details + Intro)
+                  return (
+                    <TabButton
+                      key={section}
+                      label={section}
+                      isActive={activeTab === sectionTabIdx}
+                      onClick={() => {
+                        if (capturedData) {
+                          setActiveTab(sectionTabIdx);
+                          window.scrollTo({ top: 0, behavior: "smooth" });
+                        }
+                      }}
+                      count={idx + 1}
+                      completed={isSectionComplete(section)}
+                      disabled={!capturedData}
+                    />
+                  );
+                })}
+
+                {/* 4. RESULTS TAB */}
                 <TabButton
                   key="Results"
                   label="Results"
-                  isActive={activeTab === sections.length}
+                  isActive={activeTab === TAB_RESULTS}
                   onClick={() => {
                     if (showResults) {
-                      // Only allow navigation if results are generated
-                      setActiveTab(sections.length);
+                      setActiveTab(TAB_RESULTS);
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }
                   }}
                   isResultTab={true}
-                  disabled={!showResults} // Only clickable after calculation is fully complete
+                  disabled={!showResults}
                 />
               </div>
             </div>
@@ -776,7 +970,6 @@ export default function AssesmentProblems() {
 
         {/* Main Content */}
         <main className="container py-5">
-          {/* Error Alert */}
           {errorMsg && (
             <div
               className="alert alert-danger d-flex align-items-start animate-fade-in"
@@ -792,29 +985,37 @@ export default function AssesmentProblems() {
             </div>
           )}
 
-          {/* Conditional Rendering: Questions vs Data Capture Form vs Results */}
-          {showDataCapture ? (
-            /* Data Capture Form View */
+          {isInfoTab ? (
+            /* --- TAB 0: USER INFO FORM --- */
             <DataCaptureForm
-              onSubmit={handleDataCaptureComplete}
-              onSkip={() => handleDataCaptureComplete({ skipped: true })}
+              onSubmit={handleInfoSubmit}
+              savedData={capturedData}
+            />
+          ) : isIntroTab ? (
+            /* --- TAB 1: INTRO / OVERVIEW --- */
+            <AssessmentIntro
+              onStart={handleStartAssessment}
+              onBack={() => setActiveTab(TAB_INFO)}
+              userName={capturedData?.name}
             />
           ) : isResultsTab ? (
-            /* Results View */
+            /* --- TAB LAST: RESULTS --- */
             <ResultCard
               result={getRecommendation(totalScore)}
               totalScore={totalScore}
+              userData={capturedData}
               onRestart={handleRestart}
             />
           ) : (
-            /* Questions View */
+            /* --- TABS 2-N: QUESTIONS --- */
             <div className="animate-fade-in">
               <div className="mb-4 d-flex align-items-center">
                 <span
                   className="badge rounded me-2 d-flex align-items-center justify-content-center"
                   style={{ width: "28px", height: "28px", ...styles.brandBg }}
                 >
-                  {activeTab + 1}
+                  {/* Current Section Number (activeTab - 1 effectively) */}
+                  {activeTab - 1}
                 </span>
                 <div>
                   <h4 className="fw-bold mb-0 text-dark">
@@ -831,49 +1032,42 @@ export default function AssesmentProblems() {
                   onAnswer={handleAnswer}
                 />
               ))}
-            </div>
-          )}
 
-          {/* Navigation Buttons (Hide if on Results or Data Capture tab) */}
-          {!isResultsTab && !showDataCapture && (
-            <div className="d-flex flex-column flex-sm-row justify-content-between gap-3 pt-4 border-top mt-5">
-              <button
-                onClick={() => {
-                  setActiveTab((prev) => Math.max(0, prev - 1));
-                  window.scrollTo({ top: 100, behavior: "smooth" });
-                }}
-                disabled={activeTab === 0}
-                // UPDATED: Added rounded-pill for full rounded button
-                className="btn btn-outline-secondary btn-lg fw-bold d-flex align-items-center justify-content-center rounded-pill"
-              >
-                <ChevronLeft size={20} className="me-2" /> Previous
-              </button>
-
-              {activeTab < sections.length - 1 ? (
+              {/* Navigation Buttons for Question Area Only */}
+              <div className="d-flex flex-column flex-sm-row justify-content-between gap-3 pt-4 border-top mt-5">
                 <button
                   onClick={() => {
-                    setActiveTab((prev) =>
-                      Math.min(sections.length - 1, prev + 1)
-                    );
+                    // Go back to previous. If current is 2 (First Q), go to 1 (Intro).
+                    setActiveTab((prev) => Math.max(0, prev - 1));
                     window.scrollTo({ top: 100, behavior: "smooth" });
                   }}
-                  // UPDATED: Added rounded-pill for full rounded button
-                  className="btn btn-brand btn-lg fw-bold d-flex align-items-center justify-content-center rounded-pill"
+                  className="btn btn-outline-secondary btn-lg fw-bold d-flex align-items-center justify-content-center rounded-pill"
                 >
-                  Next Section <ChevronRight size={20} className="ms-2" />
+                  <ChevronLeft size={20} className="me-2" /> Previous
                 </button>
-              ) : (
-                <button
-                  onClick={calculateResult} // Now triggers data capture form
-                  // UPDATED: Added rounded-pill for full rounded button
-                  className="btn btn-dark btn-lg fw-bold d-flex align-items-center justify-content-center shadow rounded-pill"
-                  style={{
-                    backgroundColor: "#0b3937",
-                  }}
-                >
-                  <Eye size={20} className="me-2" /> Finish & View Results
-                </button>
-              )}
+
+                {activeTab < sections.length + 1 ? (
+                  <button
+                    onClick={() => {
+                      setActiveTab((prev) => prev + 1);
+                      window.scrollTo({ top: 100, behavior: "smooth" });
+                    }}
+                    className="btn btn-brand btn-lg fw-bold d-flex align-items-center justify-content-center rounded-pill"
+                  >
+                    Next Section <ChevronRight size={20} className="ms-2" />
+                  </button>
+                ) : (
+                  <button
+                    onClick={finishAssessment}
+                    className="btn btn-dark btn-lg fw-bold d-flex align-items-center justify-content-center shadow rounded-pill"
+                    style={{
+                      backgroundColor: "#0b3937",
+                    }}
+                  >
+                    <Eye size={20} className="me-2" /> View Results
+                  </button>
+                )}
+              </div>
             </div>
           )}
         </main>

@@ -10,8 +10,6 @@ import about_img_3 from "@/assets/img/services/s9.png";
 import about_img_4 from "@/assets/img/services/s10.png";
 import about_img_5 from "@/assets/img/services/s9.png";
 
-// about data
-// I've organized the images here to easily map them to the values list
 const bg_images = [
   about_img_1,
   about_img_2,
@@ -41,39 +39,49 @@ const Section = ({ content }) => {
     <div className="tp-about__area tp-about__pt-pb pt-md-100 pt-8 pb-100">
       <div className="container">
         {/* Header Section */}
-        <div className="row mb-5">
+        <div className="row mb-5 text-center">
           <div className="col-lg-12">
-            <div className="tp-about__section-box align-items-center d-flex flex-column">
-              <h4 className="tp-section-title">{title}</h4>
+            <div className="tp-about__section-box">
+              <h4
+                className="tp-section-title mb-2"
+                style={{
+                  color: "#0b3937",
+                }}
+              >
+                {title}
+              </h4>
               {sub_title && (
                 <h3
                   className="tp-section-title mb-15"
                   style={{
-                    fontSize: "26px",
+                    fontSize: "32px",
+                    color: "#0b3937",
+                    fontWeight: "700",
                   }}
                 >
                   {sub_title}
                 </h3>
               )}
-              <p>{des}</p>
+              <p className="text-muted">{des}</p>
             </div>
           </div>
         </div>
 
         {/* Values Grid Section */}
-        <div className="row g-4">
+        <div className="row g-4 justify-content-center">
           {about_list.map((item, i) => {
-            // Helper to split the string into Title and Description
             const [valTitle, valDesc] = item.split(": ");
-
-            // Get background image cyclically
             const bgImage = bg_images[i % bg_images.length];
 
             return (
               <div key={i} className="col-lg-4 col-md-6 d-flex">
                 <div
-                  className="card border-0 w-100 shadow-sm position-relative overflow-hidden"
-                  style={{ borderRadius: "16px", minHeight: "200px" }}
+                  className="card border-0 w-100 shadow-lg position-relative overflow-hidden"
+                  style={{
+                    borderRadius: "20px",
+                    minHeight: "260px",
+                    transition: "transform 0.3s ease",
+                  }}
                 >
                   {/* Background Image Layer */}
                   <div
@@ -88,56 +96,53 @@ const Section = ({ content }) => {
                     />
                   </div>
 
-                  {/* Overlay to ensure text readability (maintaining original colors) */}
+                  {/* New Dark/Elegant Overlay */}
                   <div
                     className="position-absolute w-100 h-100"
                     style={{
                       zIndex: 1,
-                      background: "rgba(255, 255, 255, 0.92)", // High opacity white to keep text dark/readable
-                      backdropFilter: "blur(2px)",
+                      background:
+                        "linear-gradient(135deg, rgba(11, 57, 55, 0.95) 0%, rgba(11, 57, 55, 0.8) 100%)",
                     }}
                   ></div>
 
                   {/* Card Content */}
                   <div
-                    className="card-body position-relative d-flex flex-column p-4"
+                    className="card-body position-relative d-flex flex-column p-4 justify-content-center"
                     style={{ zIndex: 2 }}
                   >
                     <div className="mb-3">
                       <BadgeCheck
-                        size={40}
+                        size={36}
                         style={{
-                          color: "#0b3937", // Preserved your specific green color
+                          color: "#ffffff", // Changed to white for contrast
+                          opacity: 0.9,
                         }}
                       />
                     </div>
 
-                    <h5 className="fw-bold mb-3" style={{ color: "#0b3937" }}>
+                    <h5
+                      className="fw-bold mb-3"
+                      style={{ color: "#ffffff", fontSize: "20px" }}
+                    >
                       {valTitle}
                     </h5>
 
-                    <p className="mb-0 text-muted flex-grow-1">{valDesc}</p>
+                    <p
+                      className="mb-0 flex-grow-1"
+                      style={{
+                        color: "rgba(255, 255, 255, 0.8)",
+                        fontSize: "15px",
+                        lineHeight: "1.6",
+                      }}
+                    >
+                      {valDesc}
+                    </p>
                   </div>
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Button Section */}
-        <div className="row mt-5">
-          <div className="col-12 text-center">
-            {/* Uncomment if needed */}
-            {/* <div className="tp-about__btn">
-              <Link
-                className="tp-btn tp-btn-hover alt-color-black"
-                href="/about"
-              >
-                <span>{content.btn_text}</span>
-                <b></b>
-              </Link>
-            </div> */}
-          </div>
         </div>
       </div>
     </div>
@@ -148,7 +153,6 @@ const AboutArea = () => {
   return (
     <>
       <Section content={values_content} />
-      <div className="pt-md-100 pt-8"></div>
     </>
   );
 };

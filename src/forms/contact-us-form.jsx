@@ -10,7 +10,6 @@ const ContactUsForm = () => {
         onSubmit={async (e) => {
           e.preventDefault();
           const formData = new FormData(e.target);
-          23;
 
           const response = await fetch("https://formspree.io/f/xjkdkord", {
             method: "POST",

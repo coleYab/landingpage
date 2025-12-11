@@ -1,133 +1,185 @@
+// const company_content = {
+//   // sub_title: "ABOUT AXONOVA CONSULTING",
+//   title: <>AI Transformation, Done Right.</>,
+//   info_1: (
+//     <>
+//       Axonova Consulting helps organisations adopt AI with clarity, confidence,
+//       and measurable impact.
+//     </>
+//   ),
+//   info_2: (
+//     <>
+//       We believe AI should simplify work — not complicate it. That’s why our
+//       approach focuses on practical skills, safe adoption, and real outcomes
+//       that teams can feel and leaders can measure.
+//     </>
+//   ),
+//   info_3: (
+//     <>
+//       From training and coaching to strategy and automations, we guide
+//       organisations through AI transformation the right way — with your people
+//       at the centre.
+//     </>
+//   ),
+//   images: [
+//     {
+//       src: "/assets/img/about/new/gkmc.jpg",
+//       alt: "AI Virtual Assistant for Organization Transformation",
+//       width: 500,
+//       height: 350,
+//     },
+//     {
+//       src: "/assets/img/about/new/gkmc.jpg",
+//       alt: "JetBrains Junie Agentic AI Coding Assistant",
+//       width: 500,
+//       height: 350,
+//     },
+//   ],
+// };
+import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
 
-// --- Data remains the same, but using  tags for bolding ---
-const company_content = {
-  // sub_title: "ABOUT AXONOVA CONSULTING",
-  title: <>AI Transformation, Done Right.</>,
-  info_1: (
-    <>
-      Axonova Consulting helps organisations adopt AI with clarity, confidence,
-      and measurable impact.
-    </>
-  ),
-  info_2: (
-    <>
-      We believe AI should simplify work — not complicate it. That’s why our
-      approach focuses on practical skills, safe adoption, and real outcomes
-      that teams can feel and leaders can measure.
-    </>
-  ),
-  info_3: (
-    <>
-      From training and coaching to strategy and automations, we guide
-      organisations through AI transformation the right way — with your people
-      at the centre.
-    </>
-  ),
-  images: [
-    {
-      src: "/assets/img/about/new/gkmc.jpg",
-      alt: "AI Virtual Assistant for Organization Transformation",
-      width: 500,
-      height: 350,
-    },
-    {
-      src: "/assets/img/about/new/gkmc.jpg",
-      alt: "JetBrains Junie Agentic AI Coding Assistant",
-      width: 500,
-      height: 350,
-    },
-  ],
+// icon import
+import icon_1 from "@/assets/img/feature/fea-icon-1.png";
+import icon_2 from "@/assets/img/feature/fea-icon-2.png";
+import icon_3 from "@/assets/img/feature/fea-icon-3.png";
+import feature_bottom_shape from "@/assets/img/feature/fea-bg-shape-1.png";
+import useTitleAnimation from "@/hooks/useTitleAnimation";
+import RightArrow from "@/svg/right-arrow";
+import { Star } from "lucide-react";
+
+// feature data
+
+//   info_1: (
+//     <>
+//       Axonova Consulting helps organisations adopt AI with clarity, confidence,
+//       and measurable impact.
+//     </>
+//   ),
+//   info_2: (
+//     <>
+//       We believe AI should simplify work — not complicate it. That’s why our
+//       approach focuses on practical skills, safe adoption, and real outcomes
+//       that teams can feel and leaders can measure.
+//     </>
+//   ),
+//   info_3: (
+//     <>
+//       From training and coaching to strategy and automations, we guide
+//       organisations through AI transformation the right way — with your people
+//       at the centre.
+//     </>
+//   ),
+const feature_data = [
+  {
+    id: 1,
+    img: icon_1,
+    title: (
+      <>
+        Axonova Consulting helps organisations adopt AI with clarity,
+        confidence, and measurable impact.
+      </>
+    ),
+    delay: ".4s",
+  },
+  {
+    id: 2,
+    img: icon_2,
+    title: (
+      <>
+        {" "}
+        We believe AI should simplify work — not complicate it. That’s why our
+        approach focuses on practical skills, safe adoption, and real outcomes
+        that teams can feel and leaders can measure.
+      </>
+    ),
+    delay: ".6s",
+  },
+  {
+    id: 3,
+    img: icon_3,
+    title: (
+      <>
+        From training and coaching to strategy and automations, we guide
+        organisations through AI transformation the right way — with your people
+        at the centre.
+      </>
+    ),
+    delay: ".8s",
+  },
+];
+
+// feature content
+const feature_content = {
+  title: "Axonova Consulting",
+  sub_title: "Empowering Your People for Measurable AI Impact.", // <-- Updated and improved
 };
-
-const { sub_title, title, info_1, info_2, info_3 } = company_content;
-
-// --- Custom Styles (Updated for EVEN LARGER Text and Uniform Color) ---
-const PRIMARY_COLOR = "#0b3937"; // Requested dark teal/green color
-
-const customStyles = {
-  // 1. White Background Section Style
-  whiteSection: {
-    backgroundColor: "#ffffff", // White background
-    paddingTop: "6rem",
-    paddingBottom: "6rem",
-    color: PRIMARY_COLOR, // Default text color is the requested dark teal
-  },
-  // Subtitle style (Slightly larger for hierarchy)
-  subtitle: {
-    letterSpacing: "3px",
-    fontSize: "1.05rem", // Increased subtitle size
-    fontWeight: 700,
-    color: PRIMARY_COLOR,
-  },
-  // 2. Text style for body content (Significantly LARGER Font Size for visibility)
-  bodyText: {
-    fontSize: "1.5rem", // SIGNIFICANTLY LARGER font size (approx 24px)
-    lineHeight: "1.6", // Adjusted line height for readability at a larger size
-    fontWeight: 400,
-    color: PRIMARY_COLOR,
-  },
-  // Card-like containers for content blocks
-  contentBlock: {
-    padding: "30px",
-    borderRadius: "10px",
-    backgroundColor: "#f8f9fa",
-    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.05)",
-    height: "100%",
-  },
-  // Custom style to ensure the 'Done Right' span also uses the primary color
-  titleSpan: {
-    color: PRIMARY_COLOR,
-  },
-};
-
-// Component that renders each column for reusability
-const ColumnBlock = ({ content }) => {
-  return (
-    // 3. Three-column layout
-    <div className="col-lg-4 col-md-6 mb-4">
-      <div style={customStyles.contentBlock}>
-        <p className="mb-0" style={customStyles.bodyText}>
-          {content}
-        </p>
-      </div>
-    </div>
-  );
-};
+const { title, sub_title } = feature_content;
 
 const CompanyArea = () => {
+  let titleRef = useRef(null);
+  useTitleAnimation(titleRef);
+
   return (
-    // Applying the white background and styling
-    <section className="ab-company-area" style={customStyles.whiteSection}>
-      <div className="container">
-        {/* Header Section (Centered) */}
-        <div className="row justify-content-center mb-5">
-          <div className="col-lg-10 col-xl-8 text-center">
-            <div className="ab-company-section-box">
-              {/* 1. About Us subtitle */}
-              <p className="text-uppercase mb-2" style={customStyles.subtitle}>
-                {sub_title}
-              </p>
-              {/* Large, striking title. Using h1 for maximum impact/visibility, while still using display-5 class */}
-              <h1
-                className="fw-bold mb-4 display-5" // Changed display-5 to display-4 for bigger title
-                style={{ color: PRIMARY_COLOR }}
+    <>
+      <div className="tp-feature__area tp-feature__pt-pb pt-100 pb-100 p-relative">
+        <div className="tp-feature__bottom-shape">
+          {/* <Image
+            style={{ width: "auto", height: "auto" }}
+            src={feature_bottom_shape}
+            alt="them-pure"
+          /> */}
+        </div>
+        <div className="container">
+          <div className="row justify-content-center">
+            <div
+              className="col-xl-6 wow tpfadeUpp"
+              data-wow-duration=".9s"
+              data-wow-delay=".2s"
+            >
+              <div
+                ref={titleRef}
+                className="tp-feature__section-box tp__title_anime text-center mb-55 tp-title-anim"
               >
-                AI Transformation, Done Right.
-              </h1>
+                <h2 className="tp-section-title">{title}</h2>
+                <p>{sub_title}</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Content Section - Three columns */}
-        <div className="row justify-content-center g-4">
-          <ColumnBlock content={info_1} />
-          <ColumnBlock content={info_2} />
-          <ColumnBlock content={info_3} />
+          <div className="row">
+            {feature_data.map((item, i) => (
+              <div
+                key={i}
+                className="col-xl-4 col-lg-4 col-md-6 mb-30 wow tpfadeUp"
+                data-wow-duration=".9s"
+                data-wow-delay={item.delay}
+              >
+                <div
+                  id="divtest"
+                  className="tp-feature__item"
+                  style={{
+                    minHeight: 350 + "px",
+                  }}
+                >
+                  <div className="tp-feature__icon">
+                    {/* <Star /> */}
+                    {/* <Image src={item.img} alt={item.title} /> */}
+                  </div>
+                  <h3 className="tp-feature__title-sm">{item.title}</h3>
+                  {/* <div className="tp-feature__link tp-common-btn">
+                    <Link href="/service-details">
+                      <RightArrow />
+                    </Link>
+                  </div> */}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 

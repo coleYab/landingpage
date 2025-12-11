@@ -46,12 +46,6 @@ const HeaderThree = () => {
                 <div className="header-bottom__right d-flex align-items-center justify-content-start">
                   <div className="header-bottom__btn d-flex align-items-center">
                     <Link
-                      className="tp-btn-blue-sm d-none d-md-inline-block tp-btn-hover alt-color-black"
-                      href="/new-service"
-                    >
-                      Contact Us
-                    </Link>
-                    <Link
                       className="tp-btn-blue-sm d-none d-lg-inline-block d-md-none tp-btn-hover alt-color-black"
                       style={{
                         paddingLeft: "15px",
@@ -62,6 +56,13 @@ const HeaderThree = () => {
                     >
                       Assess your AI readiness
                     </Link>
+                    <Link
+                      className="tp-btn-blue-sm d-none d-md-inline-block tp-btn-hover alt-color-black"
+                      href="/new-service"
+                    >
+                      Contact Us
+                    </Link>
+
                     <a
                       className="header-bottom__bar tp-menu-bar d-lg-none"
                       onClick={() => setSidebarOpen(true)}

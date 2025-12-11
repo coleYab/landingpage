@@ -9,6 +9,8 @@ import { Check } from "lucide-react";
 import { CheckCircle } from "lucide-react";
 import { Bot } from "lucide-react";
 import { UserCheck } from "lucide-react";
+import { Router } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const getDefaultTab = () => serviceTabs[0]?.id ?? "";
 
@@ -25,6 +27,7 @@ const ServiceDetailsArea = ({ initialTab }) => {
   }
 
   const renderModules = () => {
+    // const router = useRouter();
     if (!service.modules?.length) return null;
     return (
       <div className="sv-details-text mb-50">
@@ -212,15 +215,16 @@ const ServiceDetailsArea = ({ initialTab }) => {
                     <strong>Outcome:</strong> {module.outcome}
                   </p>
 
-                  <button
+                  <Link
                     className="purchase-btn"
+                    href={"/new-service"}
                     style={{
                       backgroundColor: "#a9fa60",
                       color: "#0b3937",
                     }}
                   >
                     Purchase Module
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

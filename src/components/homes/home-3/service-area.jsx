@@ -6,7 +6,7 @@ import Image from "next/image";
 const service_content = {
   title: <>Our Services</>,
   // Updated text per requirement (d)
-  btn_text: <>See all service</>,
+  btn_text: <>See all services</>,
 
   bg_img: "/assets/img/service/service-3-bg.png",
   service_title: "Axonova",
