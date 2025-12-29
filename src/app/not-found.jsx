@@ -1,8 +1,6 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import HeaderFour from "@/layout/headers/header-4";
-
 import error_shape_1 from "@/assets/img/login/error-shape.png";
 import error_shape_2 from "@/assets/img/login/text-404.png";
 import HeaderThree from "@/layout/headers/header-3";

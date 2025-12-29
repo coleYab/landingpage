@@ -1,12 +1,8 @@
 "use client";
-import FooterFive from "@/layout/footers/footer-5";
-import HeaderSix from "@/layout/headers/header-6";
-import Breadcrumb from "../../common/breadcrumbs/breadcrumb";
+
 import ContactFormArea from "./contact-form-area";
 import ContactInner from "./contact-inner";
-import CtaArea from "./cta-area";
-import HeroBanner from "../../common/hero-banner";
-import OfficeLocation from "./office-location";
+
 import FooterThree from "@/layout/footers/footer-3";
 import HeaderThree from "@/layout/headers/header-3";
 import BreadcrumbTwo from "@/common/breadcrumbs/breadcrumb-2";
