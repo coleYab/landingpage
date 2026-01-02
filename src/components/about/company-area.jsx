@@ -160,7 +160,7 @@ const CompanyArea = () => {
                   id="divtest"
                   className="tp-feature__item"
                   style={{
-                    minHeight: 350 + "px",
+                    minHeight: 370 + "px",
                   }}
                 >
                   <div className="tp-feature__icon">
