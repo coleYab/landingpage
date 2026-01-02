@@ -29,7 +29,8 @@ export const metadata = {
   // Open Graph (og): For sharing on platforms
   openGraph: {
     title: "Who We Are: The Axonova Story and AI Philosophy",
-    description: "We are built for your people and processes. Our methods embed governance and measurable business impact into every step of your AI journey.",
+    description:
+      "We are built for your people and processes. Our methods embed governance and measurable business impact into every step of your AI journey.",
     url: "https://www.axonova.com/about",
     siteName: "Axonova AI Consulting",
     images: [
@@ -48,11 +49,12 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Practical, Safe, Measurable: The Axonova Difference",
-    description: "We focus on real tasks, real workflows, and real value. Learn how we guide your organization through every stage of AI adoption.",
+    description:
+      "We focus on real tasks, real workflows, and real value. Learn how we guide your organization through every stage of AI adoption.",
     creator: "@AxonovaOfficial",
     images: ["https://www.axonova.com/assets/img/og-about-us.jpg"],
   },
-  
+
   // General SEO Tags
   robots: {
     index: true,
