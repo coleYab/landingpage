@@ -8,7 +8,10 @@ const Assesment = () => {
   return (
     <>
       <HeaderThree />
-      <BreadcrumbTwo title="Assesment" innertitle="Assesment" />
+      <BreadcrumbTwo
+        title="AI Readiness Assessment"
+        innertitle="AI Readiness Assessment"
+      />
       <AssesmentProblems />
       <FooterThree style_contact={true} style_team={true} />
     </>

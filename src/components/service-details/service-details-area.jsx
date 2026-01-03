@@ -223,7 +223,7 @@ const ServiceDetailsArea = ({ initialTab }) => {
                       color: "#0b3937",
                     }}
                   >
-                    Purchase Module
+                    Register for Module
                   </Link>
                 </div>
               </div>

@@ -89,7 +89,7 @@ export const services = {
   "ai-training": {
     id: "ai-training",
     hero: srvHeroTraining,
-    highlightButtonText: "Enroll in AI Training",
+    highlightButtonText: "Enroll for AI training",
     title: "AI Training",
     subtitle:
       "Practical, hands-on AI Training for every team - No technical skills needed",
@@ -282,7 +282,7 @@ export const services = {
   },
   "ai-consulting": {
     id: "ai-consulting",
-    highlightButtonText: "Book AI Consultation",
+    highlightButtonText: "Book a discovery call",
     hero: srvHeroConsulting,
     title: "AI Consulting",
     subtitle: "End-to-End AI Strategy and Roadmap for successful AI Adoption",
@@ -409,7 +409,7 @@ export const services = {
   },
   "ai-automations": {
     id: "ai-automations",
-    highlightButtonText: "Explore AI Solutions",
+    highlightButtonText: "Book a discovery call",
     hero: srvHeroAutomations,
     title: "AI Automations and Solutions",
     subtitle:
@@ -524,7 +524,7 @@ export const services = {
   },
   "ai-coaching": {
     id: "ai-coaching",
-    highlightButtonText: "Schedule AI Coaching",
+    highlightButtonText: "Book your AI coaching session",
     hero: srvHeroCoaching,
     title: "AI Coaching",
     subtitle:

@@ -26,12 +26,13 @@ export const metadata = {
 
   openGraph: {
     title: "Free AI Maturity Assessment for Businesses | Axonova",
-    description: "Get immediate clarity on where your business stands with AI and what your next strategic steps should be. Start your confidential assessment now.",
+    description:
+      "Get immediate clarity on where your business stands with AI and what your next strategic steps should be. Start your confidential assessment now.",
     url: "https://axonovaconsulting.co.uk/assesment",
     siteName: "Axonova AI Consulting",
     images: [
       {
-        url: "https://axonovaconsulting.co.uk/assets/img/logo/logo-small.png", 
+        url: "https://axonovaconsulting.co.uk/assets/img/logo/logo-small.png",
         width: 1200,
         height: 630,
         alt: "Axonova AI Maturity Assessment Tool",
@@ -44,12 +45,13 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "What's Your AI Readiness Score? Take the Assessment.",
-    description: "Identify high-value AI opportunities and get a clear, measurable roadmap. Take the Axonova AI Assessment today.",
+    description:
+      "Identify high-value AI opportunities and get a clear, measurable roadmap. Take the Axonova AI Assessment today.",
     creator: "@AxonovaOfficial",
     images: ["https://axonovaconsulting.co.uk/assets/img/logo/logo-small.png"],
   },
 
-    // General SEO Tags
+  // General SEO Tags
   robots: {
     index: true,
     follow: true,

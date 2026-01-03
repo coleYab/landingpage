@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const rated_content = {
   bg_img: "/assets/img/rate/rated-bg.jpg",
-  title: "Why Choose Us",
+  title: "Why Choose Us?",
   intro:
     "Reasons organisations trust Axonova to guide them through every stage of their AI journey — with clarity, confidence, and solutions built around their real-world needs.",
   points: [
@@ -301,7 +301,7 @@ const RatedArea = () => {
                   e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                How Can we help you?
+                How can we help you?
               </Link>
             </div>
           </div>

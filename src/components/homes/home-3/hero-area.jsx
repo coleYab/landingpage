@@ -23,7 +23,7 @@ const feature_data = [
 ];
 
 const hero_content = {
-  btn_1: "Get Started with Axonova",
+  btn_1: "Get started",
   btn_2: "Assess Your AI Readiness",
 };
 
@@ -124,7 +124,14 @@ const HeroArea = () => {
                   className="tp-hero-title-3 pb-10"
                   style={{ color: "#a9fa60" }}
                 >
-                  AI Transformation, Done Right.
+                  AI Transformation,
+                  {/* </h2>
+                <h2
+                  className="tp-hero-title-3 pb-10"
+                  style={{ color: "#a9fa60" }}
+                > */}
+                  <br />
+                  Done Right.
                 </h2>
               </div>
 
