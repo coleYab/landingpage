@@ -34,19 +34,21 @@
   }
   &__item {
     background: #ffffff;
-    box-shadow: 0px 1px 3px rgba(18, 20, 32, 0.2);
+    border: 1px solid #a9fa60;
+    // box-shadow: 0px 1px 3px rgba(18, 20, 32, 0.2);
     border-radius: 30px;
+
     padding: 50px 40px;
     transition: 0.3s;
-    &:hover {
-      box-shadow: 0px 20px 30px rgba(1, 6, 20, 0.1);
-      border-radius: 30px;
-      & .tp-feature__icon {
-        & img {
-          transform: scaleX(-1);
-        }
-      }
-    }
+    // &:hover {
+    //   box-shadow: 0px 20px 30px rgba(1, 6, 20, 0.1);
+    //   border-radius: 30px;
+    //   & .tp-feature__icon {
+    //     & img {
+    //       transform: scaleX(-1);
+    //     }
+    //   }
+    // }
   }
   &__icon {
     margin-bottom: 35px;
@@ -55,6 +57,7 @@
     }
   }
   &__title-sm {
+    font-family: var(--tp-font-family);
     font-weight: 500;
     font-size: 20px;
     line-height: 1.3;
