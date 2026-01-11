@@ -1,40 +1,105 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Landing Page (App Router)
 
-## Getting Started
+A marketing/landing site built with Next.js App Router. Animated sections, forms, and an assessment flow live under `src/`.
 
-First, run the development server:
+## Requirements
+
+- Node.js (LTS recommended)
+- Package manager: pnpm (or npm/yarn/bun)
+
+## Quick Start
+
+Install dependencies and run the dev server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000 to view the site.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Production build and start:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```bash
+pnpm build
+pnpm start
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- App entry and layouts: [src/app](src/app)
+- Common UI blocks: [src/common](src/common)
+- Page components: [src/components](src/components)
+- API routes: [src/app/api](src/app/api)
+- Static assets: [public](public)
+- Global styles: [src/app/globals.scss](src/app/globals.scss), [src/styles/index.scss](src/styles/index.scss)
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+These variables configure database storage for assessments and optional email delivery. Create a `.env.local` in the project root.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Required:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- `MONGODB_URI`: MongoDB connection string used by the assessment API.
 
-## Deploy on Vercel
+Optional (enable email sending via SMTP):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `SMTP_HOST`: SMTP server host (e.g., smtp.gmail.com)
+- `SMTP_PORT`: SMTP port (465 for secure, 587 for STARTTLS)
+- `SMTP_USER`: SMTP username
+- `SMTP_PASS`: SMTP password
+- `GMAIL_FROM`: From address override (defaults to `SMTP_USER` if omitted)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Example `.env.local`:
+
+```env
+MONGODB_URI=mongodb+srv://user:pass@cluster.example.mongodb.net/dbname
+
+# Optional – enable email sending
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_USER=your-email@example.com
+SMTP_PASS=your-strong-password
+GMAIL_FROM=Axonva Consulting <your-email@example.com>
+```
+
+## Assessment API
+
+The assessment submission endpoint is implemented in [src/app/api/assessment/route.js](src/app/api/assessment/route.js).
+
+- **Route:** `POST /api/assessment`
+- **Persists:** Answers + scores to MongoDB via `MONGODB_URI`
+- **Emails:** Sends a results email if all SMTP vars are set
+
+### Request Body
+
+```json
+{
+  "userData": { "name": "Jane Doe", "email": "jane@example.com" },
+  "answers": { "q1": 4, "q2": 3 },
+  "totalScore": 72,
+  "recommendationTitle": "AI Explorer"
+}
+```
+
+### Response
+
+```json
+{
+  "success": true,
+  "id": "<mongodb_document_id>"
+}
+```
+
+If an error occurs, you'll receive `{ success: false, error: "..." }`.
+
+## Scripts
+
+- `dev`: Run the development server
+- `build`: Compile the production build
+- `start`: Start the production server
+- `lint`: Run Next.js ESLint
+
+## Deployment
+
+Deploy on your preferred platform (e.g., Vercel). Ensure all required environment variables are configured in the hosting provider. See [next.config.mjs](next.config.mjs) for framework settings.
