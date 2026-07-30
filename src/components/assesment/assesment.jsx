@@ -574,39 +574,20 @@ const ResultCard = ({ result, totalScore, userData, onRestart }) => {
   if (!result) return null;
 
   const handleStartNow = async () => {
-    // await fetch("/api/start-now", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({
-    //     answers,
-    //     totalScore,
-    //     recommendationTitle: recommendation.title,
-    //     userData: capturedData,
-    //     name: capturedData?.name,
-    //     email: capturedData?.email,
-    //   }),
-    // });
-    // console.log(totalScore);
-    // console.log(userData);
-    // e.preventDefault();
     const data = {
       name: userData.name,
       email: userData.email,
-      company: userData.company || "Unkown Company",
-      message: "Wants to get started after the ai assesment",
+      company: userData.company || "Unknown Company",
+      message: "Wants to level up after AI assessment",
+      service: "AI Assessment Follow-Up",
+      totalScore,
+      recommendationTitle: result.title,
     };
 
-    const formData = new FormData();
-    for (const key in data) {
-      if (Object.hasOwnProperty.call(data, key)) {
-        formData.append(key, data[key]);
-      }
-    }
-
-    const response = await fetch("https://formspree.io/f/xjkdkord", {
+    const response = await fetch("/api/contact", {
       method: "POST",
-      body: formData,
-      headers: { Accept: "application/json" },
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
     });
 
     if (response.ok) {

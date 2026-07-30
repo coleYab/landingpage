@@ -130,10 +130,12 @@ const ServiceRequestForm = () => {
             formData.append("requested_modules", selectedModules.join(", "));
           }
 
-          const response = await fetch("https://formspree.io/f/xjkdkord", {
+          const data = Object.fromEntries(formData.entries());
+
+          const response = await fetch("/api/contact", {
             method: "POST",
-            body: formData,
-            headers: { Accept: "application/json" },
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
           });
 
           if (response.ok) {

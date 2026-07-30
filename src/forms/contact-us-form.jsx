@@ -10,15 +10,17 @@ const ContactUsForm = () => {
         onSubmit={async (e) => {
           e.preventDefault();
           const formData = new FormData(e.target);
+          const data = Object.fromEntries(formData.entries());
 
-          const response = await fetch("https://formspree.io/f/xjkdkord", {
+          const response = await fetch("/api/contact", {
             method: "POST",
-            body: formData,
-            headers: { Accept: "application/json" },
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
           });
 
           if (response.ok) {
             toast.success("Your request has been sent successfully");
+            e.target.reset();
           } else {
             toast.error("Something went wrong");
           }

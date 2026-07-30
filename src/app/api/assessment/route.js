@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import mongoose from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -313,28 +313,16 @@ export async function POST(request) {
 
     const insertedId = doc._id?.toString();
 
-    if (
-      process.env.SMTP_USER &&
-      process.env.SMTP_PASS &&
-      process.env.SMTP_HOST &&
-      process.env.SMTP_PORT
-    ) {
-      const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: process.env.SMTP_PORT,
-        secure: process.env.SMTP_PORT == 465,
-        auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
-        },
-      });
+    const TEAM_EMAIL = process.env.TEAM_EMAIL;
+    const FROM_EMAIL = process.env.FROM_EMAIL;
+
+    if (process.env.RESEND_API_KEY) {
+      const resend = new Resend(process.env.RESEND_API_KEY);
       const mailHtml = generateAIReadinessEmail(name, totalScore);
 
-      // console.log(totalScore, typeof totalScore);
-
-      await transporter.sendMail({
-        from: process.env.GMAIL_FROM || process.env.SMTP_USER,
-        to: email,
+      await resend.emails.send({
+        from: FROM_EMAIL,
+        to: [TEAM_EMAIL, email],
         subject: `New AI Readiness Assessment – score ${totalScore}`,
         html: mailHtml,
       });
