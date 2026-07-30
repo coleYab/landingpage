@@ -1,0 +1,13 @@
+{
+  "/api/assessment/route": "app/api/assessment/route.js",
+  "/api/contact/route": "app/api/contact/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/about/page": "app/about/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/assesment/page": "app/assesment/page.js",
+  "/page": "app/page.js",
+  "/new-service/page": "app/new-service/page.js",
+  "/service-details/page": "app/service-details/page.js",
+  "/service/[service]/page": "app/service/[service]/page.js"
+}
